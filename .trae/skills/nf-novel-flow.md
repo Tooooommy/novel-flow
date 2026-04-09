@@ -579,10 +579,89 @@ Phase 5/5: 发布准备
 | Review | 质量保证部 | nf-quality-assurance-dept | nf-logic-inspector, nf-compliance-officer, nf-quality-assessor |
 | Ship | 发布运营部 | nf-publishing-ops-dept | nf-platform-adapter, nf-publish-strategist |
 
+## 📁 文件输出规范
+
+### 项目目录结构
+
+所有流程产生的文件都保存在 `novels/` 目录下，每个小说一个独立项目：
+
+```
+novels/
+└── <novel-name>/              # 小说项目目录 (由 init 命令创建)
+    │
+    ├── novel.yaml              # 📋 小说元数据配置
+    │
+    ├── outline/                # 📝 大纲文档 (Plan 阶段输出)
+    │   ├── overview.md        # 总览
+    │   ├── world.md           # 世界观设定
+    │   ├── plot.md            # 主线剧情
+    │   ├── characters.md      # 人物关系图
+    │   ├── timeline.md        # 时间线
+    │   ├── volume-1-outline.md
+    │   ├── volume-2-outline.md
+    │   └── volume-3-outline.md
+    │
+    ├── content/                # 📖 正文内容 (Build 阶段输出)
+    │   ├── volume-1/
+    │   │   ├── ch-001.md     # 第1章
+    │   │   ├── ch-002.md
+    │   │   └── ...
+    │   ├── volume-2/
+    │   └── volume-3/
+    │
+    ├── drafts/                 # 📄 草稿 (原始生成内容)
+    │   ├── ch-001-draft.md
+    │   └── ...
+    │
+    ├── research/               # 🔍 研究资料 (Think 阶段输出)
+    │   ├── market-analysis.md
+    │   ├── idea-brainstorm.md
+    │   └── innovation-eval.md
+    │
+    ├── reviews/                # ✅ 审查报告 (Review 阶段输出)
+    │   ├── logic-check.md
+    │   ├── compliance.md
+    │   └── quality-report.md
+    │
+    └── output/                # 📦 发布输出 (Ship 阶段输出)
+        ├── full-novel.md      # 合并后完整版
+        ├── qidian/
+        └── tomato/
+```
+
+### 命令与文件对应
+
+| 命令 | 主要输出目录 | 说明 |
+|------|-------------|------|
+| `init` | `novels/<name>/novel.yaml` | 创建项目元数据 |
+| `think` | `novels/<name>/research/` | 创意研发文档 |
+| `plan` | `novels/<name>/outline/` | 大纲文档 |
+| `split` | `novels/<name>/outline/volume-*.md` | 分卷大纲 |
+| `build` | `novels/<name>/content/volume-X/ch-*.md` | 正文章节 |
+| `merge` | `novels/<name>/output/full-novel.md` | 合并后全文 |
+| `review` | `novels/<name>/reviews/` | 审查报告 |
+| `ship` | `novels/<name>/output/<platform>/` | 平台适配版本 |
+
+### 文件命名规范
+
+```bash
+# 章节文件
+ch-XXX.md           # XXX 为三位章节号，如 ch-001.md
+
+# 分卷大纲
+volume-X-outline.md # X 为卷号，如 volume-1-outline.md
+
+# 草稿版本
+ch-XXX-draft-vN.md  # N 为版本号，如 ch-001-draft-v1.md
+
+# 审查报告
+<type>-<date>.md    # 如 logic-check-20240115.md
+```
+
 ## 输出
-- 完整小说作品
-- 各分卷独立文件
-- 创作过程文档
-- 质量评估报告
-- 发布就绪版本
+- 完整小说作品 (`novels/<name>/output/full-novel.md`)
+- 各分卷独立文件 (`novels/<name>/content/volume-X/`)
+- 创作过程文档 (`novels/<name>/research/`)
+- 质量评估报告 (`novels/<name>/reviews/`)
+- 发布就绪版本 (`novels/<name>/output/<platform>/`)
 - 效率分析报告

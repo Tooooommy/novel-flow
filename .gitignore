@@ -1,0 +1,22 @@
+# 小说内容 - 可以推送但通常较大
+# novels/
+
+# 草稿和临时文件
+**/*.draft
+**/*.tmp
+**/*.bak
+
+# IDE 和系统文件
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# 敏感信息
+*.log
+secrets.yaml
+
+# 输出文件（可从源码重建）
+**/output/
+**/dist/
