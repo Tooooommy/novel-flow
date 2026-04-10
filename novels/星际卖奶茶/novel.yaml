@@ -1,0 +1,17 @@
+name: 星际卖奶茶
+genre: 科幻
+target: 1000000
+chapters: 300
+volumes: 3
+status: planning
+created: 2026-04-11
+concept: |
+  地球程序员穿越到星际时代，用奶茶征服宇宙
+
+gains:
+  - 地球饮品配方
+  - 星际贸易系统
+
+target_platforms:
+  - qidian
+  - zongheng
