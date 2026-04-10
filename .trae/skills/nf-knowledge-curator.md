@@ -1,10 +1,30 @@
-# Skill: nf-knowledge-curator
+---
+name: nf-knowledge-curator
+description: |
+  知识库管理员技能。负责管理小说创作过程中的知识沉淀、经验总结和最佳实践。
+  此技能由 nf-novel-flow 主控统一调度，用户可通过 `/nf learn` 和 `/nf query` 调用。
+---
 
-## 描述
+# 知识库管理员技能
 
-知识库管理员技能，负责管理小说创作过程中的知识沉淀、经验总结和最佳实践。
+## 系统定位
+
+```
+用户 → nf-novel-flow（主控） → nf-knowledge-curator（知识管理）
+                              ├──→ /nf learn  收集知识
+                              └──→ /nf query  查询知识
+```
 
 ## 调用方式
+
+通过主控技能调用：
+
+```
+/nf learn --collect --from 我的作品   # 收集知识
+/nf query 战斗描写技巧                # 查询知识
+```
+
+直接调用（不推荐）：
 
 ```
 /nf-knowledge-curator <command> [options]

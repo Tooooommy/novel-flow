@@ -35,8 +35,11 @@ description: |
             │       nf-logic-inspector, nf-compliance-officer, nf-quality-assessor
             │       nf-specialist-optimizer
             │
-            └──→ 发布 Skills
-                    nf-platform-adapter
+            ├──→ 发布 Skills
+            │       nf-platform-adapter
+            │
+            └──→ 知识管理 Skills
+                    nf-knowledge-curator (统一管控)
 ```
 
 ---
@@ -54,6 +57,8 @@ description: |
 | 发布 | publish  | 发布平台   | `publish --platform qidian`         |
 | 全局 | detect   | 进度探测   | `detect`                            |
 | 全局 | auto     | 一键自动化 | `auto --name xxx --genre 玄幻`      |
+| 全局 | learn    | 知识学习   | `learn --collect --from 我的作品`   |
+| 全局 | query    | 知识查询   | `query 写作技巧`                    |
 
 ---
 
@@ -389,6 +394,69 @@ style → plot → dialogue → battle → connection
 | full        | 完全自动化（需所有必填参数） |
 | incremental | 增量模式（跳过已完成章节）   |
 | resume      | 断点续传（从中断处继续）     |
+
+---
+
+## 全局命令
+
+### learn - 知识学习
+
+**用途**：从项目中收集知识、经验、模板，用于后续创作参考
+
+```
+/nf learn [--collect] [--from <来源>] [--type <类型>]
+```
+
+| 参数    | 类型   | 默认值   | 说明     |
+| ------- | ------ | -------- | -------- |
+| collect | flag   | false    | 收集知识 |
+| from    | string | 当前项目 | 知识来源 |
+| type    | string | all      | 知识类型 |
+
+**知识类型**：
+
+| 类型     | 说明     | 示例               |
+| -------- | -------- | ------------------ |
+| all      | 全量收集 | -                  |
+| lesson   | 经验教训 | 某个情节的处理方式 |
+| pattern  | 写作模式 | 某类场景的经典写法 |
+| template | 创作模板 | 战斗场景模板       |
+
+**执行流程**：
+
+```
+collect → organize → index → 可查询
+```
+
+---
+
+### query - 知识查询
+
+**用途**：查询已有知识库，用于创作参考
+
+```
+/nf query [--query <关键词>] [--type <类型>] [--limit <数量>]
+```
+
+| 参数  | 类型   | 默认值 | 说明       |
+| ----- | ------ | ------ | ---------- |
+| query | string | -      | 搜索关键词 |
+| type  | string | all    | 知识类型   |
+| limit | number | 5      | 返回数量   |
+
+**输出示例**：
+
+```
+[1] 战斗描写模板
+    标签：战斗｜动作｜模板
+    内容：适用于高强度战斗场景，包含招式名、动作细节、环境互动
+    使用场景：主角vs强敌
+
+[2] 角色塑造技巧
+    标签：人物｜性格｜技巧
+    内容：通过对话和动作展示性格，而非直接描述
+    使用场景：配角出场
+```
 
 ---
 
