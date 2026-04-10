@@ -19,10 +19,10 @@ description: |
 
 ## 命令
 
-### full - 逻辑审查
+### 生成逻辑审查报告
 
 ```
-/nf-logic-inspector full [--chapter <章节号>] [--volume <卷号>]
+/nf-logic-inspector [--chapter <章节号>] [--volume <卷号>]
 ```
 
 | 参数    | 类型   | 必填 | 默认值 | 说明   |
@@ -63,10 +63,6 @@ description: |
 ## 连贯性审查
 
 ### consistency - 连贯性
-
-```
-/nf-logic-inspector consistency [--chapter <章节号>] [--volume <卷号>]
-```
 
 **审查维度**:
 
@@ -171,10 +167,6 @@ description: |
 
 ### timeline - 时间线
 
-```
-/nf-logic-inspector timeline [--chapter <章节号>] [--volume <卷号>]
-```
-
 **审查维度**:
 
 | 维度     | 说明           | 检测方法   |
@@ -241,10 +233,6 @@ description: |
 ## 伏笔审查
 
 ### plotholes - 伏笔
-
-```
-/nf-logic-inspector plotholes [--chapter <章节号>] [--volume <卷号>]
-```
 
 **伏笔管理**:
 

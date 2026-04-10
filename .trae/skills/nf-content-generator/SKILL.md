@@ -20,16 +20,16 @@ description: |
 
 ## 命令
 
-### full - 生成章节正文
+### 生成章节正文
 
 ```
-/nf-content-generator full --volume <卷号> --chapter <章节号>
+/nf-content-generator [--volume <卷号>] [--chapter <章节号>]
 ```
 
-| 参数    | 类型   | 必填 | 默认值 | 说明   |
-| ------- | ------ | ---- | ------ | ------ |
-| volume  | number | 是   | -      | 分卷号 |
-| chapter | number | 是   | -      | 章节号 |
+| 参数    | 类型   | 必填 | 默认值     | 说明   |
+| ------- | ------ | ---- | ---------- | ------ |
+| volume  | number | 否   | 当前卷号   | 分卷号 |
+| chapter | number | 否   | 当前章节号 | 章节号 |
 
 **执行流程**:
 
@@ -70,13 +70,9 @@ description: |
 
 ---
 
-## 内部命令
+## 流程
 
 ### pacing - 节奏设计
-
-```
-/nf-content-generator pacing --outline <大纲> --type <类型>
-```
 
 **执行方案**:
 
@@ -161,10 +157,6 @@ description: |
 
 ### scene - 生成场景
 
-```
-/nf-content-generator scene --outline <大纲> --setting <背景>
-```
-
 **执行方案**:
 
 | 步骤 | 操作                                | 产出     |
@@ -243,10 +235,6 @@ description: |
 ---
 
 ### dialogue - 生成对话
-
-```
-/nf-content-generator dialogue --context <上下文> --characters <角色>
-```
 
 **执行方案**:
 
@@ -332,10 +320,6 @@ description: |
 
 ### description - 生成描写
 
-```
-/nf-content-generator description --subject <对象> --type <类型>
-```
-
 **执行方案**:
 
 | 步骤 | 操作                           | 产出     |
@@ -390,10 +374,6 @@ description: |
 ---
 
 ### action - 生成动作
-
-```
-/nf-content-generator action --event <事件> --intensity <强度>
-```
 
 **执行方案**:
 
@@ -457,10 +437,6 @@ description: |
 ---
 
 ### emotion - 生成情感
-
-```
-/nf-content-generator emotion --character <角色> --context <上下文>
-```
 
 **执行方案**:
 

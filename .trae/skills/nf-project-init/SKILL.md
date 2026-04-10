@@ -17,10 +17,10 @@ description: |
 
 ## 命令
 
-### full - 项目立项
+### 项目立项
 
 ```
-/nf-project-init full --name <名称> --genre <题材> --target <字数> [--chapter-size <每章字数>]
+/nf-project-init --name <名称> --genre <题材> --target <字数> [--chapter-size <每章字数>]
 ```
 
 | 参数         | 类型   | 必填 | 默认值 | 说明     |

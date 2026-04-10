@@ -322,7 +322,7 @@ ready → published: publish命令
 /nf idea [--count <数量>] [--genre <题材>]
 ```
 
-1. 调用子技能 [nf-idea-explorer](../nf-idea-explorer/SKILL.md) full命令生成创意
+1. 调用子技能 [nf-idea-explorer](../nf-idea-explorer/SKILL.md) 命令生成创意
 2. 输出生成的创意列表
 
 **建议**：先用 `idea` 探索方向，再用 `init` 立项
@@ -337,7 +337,7 @@ ready → published: publish命令
 /nf init --name <名称> --genre <题材> --target <字数> [--chapter-size <每章字数>]
 ```
 
-1. 调用子技能 [nf-project-init](../nf-project-init/SKILL.md) full命令初始化项目
+1. 调用子技能 [nf-project-init](../nf-project-init/SKILL.md) 命令初始化项目
 2. 输出初始化的项目目录结构
 
 ---
@@ -349,10 +349,10 @@ ready → published: publish命令
 **用途**：根据 `novel.yaml` 项目元数据，生成完整大纲体系
 
 ```
-/nf outline [--metadata <元数据文件>]
+/nf architect [--metadata <元数据文件>]
 ```
 
-1. 调用子技能 [nf-story-architect](../nf-story-architect/SKILL.md) full命令生成大纲体系
+1. 调用子技能 [nf-story-architect](../nf-story-architect/SKILL.md) 命令生成大纲体系
 2. 输出生成的大纲体系文档
 
 ### write - 创作写作
@@ -363,7 +363,7 @@ ready → published: publish命令
 /nf write [--volume <卷号>] [--chapter <章节号>]
 ```
 
-1. 调用子技能 [nf-content-generator](../nf-content-generator/SKILL.md) full命令生成章节正文
+1. 调用子技能 [nf-content-generator](../nf-content-generator/SKILL.md) 命令生成章节正文
 2. 输出生成的章节正文
 
 ---
@@ -377,9 +377,9 @@ ready → published: publish命令
 ```
 
 1. 并行调用
-   - 子技能 [nf-logic-inspector](../nf-logic-inspector/SKILL.md) full命令进行逻辑审查
-   - 子技能 [nf-compliance-officer](../nf-compliance-officer/SKILL.md) full命令进行合规审查
-   - 子技能 [nf-quality-assessor](../nf-quality-assessor/SKILL.md) full命令进行质量评估
+   - 子技能 [nf-logic-inspector](../nf-logic-inspector/SKILL.md) 命令进行逻辑审查
+   - 子技能 [nf-compliance-officer](../nf-compliance-officer/SKILL.md) 命令进行合规审查
+   - 子技能 [nf-quality-assessor](../nf-quality-assessor/SKILL.md) 命令进行质量评估
 2. 输出逻辑审查报告+质量评估报告+合规审查报告
 
 ---
@@ -392,7 +392,7 @@ ready → published: publish命令
 /nf optimize [--volume <卷号>] [--chapter <章节号>] [--type <类型>]
 ```
 
-1. 调用子技能 [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) full命令进行全量优化
+1. 调用子技能 [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) 命令进行全量优化
 2. 输出优化后的章节正文
 
 ---
@@ -407,7 +407,7 @@ ready → published: publish命令
 /nf publish --platform <平台> [--chapter <章节号>] [--volume <卷号>]
 ```
 
-1. 调用子技能 [nf-platform-adapter](../nf-platform-adapter/SKILL.md) full命令适配目标平台格式并发布
+1. 调用子技能 [nf-platform-adapter](../nf-platform-adapter/SKILL.md) 命令适配目标平台格式并发布
 2. 输出发布结果
 
 ---
