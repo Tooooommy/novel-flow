@@ -109,26 +109,6 @@ description: |
 
 ---
 
-## 技能分类总表
-
-| 分类         | 技能缩写 | 技能名称                | 核心功能                     | 调用层级 |
-| ------------ | -------- | ----------------------- | ---------------------------- | -------- |
-| **主控**     | NF       | nf-novel-flow           | 主控流程、命令分发、状态管理 | L0       |
-| **创意研发** | IE       | nf-idea-explorer        | 创意探索、市场分析、灵感获取 | L1       |
-| **架构设计** | SA       | nf-story-architect      | 世界观、人物、主线、大纲设计 | L1       |
-| **架构设计** | VM       | nf-volume-manager       | 卷结构、分卷大纲、节奏把控   | L1       |
-| **内容生产** | CG       | nf-content-generator    | 正文生成、多风格支持         | L1       |
-| **内容生产** | SL       | nf-style-learner        | 风格学习、作家模仿、文风提升 | L1       |
-| **质量保证** | LI       | nf-logic-inspector      | 逻辑审查、战力检查、矛盾排查 | L2       |
-| **质量保证** | CO       | nf-compliance-officer   | 合规检查、敏感词、违规内容   | L2       |
-| **质量保证** | QA       | nf-quality-assessor     | 质量评估、评分、问题诊断     | L2       |
-| **专业优化** | SO       | nf-specialist-optimizer | 文风优化、对话优化、战斗优化 | L2       |
-| **发布运营** | PA       | nf-platform-adapter     | 平台适配、格式转换、发布策略 | L1       |
-| **知识管理** | KC       | nf-knowledge-curator    | 知识沉淀、经验复用、模板库   | L1       |
-| **流程分析** | PA-ana   | nf-process-analyst      | 效率分析、瓶颈识别、改进建议 | L1       |
-
----
-
 ## 技能调用关系
 
 ### 阶段调用链
@@ -428,21 +408,38 @@ ready → published: publish命令
 
 **输出示例**：
 
-```json
-{
-  "project": "逆天剑尊",
-  "phase": "writing",
-  "progress": {
-    "outline": { "complete": true, "total": 6, "done": 6 },
-    "content": { "total": 90, "written": 15, "progress": "16.7%" }
-  },
-  "volumes": [
-    { "id": 1, "name": "觉醒", "chapters": 30, "written": 15, "status": "in_progress" },
-    { "id": 2, "name": "崛起", "chapters": 30, "written": 0, "status": "pending" },
-    { "id": 3, "name": "称霸", "chapters": 30, "written": 0, "status": "pending" }
-  ],
-  "missing": ["v1/ch-016", "v1/ch-017", ..., "v2/ch-001", ...]
-}
+```yaml
+project: 逆天剑尊
+phase: writing
+progress:
+  outline:
+    complete: true
+    total: 6
+    done: 6
+  content:
+    total: 90
+    written: 15
+    progress: "16.7%"
+volumes:
+  - id: 1
+    name: 觉醒
+    chapters: 30
+    written: 15
+    status: in_progress
+  - id: 2
+    name: 崛起
+    chapters: 30
+    written: 0
+    status: pending
+  - id: 3
+    name: 称霸
+    chapters: 30
+    written: 0
+    status: pending
+missing:
+  - v1/ch-016
+  - v1/ch-017
+  - v2/ch-001
 ```
 
 ---

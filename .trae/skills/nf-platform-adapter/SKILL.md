@@ -11,8 +11,6 @@ description: |
 ## 使用场景
 
 - 用户要将小说发布到特定平台
-- 用户要生成封面文案
-- 用户要生成发布策略
 
 ---
 
@@ -104,13 +102,9 @@ description: |
 
 ---
 
-## 内部命令
+## 流程
 
 ### metadata - 元数据
-
-```
-/f-platform-adapter metadata --novel <信息> --platform <平台>
-```
 
 **平台元数据规范**:
 
@@ -159,10 +153,6 @@ description: |
 | 时长标签 | 故事时间线    | 短篇、中篇、长篇，超长篇 |
 
 ### strategy - 发布策略
-
-```
-/nf-platform-adapter strategy --platform <平台> --cycle <周期>
-```
 
 **发布周期标准**:
 
