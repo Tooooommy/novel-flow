@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整市场分析**
+```
+/nf-market-analyzer full --genre <genre>
+```
+**执行：** genre → audience → compete
+
+---
+
 ### genre
 分析特定类型市场
 ```

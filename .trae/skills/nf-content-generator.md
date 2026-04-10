@@ -12,6 +12,18 @@
 
 ## 命令
 
+### full ⭐NEW
+
+**一键生成完整章节**
+
+```
+/nf-content-generator full --chapter <chapter-outline>
+```
+
+**执行：** scene → chapter → dialogue → description → action → emotion → monologue
+
+---
+
 ### scene
 
 生成场景内容

@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整消息处理**
+```
+/nf-message-protocol full --type <message-type> --sender <agent> --receiver <agent>
+```
+**执行：** create → validate → log
+
+---
+
 ### create
 创建新消息
 ```

@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键规划完整篇幅**
+```
+/nf-length-planner full --target <total-words>
+```
+**执行：** plan → allocate → adjust
+
+---
+
 ### plan
 制定篇幅规划方案
 ```

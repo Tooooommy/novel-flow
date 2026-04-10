@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键设计完整章节节奏**
+```
+/nf-pacing-engineer full --chapter <chapter-outline>
+```
+**执行：** analyze → design → tension
+
+---
+
 ### analyze
 分析现有文本节奏
 ```

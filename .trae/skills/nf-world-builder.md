@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键构建完整世界观**
+```
+/nf-world-builder full --genre <genre> --theme <theme>
+```
+**执行：** create → geography → history → society → system
+
+---
+
 ### create
 创建世界观框架
 ```

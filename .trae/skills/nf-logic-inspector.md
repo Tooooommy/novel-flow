@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键全量逻辑审查**
+```
+/nf-logic-inspector full --text <text-content>
+```
+**执行：** check → timeline → consistency
+
+---
+
 ### check
 全面逻辑检查
 ```

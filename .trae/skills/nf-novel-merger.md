@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整合并分卷**
+```
+/nf-novel-merger full --volumes <volume-files> --output <output-path>
+```
+**执行：** merge → preview → smooth
+
+---
+
 ### merge
 合并分卷为完整小说
 ```

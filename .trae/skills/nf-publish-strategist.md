@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键制定完整发布策略**
+```
+/nf-publish-strategist full --novel <novel-info>
+```
+**执行：** schedule → strategy → promote
+
+---
+
 ### schedule
 制定发布计划
 ```

@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键全量情感渲染**
+```
+/nf-emotion-renderer full --scene <scene>
+```
+**执行：** express → psychology → transition
+
+---
+
 ### express
 优化情感表达
 ```

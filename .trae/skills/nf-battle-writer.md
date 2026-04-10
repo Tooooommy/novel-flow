@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键全量战斗描写**
+```
+/nf-battle-writer full --participants <char-list> --setting <environment>
+```
+**执行：** design → action → tactic
+
+---
+
 ### design
 设计战斗场景
 ```

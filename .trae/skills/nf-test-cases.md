@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整测试执行**
+```
+/nf-test-cases full --module <module-name>
+```
+**执行：** create → run → batch
+
+---
+
 ### create
 创建测试用例
 ```

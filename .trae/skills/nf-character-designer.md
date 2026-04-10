@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键设计完整角色**
+```
+/nf-character-designer full --role <role> --name <name>
+```
+**执行：** create → profile → arc → voice → relationship
+
+---
+
 ### create
 创建新角色
 ```

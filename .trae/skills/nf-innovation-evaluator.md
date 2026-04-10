@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整创意评估**
+```
+/nf-innovation-evaluator full --idea <idea-description>
+```
+**执行：** score → risk → compare
+
+---
+
 ### score
 对创意进行多维度评分
 ```

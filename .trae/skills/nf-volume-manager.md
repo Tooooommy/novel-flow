@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整分卷管理**
+```
+/nf-volume-manager full --outline <main-outline> --volumes <count>
+```
+**执行：** split → create → list
+
+---
+
 ### split
 拆分整体大纲为分卷大纲
 ```

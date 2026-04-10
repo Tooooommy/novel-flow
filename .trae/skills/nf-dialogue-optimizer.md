@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键全量对话优化**
+```
+/nf-dialogue-optimizer full --text <dialogue-text>
+```
+**执行：** analyze → optimize → character-fit → subtext → rhythm
+
+---
+
 ### analyze
 分析对话质量
 ```

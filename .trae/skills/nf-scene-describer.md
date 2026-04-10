@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键全量场景描写**
+```
+/nf-scene-describer full --scene <scene-type> --mood <mood>
+```
+**执行：** describe → enhance → atmosphere
+
+---
+
 ### describe
 生成场景描述
 ```

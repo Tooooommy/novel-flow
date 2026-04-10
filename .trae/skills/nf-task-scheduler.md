@@ -1,46 +1,71 @@
 # Skill: nf-task-scheduler
 
 ## 描述
+
 小说创作流程的任务调度器，负责管理创作流程中各阶段的任务分配、优先级排序和依赖关系处理。
 
 ## 调用方式
+
 ```
 /nf-task-scheduler <command> [options]
 ```
 
 ## 命令
 
+### full ⭐NEW
+
+**一键完整任务调度**
+
+```
+/nf-task-scheduler full --phase <phase>
+```
+
+**执行：** schedule → list → update
+
+---
+
 ### schedule
+
 创建并调度新任务
+
 ```
 /nf-task-scheduler schedule --phase <phase> --task <task> --priority <high|medium|low> [--depends-on <task-id>]
 ```
 
 ### list
+
 列出当前所有任务状态
+
 ```
 /nf-task-scheduler list [--phase <phase>] [--status <pending|in-progress|completed>]
 ```
 
 ### update
+
 更新任务状态
+
 ```
 /nf-task-scheduler update <task-id> --status <status> [--result <result-summary>]
 ```
 
 ### deps
+
 分析任务依赖关系
+
 ```
 /nf-task-scheduler deps --phase <phase>
 ```
 
 ## 工作流集成
+
 - 在 Plan 阶段定义任务依赖图
 - 在 Build 阶段按优先级执行任务
 - 在 Review 阶段检查任务完成度
 
 ## 输出格式
+
 任务状态报告以 Markdown 表格形式输出，包含：
+
 - 任务ID
 - 阶段
 - 任务描述

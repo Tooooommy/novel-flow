@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键全量平台适配**
+```
+/nf-platform-adapter full --novel <novel-info> --target <platform>
+```
+**执行：** format → optimize → metadata
+
+---
+
 ### format
 格式转换
 ```

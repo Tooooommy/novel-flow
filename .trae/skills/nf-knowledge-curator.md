@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整知识管理**
+```
+/nf-knowledge-curator full --source <source>
+```
+**执行：** collect → organize → search
+
+---
+
 ### collect
 收集知识条目
 ```

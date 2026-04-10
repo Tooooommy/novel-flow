@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整状态监控**
+```
+/nf-state-monitor full
+```
+**执行：** status → progress → metrics
+
+---
+
 ### status
 获取当前创作流程整体状态
 ```

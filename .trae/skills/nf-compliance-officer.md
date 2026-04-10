@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键全量合规审查**
+```
+/nf-compliance-officer full --text <text-content>
+```
+**执行：** scan → sensitive → copyright
+
+---
+
 ### scan
 内容合规扫描
 ```

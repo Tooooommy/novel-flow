@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整最佳实践应用**
+```
+/nf-best-practices full --category <category>
+```
+**执行：** list → get → apply
+
+---
+
 ### list
 列出最佳实践
 ```

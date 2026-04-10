@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键完整流程分析**
+```
+/nf-process-analyst full --logs <process-logs>
+```
+**执行：** analyze → bottleneck → efficiency
+
+---
+
 ### analyze
 流程效率分析
 ```

@@ -10,6 +10,15 @@
 
 ## 命令
 
+### full ⭐NEW
+**一键启动完整并行执行**
+```
+/nf-parallel-executor full --volumes <volume-list>
+```
+**执行：** run → status → pause
+
+---
+
 ### run
 启动并行创作
 ```
