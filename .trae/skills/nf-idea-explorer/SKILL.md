@@ -222,9 +222,9 @@ flowchart TD
 | 天赋模板 | apparent_talent   | 表面天赋(高/中/低)         |
 | 天赋模板 | real_talent       | 真实天赋(隐藏的绝世天赋)   |
 | 天赋模板 | talent_type       | 修炼天赋/战斗天赋/特殊天赋 |
-| 个性模板 | core_personality  | 核心性格                   |
-| 个性模板 | behavior_pattern  | 行为模式                   |
-| 个性模板 | speech_style      | 说话风格                   |
+| 性格模板 | core_personality  | 核心性格                   |
+| 性格模板 | behavior_pattern  | 行为模式                   |
+| 性格模板 | speech_style      | 说话风格                   |
 
 **输出格式**:
 
