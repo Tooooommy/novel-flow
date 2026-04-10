@@ -18,53 +18,6 @@ description: |
 
 ---
 
-## 系统架构
-
-```mermaid
-flowchart TD
-    User([用户])
-
-    subgraph NF[nf-novel-flow 主控技能]
-        direction LR
-        NF_Main[主控流程]
-    end
-
-    User --> NF
-
-    NF --> IE[创意研发<br/>nf-idea-explorer]
-    NF --> SA[架构设计<br/>nf-story-architect]
-    NF --> CG[内容生产<br/>nf-content-generator<br/>nf-style-learner]
-    NF --> QA[质量保证<br/>nf-logic-inspector<br/>nf-compliance-officer<br/>nf-quality-assessor]
-    NF --> SO[专业优化<br/>nf-specialist-optimizer]
-    NF --> PA[发布运营<br/>nf-platform-adapter]
-    NF --> KC[知识管理<br/>nf-knowledge-curator]
-    NF --> PA2[流程分析<br/>nf-process-analyst]
-
-    IE --> |创意输出| SA
-    SA --> |架构设计| CG
-    CG --> |内容生产| QA
-    QA --> |质量反馈| SO
-    SO --> |优化完成| PA
-    PA --> |发布运营| KC
-    KC --> |知识沉淀| PA2
-```
-
-| 层级     | 技能                   | 功能                 |
-| -------- | ---------------------- | -------------------- |
-| 创意研发 | nf-idea-explorer       | 创意探索、趋势分析   |
-| 架构设计 | nf-story-architect     | 世界观、人物、大纲   |
-| 内容生产 | nf-content-generator   | 正文生成、场景、对话 |
-| 内容生产 | nf-style-learner       | 风格学习、作家分析   |
-| 质量保证 | nf-logic-inspector     | 逻辑审查、伏笔检查   |
-| 质量保证 | nf-compliance-officer  | 合规审查、敏感词过滤 |
-| 质量保证 | nf-quality-assessor    | 质量评估、可读性     |
-| 专业优化 | nf-specialist-optimize | 文风、对话、战斗优化 |
-| 发布运营 | nf-platform-adapter    | 平台适配、发布策略   |
-| 知识管理 | nf-knowledge-curator   | 知识沉淀、经验总结   |
-| 流程分析 | nf-process-analyst     | 效率分析、瓶颈识别   |
-
----
-
 ## 干预节点
 
 | 节点     | 阶段 | 干预方式           | 超时处理     |
