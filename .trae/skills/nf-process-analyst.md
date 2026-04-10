@@ -32,6 +32,14 @@
 /nf-process-analyst analyze --logs <process-logs> [--metrics <metric-list>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| logs | string | 是 | - | 流程日志 |
+| metrics | string | 否 | - | 指标列表 |
+
+---
+
 ### bottleneck
 
 识别瓶颈
@@ -39,6 +47,13 @@
 ```
 /nf-process-analyst bottleneck --timeline <phase-timeline>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| timeline | string | 是 | - | 阶段时间线 |
+
+---
 
 ### efficiency
 
@@ -48,6 +63,14 @@
 /nf-process-analyst efficiency --data <process-data> [--compare <benchmark>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| data | string | 是 | - | 流程数据 |
+| compare | string | 否 | - | 对标基准 |
+
+---
+
 ### report
 
 生成分析报告
@@ -56,6 +79,14 @@
 /nf-process-analyst report --project <project-id> [--scope <full|phase|task>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| project | string | 是 | - | 项目ID |
+| scope | string | 否 | full | 报告范围 |
+
+---
+
 ### suggest
 
 改进建议
@@ -63,6 +94,12 @@
 ```
 /nf-process-analyst suggest --issues <issue-list> [--constraints <constraints>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| issues | string | 是 | - | 问题列表 |
+| constraints | string | 否 | - | 约束条件 |
 
 ## 分析维度
 

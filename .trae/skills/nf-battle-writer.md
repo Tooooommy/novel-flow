@@ -32,6 +32,15 @@
 /nf-battle-writer design --participants <char-list> --setting <environment> [--type <duel|group|siege>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| participants | string | 是 | - | 参战角色列表 |
+| setting | string | 是 | - | 战斗环境 |
+| type | string | 否 | - | 战斗类型 |
+
+---
+
 ### action
 
 生成动作描写
@@ -39,6 +48,14 @@
 ```
 /nf-battle-writer action --move <action-description> [--style <realistic|fantasy|martial-arts>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| move | string | 是 | - | 动作描述 |
+| style | string | 否 | - | 动作风格 |
+
+---
 
 ### tactic
 
@@ -48,6 +65,14 @@
 /nf-battle-writer tactic --situation <battle-context> --capabilities <abilities>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| situation | string | 是 | - | 战斗情境 |
+| capabilities | string | 是 | - | 能力设定 |
+
+---
+
 ### tension
 
 营造紧张感
@@ -56,6 +81,14 @@
 /nf-battle-writer tension --scene <battle-scene> [--intensity <level>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| scene | string | 是 | - | 战斗场景 |
+| intensity | string | 否 | - | 紧张程度 |
+
+---
+
 ### pace
 
 控制战斗节奏
@@ -63,6 +96,12 @@
 ```
 /nf-battle-writer pace --scene <scene> --pattern <fast-slow-fast|building|sustained>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| scene | string | 是 | - | 场景内容 |
+| pattern | string | 是 | - | 节奏模式 |
 
 ## 战斗要素
 

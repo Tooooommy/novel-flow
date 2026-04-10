@@ -32,6 +32,14 @@
 /nf-quality-assessor evaluate --text <text-content> [--criteria <criteria-list>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待评估文本 |
+| criteria | string | 否 | - | 评估标准 |
+
+---
+
 ### score
 
 单项评分
@@ -39,6 +47,14 @@
 ```
 /nf-quality-assessor score --text <text> --aspect <aspect>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待评分文本 |
+| aspect | string | 是 | - | 评分方面 |
+
+---
 
 ### compare
 
@@ -48,6 +64,14 @@
 /nf-quality-assessor compare --version1 <text1> --version2 <text2>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| version1 | string | 是 | - | 版本1文本 |
+| version2 | string | 是 | - | 版本2文本 |
+
+---
+
 ### benchmark
 
 对标分析
@@ -56,6 +80,14 @@
 /nf-quality-assessor benchmark --text <text> --reference <reference-work>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待分析文本 |
+| reference | string | 是 | - | 参考作品 |
+
+---
+
 ### trend
 
 质量趋势分析
@@ -63,6 +95,11 @@
 ```
 /nf-quality-assessor trend --history <assessment-history>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| history | string | 是 | - | 评估历史 |
 
 ## 评估维度
 

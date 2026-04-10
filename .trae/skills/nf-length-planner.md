@@ -32,6 +32,15 @@
 /nf-length-planner plan --target <total-words> [--type <short|medium|long|epic>] [--chapters <count>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| target | number | 是 | - | 目标字数 |
+| type | string | 否 | - | 篇幅类型 |
+| chapters | number | 否 | - | 章节数量 |
+
+---
+
 ### allocate
 
 分配各章节字数
@@ -39,6 +48,14 @@
 ```
 /nf-length-planner allocate --structure <structure-type> [--ratio <ratio-pattern>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| structure | string | 是 | - | 结构类型 |
+| ratio | string | 否 | - | 比例模式 |
+
+---
 
 ### adjust
 
@@ -48,6 +65,15 @@
 /nf-length-planner adjust --current <current-words> --target <target-words> [--phase <current-phase>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| current | number | 是 | - | 当前字数 |
+| target | number | 是 | - | 目标字数 |
+| phase | string | 否 | - | 当前阶段 |
+
+---
+
 ### pace
 
 计算叙事节奏指标
@@ -55,6 +81,12 @@
 ```
 /nf-length-planner pace --plot-points <count> [--total-chapters <count>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| plot-points | number | 是 | - | 情节点数量 |
+| total-chapters | number | 否 | - | 总章节数 |
 
 ## 篇幅类型
 

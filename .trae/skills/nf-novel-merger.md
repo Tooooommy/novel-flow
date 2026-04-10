@@ -32,6 +32,15 @@
 /nf-novel-merger merge --volumes <volume-files> --output <output-path> [--format <format>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| volumes | string | 是 | - | 分卷文件列表 |
+| output | string | 是 | - | 输出路径 |
+| format | string | 否 | - | 格式类型 |
+
+---
+
 ### preview
 
 预览合并效果
@@ -39,6 +48,14 @@
 ```
 /nf-novel-merger preview --volumes <volume-files> [--sections <sections>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| volumes | string | 是 | - | 分卷文件列表 |
+| sections | string | 否 | - | 预览章节 |
+
+---
 
 ### smooth
 
@@ -48,6 +65,15 @@
 /nf-novel-merger smooth --volume-a <file-a> --volume-b <file-b> [--strategy <strategy>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| volume-a | string | 是 | - | 前卷文件 |
+| volume-b | string | 是 | - | 后卷文件 |
+| strategy | string | 否 | - | 衔接策略 |
+
+---
+
 ### unify
 
 统一全书法风格
@@ -55,6 +81,14 @@
 ```
 /nf-novel-merger unify --novel <novel-path> [--aspects <aspects>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| novel | string | 是 | - | 小说路径 |
+| aspects | string | 否 | - | 统一方面 |
+
+---
 
 ### toc
 
@@ -64,6 +98,14 @@
 /nf-novel-merger toc --novel <novel-path> [--style <style>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| novel | string | 是 | - | 小说路径 |
+| style | string | 否 | - | 目录风格 |
+
+---
+
 ### export
 
 导出最终文档
@@ -71,6 +113,13 @@
 ```
 /nf-novel-merger export --novel <novel-path> --format <epub/mobi/pdf/txt> [--options <options>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| novel | string | 是 | - | 小说路径 |
+| format | string | 是 | - | 导出格式 |
+| options | string | 否 | - | 导出选项 |
 
 ## 合并流程
 

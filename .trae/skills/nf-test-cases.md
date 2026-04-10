@@ -32,6 +32,14 @@
 /nf-test-cases create --module <module-name> --type <test-type>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| module | string | 是 | - | 模块名称 |
+| type | string | 是 | - | 测试类型 |
+
+---
+
 ### run
 
 执行测试用例
@@ -39,6 +47,14 @@
 ```
 /nf-test-cases run --case-id <case-id> [--input <test-input>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| case-id | string | 是 | - | 测试用例ID |
+| input | string | 否 | - | 测试输入 |
+
+---
 
 ### batch
 
@@ -48,6 +64,14 @@
 /nf-test-cases batch --module <module> [--coverage <percentage>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| module | string | 是 | - | 模块名称 |
+| coverage | number | 否 | - | 覆盖率目标 |
+
+---
+
 ### report
 
 生成测试报告
@@ -55,6 +79,12 @@
 ```
 /nf-test-cases report --run-id <run-id> [--format <format>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| run-id | string | 是 | - | 测试运行ID |
+| format | string | 否 | - | 报告格式 |
 
 ## 测试用例结构
 

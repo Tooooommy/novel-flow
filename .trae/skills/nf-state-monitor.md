@@ -32,6 +32,13 @@
 /nf-state-monitor status [--detail]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| detail | boolean | 否 | false | 是否显示详细信息 |
+
+---
+
 ### progress
 
 查看指定阶段进度
@@ -39,6 +46,13 @@
 ```
 /nf-state-monitor progress --phase <phase-name>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| phase | string | 是 | - | 阶段名称 |
+
+---
 
 ### metrics
 
@@ -48,6 +62,13 @@
 /nf-state-monitor metrics [--category <creative|quality|efficiency>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| category | string | 否 | - | 指标类别 |
+
+---
+
 ### checkpoint
 
 创建状态检查点
@@ -56,6 +77,14 @@
 /nf-state-monitor checkpoint --name <checkpoint-name> [--note <description>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| name | string | 是 | - | 检查点名称 |
+| note | string | 否 | - | 检查点描述 |
+
+---
+
 ### compare
 
 比较不同检查点的状态差异
@@ -63,6 +92,12 @@
 ```
 /nf-state-monitor compare <checkpoint-1> <checkpoint-2>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| checkpoint-1 | string | 是 | - | 检查点1 |
+| checkpoint-2 | string | 是 | - | 检查点2 |
 
 ## 监控指标
 

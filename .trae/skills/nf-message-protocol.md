@@ -32,6 +32,15 @@
 /nf-message-protocol create --type <message-type> --sender <agent> --receiver <agent>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| type | string | 是 | - | 消息类型 |
+| sender | string | 是 | - | 发送方 |
+| receiver | string | 是 | - | 接收方 |
+
+---
+
 ### validate
 
 验证消息格式
@@ -39,6 +48,13 @@
 ```
 /nf-message-protocol validate --message <message-data>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| message | string | 是 | - | 消息数据 |
+
+---
 
 ### log
 
@@ -48,6 +64,13 @@
 /nf-message-protocol log --message <message-id>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| message | string | 是 | - | 消息ID |
+
+---
+
 ### query
 
 查询消息历史
@@ -55,6 +78,11 @@
 ```
 /nf-message-protocol query --filter <filters>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| filter | string | 是 | - | 查询过滤器 |
 
 ## 消息格式规范
 

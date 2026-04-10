@@ -32,6 +32,15 @@
 /nf-emotion-renderer express --scene <scene> --emotion <emotion-type> [--intensity <level>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| scene | string | 是 | - | 场景内容 |
+| emotion | string | 是 | - | 情感类型 |
+| intensity | string | 否 | - | 强烈程度 |
+
+---
+
 ### psychology
 
 增强心理描写
@@ -39,6 +48,15 @@
 ```
 /nf-emotion-renderer psychology --character <char> --situation <context> [--depth <surface|deep>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| character | string | 是 | - | 角色名称 |
+| situation | string | 是 | - | 情境上下文 |
+| depth | string | 否 | - | 心理深度 |
+
+---
 
 ### transition
 
@@ -48,6 +66,15 @@
 /nf-emotion-renderer transition --from <emotion-a> --to <emotion-b> [--pace <gradual|sudden>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| from | string | 是 | - | 起始情感 |
+| to | string | 是 | - | 目标情感 |
+| pace | string | 否 | - | 转折节奏 |
+
+---
+
 ### resonance
 
 增强情感共鸣
@@ -56,6 +83,14 @@
 /nf-emotion-renderer resonance --scene <scene> --target-reader <demographic>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| scene | string | 是 | - | 场景内容 |
+| target-reader | string | 是 | - | 目标读者 |
+
+---
+
 ### subtlety
 
 增加含蓄表达
@@ -63,6 +98,12 @@
 ```
 /nf-emotion-renderer subtlety --text <text> --culture <cultural-context>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待处理文本 |
+| culture | string | 是 | - | 文化背景 |
 
 ## 情感维度
 

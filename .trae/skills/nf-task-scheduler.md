@@ -32,6 +32,16 @@
 /nf-task-scheduler schedule --phase <phase> --task <task> --priority <high|medium|low> [--depends-on <task-id>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| phase | string | 是 | - | 所属阶段 |
+| task | string | 是 | - | 任务描述 |
+| priority | string | 是 | - | 优先级 |
+| depends-on | string | 否 | - | 依赖任务ID |
+
+---
+
 ### list
 
 列出当前所有任务状态
@@ -39,6 +49,14 @@
 ```
 /nf-task-scheduler list [--phase <phase>] [--status <pending|in-progress|completed>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| phase | string | 否 | - | 阶段名称 |
+| status | string | 否 | - | 任务状态 |
+
+---
 
 ### update
 
@@ -48,6 +66,15 @@
 /nf-task-scheduler update <task-id> --status <status> [--result <result-summary>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| task-id | string | 是 | - | 任务ID |
+| status | string | 是 | - | 新状态 |
+| result | string | 否 | - | 结果摘要 |
+
+---
+
 ### deps
 
 分析任务依赖关系
@@ -55,6 +82,11 @@
 ```
 /nf-task-scheduler deps --phase <phase>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| phase | string | 是 | - | 阶段名称 |
 
 ## 工作流集成
 

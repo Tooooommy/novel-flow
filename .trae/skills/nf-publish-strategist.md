@@ -32,6 +32,15 @@
 /nf-publish-strategist schedule --chapters <count> [--start-date <date>] [--frequency <freq>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| chapters | number | 是 | - | 章节数量 |
+| start-date | string | 否 | - | 开始日期 |
+| frequency | string | 否 | - | 更新频率 |
+
+---
+
 ### strategy
 
 制定整体策略
@@ -39,6 +48,14 @@
 ```
 /nf-publish-strategist strategy --novel <novel-info> [--goal <goal-type>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| novel | string | 是 | - | 小说信息 |
+| goal | string | 否 | - | 目标类型 |
+
+---
 
 ### promote
 
@@ -48,6 +65,14 @@
 /nf-publish-strategist promote --novel <novel-info> --budget <budget-level>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| novel | string | 是 | - | 小说信息 |
+| budget | string | 是 | - | 预算级别 |
+
+---
+
 ### pricing
 
 定价策略
@@ -56,6 +81,14 @@
 /nf-publish-strategist pricing --novel <novel-info> --platform <platform>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| novel | string | 是 | - | 小说信息 |
+| platform | string | 是 | - | 平台名称 |
+
+---
+
 ### analyze
 
 竞品发布分析
@@ -63,6 +96,11 @@
 ```
 /nf-publish-strategist analyze --competitors <competitor-list>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| competitors | string | 是 | - | 竞品列表 |
 
 ## 策略类型
 

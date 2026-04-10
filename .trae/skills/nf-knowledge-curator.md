@@ -32,6 +32,14 @@
 /nf-knowledge-curator collect --source <source> --type <lesson|pattern|template>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| source | string | 是 | - | 来源内容 |
+| type | string | 是 | - | 知识类型 |
+
+---
+
 ### organize
 
 整理知识库
@@ -39,6 +47,14 @@
 ```
 /nf-knowledge-curator organize --category <category> [--tag <tags>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| category | string | 是 | - | 知识分类 |
+| tag | string | 否 | - | 标签 |
+
+---
 
 ### search
 
@@ -48,6 +64,14 @@
 /nf-knowledge-curator search --query <query> [--filter <filters>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| query | string | 是 | - | 搜索查询 |
+| filter | string | 否 | - | 过滤条件 |
+
+---
+
 ### template
 
 创建模板
@@ -55,6 +79,14 @@
 ```
 /nf-knowledge-curator template --type <template-type> [--based-on <reference>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| type | string | 是 | - | 模板类型 |
+| based-on | string | 否 | - | 参考模板 |
+
+---
 
 ### summarize
 
@@ -64,6 +96,14 @@
 /nf-knowledge-curator summarize --project <project-id> [--depth <brief|detailed>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| project | string | 是 | - | 项目ID |
+| depth | string | 否 | brief | 总结深度 |
+
+---
+
 ### share
 
 导出知识分享
@@ -71,6 +111,12 @@
 ```
 /nf-knowledge-curator share --content <content-id> --format <md|pdf|html>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| content | string | 是 | - | 内容ID |
+| format | string | 是 | - | 导出格式 |
 
 ## 知识类型
 

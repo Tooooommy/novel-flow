@@ -32,6 +32,15 @@
 /nf-volume-manager split --outline <main-outline> --volumes <count> [--strategy <equal|plot|character>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| outline | string | 是 | - | 整体大纲 |
+| volumes | number | 是 | - | 分卷数量 |
+| strategy | string | 否 | equal | 拆分策略 |
+
+---
+
 ### create
 
 创建分卷大纲
@@ -39,6 +48,15 @@
 ```
 /nf-volume-manager create --volume-number <n> --total-volumes <total> --main-plot <plot-points>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| volume-number | number | 是 | - | 卷号 |
+| total-volumes | number | 是 | - | 总卷数 |
+| main-plot | string | 是 | - | 主线情节 |
+
+---
 
 ### list
 
@@ -48,6 +66,14 @@
 /nf-volume-manager list [--project <project-id>] [--status <status>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| project | string | 否 | - | 项目ID |
+| status | string | 否 | - | 分卷状态 |
+
+---
+
 ### update
 
 更新分卷状态
@@ -55,6 +81,15 @@
 ```
 /nf-volume-manager update --volume <n> --status <status> [--progress <percentage>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| volume | number | 是 | - | 卷号 |
+| status | string | 是 | - | 分卷状态 |
+| progress | number | 否 | - | 完成进度 |
+
+---
 
 ### get
 
@@ -64,6 +99,14 @@
 /nf-volume-manager get --volume <n> [--format <full|summary>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| volume | number | 是 | - | 卷号 |
+| format | string | 否 | summary | 输出格式 |
+
+---
+
 ### validate
 
 验证分卷大纲一致性
@@ -71,6 +114,11 @@
 ```
 /nf-volume-manager validate [--check <continuity|character|plot>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| check | string | 否 | - | 验证类型 |
 
 ## 分卷策略
 

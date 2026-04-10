@@ -32,6 +32,14 @@
 /nf-market-analyzer genre <genre-name> [--period <3m|6m|1y|all>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| genre | string | 是 | - | 类型名称 |
+| period | string | 否 | 6m | 分析周期 |
+
+---
+
 ### audience
 
 分析目标读者群体
@@ -39,6 +47,14 @@
 ```
 /nf-market-analyzer audience [--genre <genre>] [--demographic <age-group>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| genre | string | 否 | - | 题材类型 |
+| demographic | string | 否 | - | 年龄群体 |
+
+---
 
 ### compete
 
@@ -48,6 +64,14 @@
 /nf-market-analyzer compete --title <book-title> [--similar <count>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| title | string | 是 | - | 书籍标题 |
+| similar | number | 否 | 5 | 相似作品数 |
+
+---
+
 ### gap
 
 发现市场空白机会
@@ -56,6 +80,14 @@
 /nf-market-analyzer gap [--genre <genre>] [--theme <theme>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| genre | string | 否 | - | 题材类型 |
+| theme | string | 否 | - | 主题要素 |
+
+---
+
 ### predict
 
 预测趋势走向
@@ -63,6 +95,12 @@
 ```
 /nf-market-analyzer predict --aspect <aspect> [--horizon <short|medium|long>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| aspect | string | 是 | - | 预测方面 |
+| horizon | string | 否 | medium | 预测周期 |
 
 ## 分析维度
 

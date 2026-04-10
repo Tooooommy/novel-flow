@@ -32,6 +32,15 @@
 /nf-parallel-executor run --volumes <volume-list> [--max-workers <n>] [--mode <sync|async>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| volumes | string | 是 | - | 分卷列表 |
+| max-workers | number | 否 | 3 | 最大并行数 |
+| mode | string | 否 | async | 执行模式 |
+
+---
+
 ### status
 
 查看并行执行状态
@@ -39,6 +48,13 @@
 ```
 /nf-parallel-executor status [--execution-id <id>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| execution-id | string | 否 | - | 执行ID |
+
+---
 
 ### pause
 
@@ -48,6 +64,14 @@
 /nf-parallel-executor pause --execution-id <id> [--volumes <volume-list>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| execution-id | string | 是 | - | 执行ID |
+| volumes | string | 否 | - | 分卷列表 |
+
+---
+
 ### resume
 
 恢复并行执行
@@ -55,6 +79,13 @@
 ```
 /nf-parallel-executor resume --execution-id <id>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| execution-id | string | 是 | - | 执行ID |
+
+---
 
 ### cancel
 
@@ -64,6 +95,14 @@
 /nf-parallel-executor cancel --execution-id <id> [--reason <reason>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| execution-id | string | 是 | - | 执行ID |
+| reason | string | 否 | - | 取消原因 |
+
+---
+
 ### optimize
 
 优化并行策略
@@ -71,6 +110,12 @@
 ```
 /nf-parallel-executor optimize --execution-id <id> [--strategy <strategy>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| execution-id | string | 是 | - | 执行ID |
+| strategy | string | 否 | - | 优化策略 |
 
 ## 并行执行模式
 

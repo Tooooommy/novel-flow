@@ -32,6 +32,14 @@
 /nf-compliance-officer scan --text <text-content> [--standard <platform|general|strict>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待扫描文本 |
+| standard | string | 否 | general | 合规标准 |
+
+---
+
 ### sensitive
 
 敏感内容检测
@@ -39,6 +47,14 @@
 ```
 /nf-compliance-officer sensitive --text <text> [--categories <category-list>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待检测文本 |
+| categories | string | 否 | - | 检测类别 |
+
+---
 
 ### copyright
 
@@ -48,6 +64,14 @@
 /nf-compliance-officer copyright --text <text> [--check <quotes|references|similarity>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待检查文本 |
+| check | string | 否 | - | 检查类型 |
+
+---
+
 ### platform
 
 平台规范检查
@@ -56,6 +80,14 @@
 /nf-compliance-officer platform --text <text> --platform <platform-name>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待检查文本 |
+| platform | string | 是 | - | 平台名称 |
+
+---
+
 ### rating
 
 内容分级评估
@@ -63,6 +95,12 @@
 ```
 /nf-compliance-officer rating --text <text> [--system <age-rating|content-label>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待评级文本 |
+| system | string | 否 | - | 分级系统 |
 
 ## 检查类别
 

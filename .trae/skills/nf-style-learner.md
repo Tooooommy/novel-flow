@@ -47,6 +47,21 @@
 
 ---
 
+### list
+
+列出可用的写作风格（包括内置作家风格）
+
+```
+/nf-style-learner list [--category <all|famous|user>]
+```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| category | string | 否 | all | 风格类别 |
+
+---
+
 ### author
 
 获取作家风格详情
@@ -55,27 +70,10 @@
 /nf-style-learner author --name <author-name>
 ```
 
-**示例**:
-
-```
-/nf-style-learner author --name 猫腻
-```
-
----
-
-### apply
-
-应用风格到内容
-
-```
-/nf-style-learner apply --content <content> --style <style-id>
-```
-
 **参数说明**:
-| 参数 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| content | string | 是 | 要转换的内容或文件路径 |
-| style | string | 是 | 风格ID（作家名或用户风格ID） |
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| name | string | 是 | - | 作家名称 |
 
 ---
 
@@ -87,6 +85,12 @@
 /nf-style-learner learn --text <sample-text> [--name <style-name>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 样本文本 |
+| name | string | 否 | - | 风格名称 |
+
 ---
 
 ### full
@@ -97,15 +101,13 @@
 /nf-style-learner full --content <content> --author <author-name>
 ```
 
-**示例**:
-
-```
-/nf-style-learner full --content "他深吸一口气，感受着空气中弥漫的灵气。" --author 猫腻
-```
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| content | string | 是 | - | 待转换内容 |
+| author | string | 是 | - | 作家名称 |
 
 ---
-
-## 内置作家风格库
 
 ### 猫腻
 

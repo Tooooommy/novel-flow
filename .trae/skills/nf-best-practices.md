@@ -32,6 +32,14 @@
 /nf-best-practices list [--category <category>] [--phase <phase>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| category | string | 否 | - | 实践类别 |
+| phase | string | 否 | - | 所属阶段 |
+
+---
+
 ### get
 
 获取具体实践
@@ -39,6 +47,13 @@
 ```
 /nf-best-practices get <practice-id>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| practice-id | string | 是 | - | 实践ID |
+
+---
 
 ### apply
 
@@ -48,6 +63,14 @@
 /nf-best-practices apply <practice-id> --context <context>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| practice-id | string | 是 | - | 实践ID |
+| context | string | 是 | - | 应用上下文 |
+
+---
+
 ### contribute
 
 贡献新实践
@@ -55,6 +78,11 @@
 ```
 /nf-best-practices contribute --template <template>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| template | string | 是 | - | 实践模板 |
 
 ## 技能设计原则
 
