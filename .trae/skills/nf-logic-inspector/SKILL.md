@@ -25,42 +25,38 @@ description: |
 /nf-logic-inspector full [--chapter <章节号>] [--volume <卷号>]
 ```
 
-| 参数    | 类型   | 默认值 | 说明   |
-| ------- | ------ | ------ | ------ |
-| chapter | number | 当前   | 章节号 |
-| volume  | number | 当前   | 卷号   |
+| 参数    | 类型   | 必填 | 默认值 | 说明   |
+| ------- | ------ | ---- | ------ | ------ |
+| chapter | number | 否   | 当前   | 章节号 |
+| volume  | number | 否   | 当前   | 卷号   |
 
 **执行流程**:
 
-1. 调用consistency技能检查连贯性
-2. 调用timeline技能检查时间线
-3. 调用plotholes技能检查伏笔呼应
-4. 输出逻辑审查报告 + 修复建议
+1. 调用consistency技能检查连贯性：
+   - 检查事件因果关系是否合理
+   - 检查人物行为是否符合性格
+   - 检查能力表现是否前后一致
+   - 检查信息传递是否合理
+   - 检查物理逻辑是否符合基本物理
+2. 调用timeline技能检查时间线：
+   - 检查时间线是否连续
+   - 检查时间线是否符合逻辑
+3. 调用plotholes技能检查伏笔呼应：
+   - 检查伏笔是否与事件因果关系一致
+   - 检查伏笔是否与人物行为一致
+   - 检查伏笔是否与能力表现一致
+4. 输出逻辑审查报告
 
-**输出格式**:
+**输出**:
 
-| 字段             | 类型    | 说明           |
-| ---------------- | ------- | -------------- |
-| passed           | boolean | 是否通过审查   |
-| issues           | array   | 问题列表       |
-| warnings         | array   | 警告列表       |
-| timeline_check   | object  | 时间线检查结果 |
-| plot_holes_check | object  | 伏笔检查结果   |
+逻辑审查报告包含以下内容：
 
-**timeline_check**:
-
-| 字段   | 类型    | 说明           |
-| ------ | ------- | -------------- |
-| passed | boolean | 是否通过       |
-| gaps   | array   | 时间线断裂位置 |
-
-**plot_holes_check**:
-
-| 字段          | 类型    | 说明         |
-| ------------- | ------- | ------------ |
-| passed        | boolean | 是否通过     |
-| foreshadowing | array   | 埋下的伏笔   |
-| unresolved    | array   | 未回收的伏笔 |
+1. 是否通过审查
+2. 问题列表
+3. 警告列表
+4. 时间线检查结果: 是否通过 + 时间线断裂位置
+5. 伏笔检查结果: 是否通过 + 埋下的伏笔 + 未回收的伏笔列表
+6. 修复建议
 
 ---
 
@@ -69,7 +65,7 @@ description: |
 ### consistency - 连贯性
 
 ```
-/nf-logic-inspector consistency [--chapter <章节号>]
+/nf-logic-inspector consistency [--chapter <章节号>] [--volume <卷号>]
 ```
 
 **审查维度**:
@@ -176,7 +172,7 @@ description: |
 ### timeline - 时间线
 
 ```
-/nf-logic-inspector timeline [--chapter <章节号>]
+/nf-logic-inspector timeline [--chapter <章节号>] [--volume <卷号>]
 ```
 
 **审查维度**:
@@ -247,7 +243,7 @@ description: |
 ### plotholes - 伏笔
 
 ```
-/nf-logic-inspector plotholes [--chapter <章节号>]
+/nf-logic-inspector plotholes [--chapter <章节号>] [--volume <卷号>]
 ```
 
 **伏笔管理**:

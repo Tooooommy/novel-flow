@@ -388,36 +388,17 @@ ready → published: publish命令
 
 ### review - 内容审查
 
-**用途**：检查章节质量，输出审查报告（调用多技能协同）
+**用途**：检查章节质量，输出审查报告（调用多技能(LI逻辑审查、CO合规审查、QA质量评估)协同工作）
 
 ```
 /nf review [--chapter <章节号>] [--volume <卷号>]
 ```
 
-| 参数    | 类型   | 默认值 | 说明   |
-| ------- | ------ | ------ | ------ |
-| chapter | number | 当前   | 章节号 |
-| volume  | number | 当前   | 卷号   |
-
-**审查流程**：
-
-| 阶段 | 技能                       | 检查内容           | 权重 |
-| ---- | -------------------------- | ------------------ | ---- |
-| 1    | LI (nf-logic-inspector)    | 逻辑矛盾、战力崩坏 | 30%  |
-| 2    | CO (nf-compliance-officer) | 违规内容、敏感词   | 20%  |
-| 3    | QA (nf-quality-assessor)   | 文笔、节奏、爽点   | 50%  |
-
-**输出示例**：
-
-```json
-{
-  "chapter": "volume-1/ch-015",
-  "passed": true,
-  "score": 85,
-  "issues": [],
-  "suggestions": ["可在战斗场景增加环境描写"]
-}
-```
+1. 并行调用
+   - 子技能 [nf-logic-inspector](../nf-logic-inspector/SKILL.md) full命令进行逻辑审查
+   - 子技能 [nf-compliance-officer](../nf-compliance-officer/SKILL.md) full命令进行合规审查
+   - 子技能 [nf-quality-assessor](../nf-quality-assessor/SKILL.md) full命令进行质量评估
+2. 输出逻辑审查报告+质量评估报告+合规审查报告
 
 ---
 
@@ -429,24 +410,8 @@ ready → published: publish命令
 /nf optimize [--volume <卷号>] [--chapter <章节号>] [--type <类型>]
 ```
 
-| 参数    | 类型   | 默认值 | 说明     |
-| ------- | ------ | ------ | -------- |
-| volume  | number | all    | 目标卷   |
-| chapter | number | all    | 目标章   |
-| type    | string | full   | 优化类型 |
-
-**优化类型**：
-
-| 类型       | 说明     | 执行技能                                  |
-| ---------- | -------- | ----------------------------------------- |
-| full       | 全量优化 | SO: style/plot/dialogue/battle/connection |
-| style      | 文风优化 | SO: 文风优化                              |
-| plot       | 情节优化 | SO: 情节优化                              |
-| dialogue   | 对话优化 | SO: 对话优化                              |
-| battle     | 战斗优化 | SO: 战斗优化                              |
-| connection | 衔接优化 | SO: 卷间衔接优化                          |
-
-**执行流程**：`optimize` → `nf-specialist-optimizer` → 各专项优化 → 结果评估
+1. 调用子技能 [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) full命令进行全量优化
+2. 输出优化后的章节正文
 
 ---
 
