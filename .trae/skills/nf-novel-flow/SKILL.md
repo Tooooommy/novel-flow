@@ -463,16 +463,13 @@ target_platforms: # 目标发布平台
 
 ### outline - 大纲生成
 
-**用途**：生成完整大纲体系（总大纲 + 分卷大纲 + 人物设定 + 世界观）
+**用途**：根据 `novel.yaml` 项目元数据生成完整大纲体系
 
 ```
-/nf outline [--chapters <数量>] [--volumes <卷数>]
+/nf outline
 ```
 
-| 参数     | 类型   | 默认值 | 说明       |
-| -------- | ------ | ------ | ---------- |
-| chapters | number | 30     | 每卷章节数 |
-| volumes  | number | 3      | 分卷数量   |
+**自动读取**：从 `novel.yaml` 获取 volumes（卷数）和 chapters_per_volume（每卷章节数）
 
 **生成文件**：
 
@@ -485,7 +482,7 @@ outline/
 ├── timeline.md        # 时间线
 ├── volume-1-outline.md  # 分卷大纲
 ├── volume-2-outline.md
-└── volume-3-outline.md
+└── volume-N-outline.md  # 根据卷数自动生成
 ```
 
 ---

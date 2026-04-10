@@ -1083,7 +1083,7 @@ ch-XXX-draft-vN.md  # N 为版本号，如 ch-001-draft-v1.md
 /nf outline
 ```
 
-生成完整大纲体系（基于立项时自动计算的分卷结构）。
+生成完整大纲体系（根据 novel.yaml 自动读取卷数和每卷章节数）。
 
 **Step 4: 创作正文**
 
