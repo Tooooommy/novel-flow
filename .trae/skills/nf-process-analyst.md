@@ -1,5 +1,17 @@
 # Skill: nf-process-analyst
 
+## 元数据
+
+- **技能ID**: skill-retro-001
+- **版本**: v1.0
+- **维护者**: NovelFlow Team
+- **创建日期**: 2026-01-01
+- **最后更新**: 2026-04-10
+- **依赖技能**: 无
+- **依赖智能体**: nf-retrospection-improvement-dept
+
+---
+
 ## 描述
 
 流程分析员技能，负责分析小说创作流程的效率、瓶颈和改进空间。

@@ -1,5 +1,17 @@
 # Skill: nf-emotion-renderer
 
+## 元数据
+
+- **技能ID**: skill-content-003
+- **版本**: v1.0
+- **维护者**: NovelFlow Team
+- **创建日期**: 2026-01-01
+- **最后更新**: 2026-04-10
+- **依赖技能**: 无
+- **依赖智能体**: nf-content-production-dept
+
+---
+
 ## 描述
 
 情感渲染师技能，负责优化情感表达、心理描写和情感转折。
