@@ -220,18 +220,15 @@ flowchart TD
 
 **输出格式**:
 
-| 字段                  | 内容                                         |
-| --------------------- | -------------------------------------------- |
-| concept_id            | 编号                                         |
-| title                 | 标题，如"都市修仙：废物逆袭，校花倒贴"       |
-| tags                  | 标签列表，如["都市", "修仙", "热血", "爽文"] |
-| protagonist.identity  | 主角身份                                     |
-| protagonist.situation | 主角处境                                     |
-| protagonist.talent    | 主角天赋                                     |
-| world.setting         | 世界背景                                     |
-| world.rule            | 世界规则                                     |
-| golden_finger         | 金手指                                       |
-| highlight             | 核心卖点                                     |
+| 字段          | 要点             |
+| ------------- | ---------------- |
+| concept_id    | 概念编号         |
+| title         | 标题             |
+| tags          | 标签列表         |
+| protagonist   | 身份、处境、天赋 |
+| world         | 设定、规则       |
+| golden_finger | 金手指           |
+| highlight     | 核心卖点         |
 
 **概念创意质量评估标准**:
 
