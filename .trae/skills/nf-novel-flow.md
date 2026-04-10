@@ -101,7 +101,7 @@ description: |
 │  │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────────────┐  │    │
 │  │  │nf-platform-     │  │nf-knowledge-    │  │  nf-process-analyst   │  │    │
 │  │  │adapter          │  │curator          │  │  流程复盘/效率分析     │  │    │
-│  │  │  平台适配       │  │  经验沉淀       │  │                        │  │    │
+│  │  │  平台适配        │  │  经验沉淀        │  │                        │  │    │
 │  │  └─────────────────┘  └─────────────────┘  └─────────────────────────┘  │    │
 │  └─────────────────────────────────────────────────────────────────────────┘    │
 │                                                                                  │
@@ -266,6 +266,33 @@ description: |
 | 全局 | auto     | 一键自动化 | `auto --name xxx --genre 玄幻`      |
 | 全局 | learn    | 知识学习   | `learn --collect --from 我的作品`   |
 | 全局 | query    | 知识查询   | `query 写作技巧`                    |
+
+---
+
+## 技能命令
+
+**用途**：直接调用子技能执行专项任务
+
+| 命令     | 技能                    | 用途               | 典型用法                          |
+| -------- | ----------------------- | ------------------ | --------------------------------- |
+| `ie`     | nf-idea-explorer        | 创意探索、市场分析 | `/nf ie --genre 玄幻 --count 5`   |
+| `sa`     | nf-story-architect      | 世界观、人物、主线 | `/nf sa --type world`             |
+| `vm`     | nf-volume-manager       | 卷结构、分卷大纲   | `/nf vm --volume 1 --plan`        |
+| `cg`     | nf-content-generator    | 正文生成           | `/nf cg --chapter 5 --style 猫腻` |
+| `sl`     | nf-style-learner        | 风格学习、作家模仿 | `/nf sl --select 辰东`            |
+| `li`     | nf-logic-inspector      | 逻辑审查、战力检查 | `/nf li --chapter 10`             |
+| `co`     | nf-compliance-officer   | 合规检查、敏感词   | `/nf co --chapter 10`             |
+| `qa`     | nf-quality-assessor     | 质量评估、评分     | `/nf qa --chapter 10`             |
+| `so`     | nf-specialist-optimizer | 文风/对话/战斗优化 | `/nf so --type dialogue`          |
+| `pa`     | nf-platform-adapter     | 平台适配、格式转换 | `/nf pa --platform qidian`        |
+| `kc`     | nf-knowledge-curator    | 知识沉淀、查询     | `/nf kc --collect --type pattern` |
+| `pa-ana` | nf-process-analyst      | 流程分析、效率分析 | `/nf pa-ana --analyze`            |
+
+**使用说明**：
+
+- 子技能命令格式：`/nf <技能缩写> [参数]`
+- 详细参数和用法见各技能文件
+- 主控命令优先使用 `idea/init/outline/write/review/optimize/publish`
 
 ---
 
