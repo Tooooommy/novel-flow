@@ -1,8 +1,10 @@
 name: 星际卖奶茶
 genre: 科幻
 target: 8000000
-chapters: 800
-volumes: 8
+chapter_size: 3500
+total_chapters: 2286
+volumes: 23
+chapters_per_volume: 100
 status: planning
 created: 2026-04-11
 concept: |

@@ -433,6 +433,30 @@ novels/{name}/
 └── research/      # 研究目录
 ```
 
+**novel.yaml 模板**：
+
+```yaml
+name: { 小说名称 }
+genre: { 题材类型 }
+target: { 目标字数 }
+chapter_size: { 每章字数 }
+total_chapters: { 总章节数 }
+volumes: { 卷数 }
+chapters_per_volume: { 每卷章节数 }
+status: planning
+created: { 创建日期 }
+concept: |
+  {核心概念一句话描述}
+
+gains: # 金手指/金手指列表
+  - { 金手指1 }
+  - { 金手指2 }
+
+target_platforms: # 目标发布平台
+  - qidian
+  - zongheng
+```
+
 ---
 
 ## 创作阶段
