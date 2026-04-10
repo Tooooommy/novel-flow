@@ -1077,21 +1077,23 @@ ch-XXX-draft-vN.md  # N 为版本号，如 ch-001-draft-v1.md
 
 创建项目（自动计算：100万字 → 286章 → 3卷×96章）。
 
-**Step 3: 生成大纲**
+**Step 3: 生成总大纲**
 
 ```bash
 /nf outline
 ```
 
-生成完整大纲体系（根据 novel.yaml 自动读取卷数和每卷章节数）。
+生成小说总大纲（根据 novel.yaml 自动读取卷数和每卷章节数）。
 
-**大纲生成流程**（整合 nf-volume-manager）：
+**Step 4: 生成分卷大纲**
 
-1. **拆分总纲** - 按剧情阶段、时间线、空间线、高潮分布拆分
-2. **创建分卷** - 每卷包含：卷标题、卷简介、核心冲突、主要人物、场景设置、章节大纲
-3. **规划章节** - 每章包含：章节类型、核心事件、人物表现、埋下伏笔
+```bash
+/nf volume
+```
 
-**生成文件结构**：
+为每一卷生成分卷大纲。
+
+**文件结构**：
 
 ```
 {project}/
@@ -1100,14 +1102,12 @@ ch-XXX-draft-vN.md  # N 为版本号，如 ch-001-draft-v1.md
 ├── content/
 │   ├── volume-1-{volume-name}/
 │   │   └── outline.md      # 卷1大纲
-│   ├── volume-2-{volume-name}/
-│   │   └── outline.md      # 卷2大纲
 │   └── volume-N-{volume-name}/
 │       └── outline.md      # 卷N大纲
 └── novel.yaml              # 项目元数据
 ```
 
-**Step 4: 创作正文**
+**Step 5: 创作正文**
 
 ```bash
 /nf write --mode parallel

@@ -258,12 +258,20 @@ description: |
 | `/nf idea`     | [nf-idea-explorer](../nf-idea-explorer/SKILL.md)               | 创意探索   | `idea --genre 玄幻`            |
 | `/nf init`     | -                                                              | 项目初始化 | `init --name xxx --genre 玄幻` |
 | `/nf outline`  | [nf-volume-manager](../nf-volume-manager/SKILL.md)             | 生成大纲   | `outline`                      |
+| `/nf volume`   | [nf-volume-manager](../nf-volume-manager/SKILL.md)             | 生成分卷   | `volume`                       |
 | `/nf write`    | [nf-content-generator](../nf-content-generator/SKILL.md)       | 创作正文   | `write --mode parallel`        |
 | `/nf review`   | [nf-quality-assessor](../nf-quality-assessor/SKILL.md)         | 内容审查   | `review --chapter 5`           |
 | `/nf optimize` | [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) | 优化内容   | `optimize --type style`        |
 | `/nf publish`  | [nf-platform-adapter](../nf-platform-adapter/SKILL.md)         | 发布平台   | `publish --platform qidian`    |
 | `/nf detect`   | -                                                              | 进度探测   | `detect`                       |
 | `/nf auto`     | -                                                              | 一键自动化 | `auto --name xxx --genre 玄幻` |
+
+**主控命令流程**:
+
+```mermaid
+flowchart LR
+    A[idea] --> B[init] --> C[outline] --> D[volume] --> E[write] --> F[review] --> G[optimize] --> H[publish]
+```
 
 **子技能直接调用**（使用技能缩写）：
 
@@ -512,6 +520,84 @@ target_platforms: # 目标发布平台
 │   └── volume-N-{volume-name}/
 │       └── outline.md      # 卷N大纲
 └── novel.yaml              # 项目元数据
+```
+
+---
+
+### volume - 生成分卷大纲
+
+**用途**：根据 `novel.yaml` 元数据，为每一卷生成分卷大纲
+
+```
+/nf volume
+```
+
+**自动读取**：从 `novel.yaml` 获取 volumes（卷数）和 chapters_per_volume（每卷章节数）
+
+**执行流程**：
+
+```mermaid
+flowchart TD
+    A[读取novel.yaml] --> B[遍历每卷]
+    B --> C{卷N}
+    C -->|是| D[生成分卷大纲]
+    D --> E{还有下一卷?}
+    E -->|是| B
+    E -->|否| F[完成]
+```
+
+**分卷大纲模板**（`content/volume-N-{volume-name}/outline.md`）：
+
+```markdown
+# 第N卷: 《{卷标题}》
+
+## 卷信息
+
+- 章节范围: {start_chapter}-{end_chapter}
+- 章节数量: {chapters_in_volume}
+- 主题: {卷主题}
+
+## 卷简介
+
+本卷核心内容概述，承接上卷、开启本卷、留下悬念。
+
+## 核心冲突
+
+本卷主要矛盾和看点。
+
+## 主要人物
+
+- 主角: 本卷主要行动
+- 女主: 本卷情感发展
+- 反派: 本卷威胁来源
+
+## 场景设置
+
+- 场景1: 地点和特点
+- 场景2: 地点和特点
+
+## 章节大纲
+
+### 第一阶段: 铺垫期 (第X-X章)
+
+{章节1-10的详细大纲}
+
+### 第二阶段: 发展期 (第X-X章)
+
+{章节11-30的详细大纲}
+
+### 第三阶段: 高潮期 (第X-X章)
+
+{章节31-{chapters_per_volume}的详细大纲}
+
+## 章节详情
+
+### 第X章: 章节标题
+
+- 章节类型: 推进/铺垫/高潮
+- 核心事件:
+- 人物表现:
+- 埋下伏笔:
 ```
 
 ---
