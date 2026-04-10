@@ -253,46 +253,28 @@ description: |
 
 ## 命令地图
 
-| 阶段 | 命令     | 说明       | 典型用法                            |
-| ---- | -------- | ---------- | ----------------------------------- |
-| 立项 | idea     | 创意探索   | `idea --genre 玄幻`                 |
-| 立项 | init     | 项目初始化 | `init --name xxx --genre 玄幻`      |
-| 创作 | outline  | 生成大纲   | `outline --volumes 3 --chapters 30` |
-| 创作 | write    | 创作正文   | `write --mode parallel`             |
-| 创作 | review   | 内容审查   | `review --chapter 5`                |
-| 创作 | optimize | 优化内容   | `optimize --type style`             |
-| 发布 | publish  | 发布平台   | `publish --platform qidian`         |
-| 全局 | detect   | 进度探测   | `detect`                            |
-| 全局 | auto     | 一键自动化 | `auto --name xxx --genre 玄幻`      |
-| 全局 | learn    | 知识学习   | `learn --collect --from 我的作品`   |
-| 全局 | query    | 知识查询   | `query 写作技巧`                    |
+| 命令           | 对应SKILL                                                      | 用途       | 典型用法                       |
+| -------------- | -------------------------------------------------------------- | ---------- | ------------------------------ |
+| `/nf idea`     | [nf-idea-explorer](../nf-idea-explorer/SKILL.md)               | 创意探索   | `idea --genre 玄幻`            |
+| `/nf init`     | -                                                              | 项目初始化 | `init --name xxx --genre 玄幻` |
+| `/nf outline`  | [nf-volume-manager](../nf-volume-manager/SKILL.md)             | 生成大纲   | `outline`                      |
+| `/nf write`    | [nf-content-generator](../nf-content-generator/SKILL.md)       | 创作正文   | `write --mode parallel`        |
+| `/nf review`   | [nf-quality-assessor](../nf-quality-assessor/SKILL.md)         | 内容审查   | `review --chapter 5`           |
+| `/nf optimize` | [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) | 优化内容   | `optimize --type style`        |
+| `/nf publish`  | [nf-platform-adapter](../nf-platform-adapter/SKILL.md)         | 发布平台   | `publish --platform qidian`    |
+| `/nf detect`   | -                                                              | 进度探测   | `detect`                       |
+| `/nf auto`     | -                                                              | 一键自动化 | `auto --name xxx --genre 玄幻` |
 
----
+**子技能直接调用**（使用技能缩写）：
 
-## 技能命令
-
-**用途**：直接调用子技能执行专项任务
-
-| 命令     | 技能                    | 用途               | 典型用法                          |
-| -------- | ----------------------- | ------------------ | --------------------------------- |
-| `ie`     | nf-idea-explorer        | 创意探索、市场分析 | `/nf ie --genre 玄幻 --count 5`   |
-| `sa`     | nf-story-architect      | 世界观、人物、主线 | `/nf sa --type world`             |
-| `vm`     | nf-volume-manager       | 卷结构、分卷大纲   | `/nf vm --volume 1 --plan`        |
-| `cg`     | nf-content-generator    | 正文生成           | `/nf cg --chapter 5 --style 猫腻` |
-| `sl`     | nf-style-learner        | 风格学习、作家模仿 | `/nf sl --select 辰东`            |
-| `li`     | nf-logic-inspector      | 逻辑审查、战力检查 | `/nf li --chapter 10`             |
-| `co`     | nf-compliance-officer   | 合规检查、敏感词   | `/nf co --chapter 10`             |
-| `qa`     | nf-quality-assessor     | 质量评估、评分     | `/nf qa --chapter 10`             |
-| `so`     | nf-specialist-optimizer | 文风/对话/战斗优化 | `/nf so --type dialogue`          |
-| `pa`     | nf-platform-adapter     | 平台适配、格式转换 | `/nf pa --platform qidian`        |
-| `kc`     | nf-knowledge-curator    | 知识沉淀、查询     | `/nf kc --collect --type pattern` |
-| `pa-ana` | nf-process-analyst      | 流程分析、效率分析 | `/nf pa-ana --analyze`            |
-
-**使用说明**：
-
-- 子技能命令格式：`/nf <技能缩写> [参数]`
-- 详细参数和用法见各技能文件
-- 主控命令优先使用 `idea/init/outline/write/review/optimize/publish`
+| 缩写 | 对应SKILL            | 缩写     | 对应SKILL               |
+| ---- | -------------------- | -------- | ----------------------- |
+| `ie` | nf-idea-explorer     | `li`     | nf-logic-inspector      |
+| `sa` | nf-story-architect   | `co`     | nf-compliance-officer   |
+| `vm` | nf-volume-manager    | `qa`     | nf-quality-assessor     |
+| `cg` | nf-content-generator | `so`     | nf-specialist-optimizer |
+| `sl` | nf-style-learner     | `pa`     | nf-platform-adapter     |
+| `kc` | nf-knowledge-curator | `pa-ana` | nf-process-analyst      |
 
 ---
 
@@ -530,105 +512,6 @@ target_platforms: # 目标发布平台
 │   └── volume-N-{volume-name}/
 │       └── outline.md      # 卷N大纲
 └── novel.yaml              # 项目元数据
-```
-
-**总大纲模板**（`outline/outline.md`）：
-
-```markdown
-# {小说名称}
-
-## 基本信息
-
-- 类型: {genre}
-- 目标字数: {target} 字
-- 总卷数: {volumes} 卷
-- 总章节数: {total_chapters} 章
-- 状态: {status}
-
-## 故事概念
-
-{concept}
-
-## 主线剧情
-
-{主线剧情概述}
-
-## 世界观设定
-
-{世界观核心要素}
-
-## 主要人物
-
-{人物档案摘要}
-
-## 分卷概览
-
-| 卷  | 标题      | 章节范围                                         | 核心剧情   |
-| --- | --------- | ------------------------------------------------ | ---------- |
-| 1   | {卷1标题} | 1-{chapters_per_volume}                          | {核心剧情} |
-| 2   | {卷2标题} | {chapters_per_volume+1}-{chapters_per_volume\*2} | {核心剧情} |
-| N   | {卷N标题} | ...                                              | {核心剧情} |
-
-## 时间线
-
-{关键时间节点}
-
-## 伏笔埋设与回收
-
-{伏笔记录}
-```
-
-**分卷大纲模板**（`content/volume-N-{volume-name}/outline.md`）：
-
-```markdown
-# 第N卷: 《{卷标题}》
-
-## 卷信息
-
-- 章节范围: {start_chapter}-{end_chapter}
-- 章节数量: {chapters_in_volume}
-- 主题: {卷主题}
-
-## 卷简介
-
-本卷核心内容概述，承接上卷、开启本卷、留下悬念。
-
-## 核心冲突
-
-本卷主要矛盾和看点。
-
-## 主要人物
-
-- 主角: 本卷主要行动 -女主1: 本卷情感发展
-- 反派: 本卷威胁来源
-
-## 场景设置
-
-- 场景1: 地点和特点
-- 场景2: 地点和特点
-
-## 章节大纲
-
-### 第一阶段: 铺垫期 (第X-X章)
-
-{章节1-10的详细大纲}
-
-### 第二阶段: 发展期 (第X-X章)
-
-{章节11-30的详细大纲}
-
-### 第三阶段: 高潮期 (第X-X章)
-
-{章节31-{chapters_per_volume}的详细大纲}
-
-## 章节详情
-
-### 第X章: 章节标题
-
-- 章节类型: 推进/铺垫/高潮
-- 核心事件:
-- 人物表现:
-- 埋下伏笔:
 ```
 
 ---
