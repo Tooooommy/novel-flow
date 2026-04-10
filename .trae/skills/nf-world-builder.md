@@ -32,6 +32,15 @@
 /nf-world-builder create --genre <genre> [--theme <theme>] [--scale <small|medium|large|cosmic>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| genre | string | 是 | - | 题材类型 |
+| theme | string | 否 | - | 主题要素 |
+| scale | string | 否 | medium | 世界规模 |
+
+---
+
 ### geography
 
 设计地理环境
@@ -39,6 +48,14 @@
 ```
 /nf-world-builder geography --type <world-type> [--features <feature-list>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| type | string | 是 | - | 世界类型 |
+| features | string | 否 | - | 地理特征 |
+
+---
 
 ### history
 
@@ -48,6 +65,15 @@
 /nf-world-builder history --span <time-span> [--eras <era-count>] [--events <key-events>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| span | string | 是 | - | 时间跨度 |
+| eras | number | 否 | 3 | 时代数量 |
+| events | string | 否 | - | 关键事件 |
+
+---
+
 ### society
 
 设计社会结构
@@ -55,6 +81,14 @@
 ```
 /nf-world-builder society --aspects <aspects> [--complexity <simple|moderate|complex>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| aspects | string | 是 | - | 社会方面 |
+| complexity | string | 否 | moderate | 复杂程度 |
+
+---
 
 ### system
 
@@ -64,6 +98,14 @@
 /nf-world-builder system --type <magic|tech|super|mixed> [--constraints <constraints>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| type | string | 是 | - | 规则类型 |
+| constraints | string | 否 | - | 限制条件 |
+
+---
+
 ### culture
 
 构建文化体系
@@ -72,6 +114,13 @@
 /nf-world-builder culture --elements <customs,languages,religions,arts...>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| elements | string | 是 | - | 文化元素 |
+
+---
+
 ### consistency
 
 检查世界观一致性
@@ -79,6 +128,11 @@
 ```
 /nf-world-builder consistency --check <world-data>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| check | string | 是 | - | 世界数据 |
 
 ## 构建维度
 

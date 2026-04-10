@@ -32,6 +32,15 @@
 /nf-idea-explorer brainstorm --topic <topic> [--count <number>] [--style <genre>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| topic | string | 是 | - | 探索主题 |
+| count | number | 否 | 5 | 生成创意数量 |
+| style | string | 否 | - | 题材类型 |
+
+---
+
 ### expand
 
 扩展已有创意概念
@@ -39,6 +48,14 @@
 ```
 /nf-idea-explorer expand --concept <concept> [--direction <direction>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| concept | string | 是 | - | 待扩展概念 |
+| direction | string | 否 | - | 扩展方向 |
+
+---
 
 ### combine
 
@@ -48,6 +65,14 @@
 /nf-idea-explorer combine --elements <elem1,elem2,elem3...> [--constraint <constraint>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| elements | string | 是 | - | 元素列表（逗号分隔） |
+| constraint | string | 否 | - | 组合约束 |
+
+---
+
 ### twist
 
 为故事添加反转或新意
@@ -56,6 +81,14 @@
 /nf-idea-explorer twist --plot <plot-summary> [--type <ending|character|setting|twist>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| plot | string | 是 | - | 剧情概要 |
+| type | string | 否 | twist | 反转类型 |
+
+---
+
 ### trend
 
 分析当前创意趋势
@@ -63,6 +96,12 @@
 ```
 /nf-idea-explorer trend [--genre <genre>] [--timeframe <recent|classic|future>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| genre | string | 否 | - | 题材类型 |
+| timeframe | string | 否 | recent | 时间范围 |
 
 ## 创意维度
 

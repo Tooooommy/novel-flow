@@ -32,6 +32,11 @@
 /nf-specialist-optimizer humanize --text <text-content>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待处理文本 |
+
 **检查清单：**
 
 - [ ] 删除过度解释性词语（"似乎"、"仿佛"、"不由得"）
@@ -42,6 +47,8 @@
 - [ ] 去除总结性旁白
 - [ ] 长短句交错
 
+---
+
 ### polish
 
 润色文本
@@ -49,6 +56,14 @@
 ```
 /nf-specialist-optimizer polish --text <text-content> [--focus <clarity|flow|vividness|emotion>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待润色文本 |
+| focus | string | 否 | - | 润色重点 |
+
+---
 
 ### unify
 
@@ -58,6 +73,15 @@
 /nf-specialist-optimizer unify --text <text-content> --style <target-style> [--samples <sample-texts>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待统一文本 |
+| style | string | 是 | - | 目标风格 |
+| samples | string | 否 | - | 风格样本 |
+
+---
+
 ### enhance
 
 增强细节
@@ -65,6 +89,14 @@
 ```
 /nf-specialist-optimizer enhance --text <text-content> --aspect <sensory|emotional|descriptive>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待增强文本 |
+| aspect | string | 是 | - | 增强方面 |
+
+---
 
 ### tighten
 
@@ -74,6 +106,14 @@
 /nf-specialist-optimizer tighten --text <text-content> [--target-reduction <percentage>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待精简文本 |
+| target-reduction | number | 否 | 20 | 目标压缩比 |
+
+---
+
 ### expand
 
 扩展内容
@@ -81,6 +121,14 @@
 ```
 /nf-specialist-optimizer expand --text <text-content> --direction <emotional|descriptive|action>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待扩展文本 |
+| direction | string | 是 | - | 扩展方向 |
+
+---
 
 ### dialogue
 
@@ -90,6 +138,14 @@
 /nf-specialist-optimizer dialogue --text <dialogue-text> [--goal <natural|witty|tense>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 对话文本 |
+| goal | string | 否 | natural | 优化目标 |
+
+---
+
 ### show-dont-tell
 
 转换叙述方式
@@ -97,6 +153,11 @@
 ```
 /nf-specialist-optimizer show-dont-tell --text <text-content>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待转换文本 |
 
 ## 优化维度
 

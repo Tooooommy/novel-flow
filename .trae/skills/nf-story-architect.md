@@ -32,6 +32,13 @@
 /nf-story-architect framework --type <three-act|hero-journey|save-the-cat|freytag|kishotenketsu>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| type | string | 是 | - | 框架类型 |
+
+---
+
 ### outline
 
 生成故事大纲
@@ -39,6 +46,15 @@
 ```
 /nf-story-architect outline --concept <concept> [--acts <count>] [--twists <count>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| concept | string | 是 | - | 故事概念 |
+| acts | number | 否 | 3 | 幕数 |
+| twists | number | 否 | - | 反转数量 |
+
+---
 
 ### plotline
 
@@ -48,6 +64,14 @@
 /nf-story-architect plotline --main <main-plot> [--subplots <subplot-list>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| main | string | 是 | - | 主线情节 |
+| subplots | string | 否 | - | 支线列表 |
+
+---
+
 ### beats
 
 安排情节点
@@ -55,6 +79,14 @@
 ```
 /nf-story-architect beats --framework <framework> [--count <beat-count>]
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| framework | string | 是 | - | 故事框架 |
+| count | number | 否 | 15 | 节拍数量 |
+
+---
 
 ### tension
 
@@ -64,6 +96,14 @@
 /nf-story-architect tension --story <story-outline> [--peaks <peak-count>]
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| story | string | 是 | - | 故事大纲 |
+| peaks | number | 否 | - | 高潮数量 |
+
+---
+
 ### structure
 
 验证结构完整性
@@ -71,6 +111,11 @@
 ```
 /nf-story-architect structure --outline <outline>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| outline | string | 是 | - | 大纲内容 |
 
 ## 故事框架
 

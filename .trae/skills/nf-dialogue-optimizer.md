@@ -32,6 +32,14 @@
 /nf-dialogue-optimizer analyze --text <dialogue-text> --characters <char-profiles>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待分析对话文本 |
+| characters | string | 是 | - | 角色配置文件 |
+
+---
+
 ### optimize
 
 优化对话
@@ -39,6 +47,14 @@
 ```
 /nf-dialogue-optimizer optimize --text <dialogue-text> --goal <natural|witty|tense|emotional>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| text | string | 是 | - | 待优化对话 |
+| goal | string | 否 | natural | 优化目标 |
+
+---
 
 ### character-fit
 
@@ -48,6 +64,14 @@
 /nf-dialogue-optimizer character-fit --dialogue <text> --profile <character-profile>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| dialogue | string | 是 | - | 对话文本 |
+| profile | string | 是 | - | 角色档案 |
+
+---
+
 ### subtext
 
 增加潜台词
@@ -56,6 +80,14 @@
 /nf-dialogue-optimizer subtext --dialogue <text> --context <scene-context>
 ```
 
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| dialogue | string | 是 | - | 对话文本 |
+| context | string | 否 | - | 场景上下文 |
+
+---
+
 ### rhythm
 
 优化对话节奏
@@ -63,6 +95,12 @@
 ```
 /nf-dialogue-optimizer rhythm --dialogue <text> --pace <fast|moderate|slow>
 ```
+
+**参数说明**:
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|------|------|------|--------|------|
+| dialogue | string | 是 | - | 对话文本 |
+| pace | string | 否 | moderate | 节奏类型 |
 
 ## 优化维度
 
