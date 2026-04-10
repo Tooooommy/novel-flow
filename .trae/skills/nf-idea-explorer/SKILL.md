@@ -1,7 +1,7 @@
 ---
 name: nf-idea-explorer
 description: |
-  创意探索技能。为 `/nf idea` 或 `/nf ie` 命令提供能力。
+  创意探索技能。为 `/nf idea` 命令提供能力。
   当用户不知道写什么、需要创意建议、要求生成多个创意方案时使用。
   整合市场分析和创新评估功能。
 ---
@@ -23,7 +23,6 @@ description: |
 
 ```
 /nf-idea-explorer full [--count <数量>] [--genre <题材>]
-/nf ie full [--count <数量>] [--genre <题材>]
 ```
 
 | 参数  | 类型   | 必填 | 默认值 | 说明     |
@@ -33,7 +32,10 @@ description: |
 
 **执行流程**:
 
-trend -> concept -> twist -> package -> 输出
+1. 调用trend命令分析趋势、热门元素、读者偏好
+2. 调用concept命令生成核心创意概念
+3. 调用twist命令为每个概念添加独特创新点
+4. 打包并输出成完整创意方案
 
 **执行方案**:
 
@@ -52,7 +54,6 @@ trend -> concept -> twist -> package -> 输出
 
 ```
 /nf-idea-explorer trend [--genre <题材>]
-/nf ie trend [--genre <题材>]
 ```
 
 **执行方案**:
@@ -158,7 +159,6 @@ trend -> concept -> twist -> package -> 输出
 
 ```
 /nf-idea-explorer concept [--genre <题材>] [--count <数量>]
-/nf ie concept [--genre <题材>] [--count <数量>]
 ```
 
 **执行方案**:
@@ -236,7 +236,6 @@ trend -> concept -> twist -> package -> 输出
 
 ```
 /nf-idea-explorer twist [--base <基础概念>]
-/nf ie twist [--base <基础概念>]
 ```
 
 **执行方案**:
