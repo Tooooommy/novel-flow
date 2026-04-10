@@ -20,89 +20,53 @@ description: |
 
 ## 系统架构
 
-```
-用户
-  │
-  └──→ nf-novel-flow（主控技能）
-            │
-            ├──→ 创意研发层
-            │       nf-idea-explorer（创意探索）
-            │
-            ├──→ 架构设计层
-            │       nf-story-architect（世界观/人物/大纲）
-            │
-            ├──→ 内容生产层
-            │       nf-content-generator（正文生成）
-            │       nf-style-learner（风格学习）
-            │
-            ├──→ 质量保证层
-            │       nf-logic-inspector（逻辑审查）
-            │       nf-compliance-officer（合规审查）
-            │       nf-quality-assessor（质量评估）
-            │
-            ├──→ 专业优化层
-            │       nf-specialist-optimizer（文风/对话/战斗优化）
-            │
-            ├──→ 发布运营层
-            │       nf-platform-adapter（平台适配）
-            │
-            ├──→ 知识管理层
-            │       nf-knowledge-curator（知识沉淀）
-            │
-            └──→ 流程分析层
-                    nf-process-analyst（流程分析）
-```
-
----
-
-## 技能全景图
-
 ```mermaid
-flowchart TB
-    subgraph 立项阶段
-        IE[nf-idea-explorer<br/>创意探索]
-        VM[卷结构设计]
-        SL[nf-style-learner<br/>风格学习]
+flowchart TD
+    User([用户])
+
+    subgraph nf-novel-flow[主控技能]
+        direction LR
+        NF[nf-novel-flow]
     end
 
-    subgraph 架构阶段
-        SA[nf-story-architect<br/>世界观/人物]
-        KC[nf-knowledge-curator<br/>知识查询]
-        SL2[风格确认]
-    end
+    User --> NF
 
-    subgraph 创作阶段
-        CG[nf-content-generator<br/>正文生成]
-        QA[nf-quality-assessor<br/>质量评估]
-        SO[nf-specialist-optimizer<br/>专业优化]
-        LI[nf-logic-inspector<br/>逻辑审查]
-        CO[nf-compliance-officer<br/>合规检查]
-    end
+    NF --> IE[nf-idea-explorer<br/>创意探索]
+    NF --> SA[nf-story-architect<br/>世界观/人物/大纲]
+    NF --> CG[nf-content-generator<br/>正文生成]
+    NF --> SL[nf-style-learner<br/>风格学习]
+    NF --> LI[nf-logic-inspector<br/>逻辑审查]
+    NF --> CO[nf-compliance-officer<br/>合规审查]
+    NF --> QA[nf-quality-assessor<br/>质量评估]
+    NF --> SO[nf-specialist-optimizer<br/>专业优化]
+    NF --> PA[nf-platform-adapter<br/>平台适配]
+    NF --> KC[nf-knowledge-curator<br/>知识沉淀]
+    NF --> PA2[nf-process-analyst<br/>流程分析]
 
-    subgraph 发布阶段
-        PA[nf-platform-adapter<br/>平台适配]
-        KC2[经验沉淀]
-        PA2[流程复盘]
-    end
-
-    立项阶段 --> 架构阶段 --> 创作阶段 --> 发布阶段
+    IE --> |创意研发| SA
+    SA --> |架构设计| CG
+    CG --> |内容生产| LI
+    CG --> CO
+    CG --> QA
+    QA --> SO
+    SO --> PA
+    PA --> KC
+    KC --> PA2
 ```
 
-| 阶段     | 技能                    | 功能                           |
-| -------- | ----------------------- | ------------------------------ |
-| **立项** | nf-idea-explorer        | 创意探索、市场分析、灵感获取   |
-| **立项** | 卷结构设计              | 分卷规划、字数分配             |
-| **立项** | nf-style-learner        | 作家风格学习、自定义风格       |
-| **架构** | nf-story-architect      | 世界观构建、人物设计、大纲主线 |
-| **架构** | nf-knowledge-curator    | 知识查询、知识收集             |
-| **创作** | nf-content-generator    | 正文生成                       |
-| **创作** | nf-quality-assessor     | 质量评估                       |
-| **创作** | nf-specialist-optimizer | 文风优化、对话优化、战斗优化   |
-| **创作** | nf-logic-inspector      | 逻辑审查                       |
-| **创作** | nf-compliance-officer   | 合规检查                       |
-| **发布** | nf-platform-adapter     | 平台适配                       |
-| **发布** | nf-knowledge-curator    | 经验沉淀                       |
-| **发布** | nf-process-analyst      | 流程复盘、效率分析             |
+| 层级         | 技能                    | 功能               |
+| ------------ | ----------------------- | ------------------ |
+| **创意研发** | nf-idea-explorer        | 创意探索           |
+| **架构设计** | nf-story-architect      | 世界观/人物/大纲   |
+| **内容生产** | nf-content-generator    | 正文生成           |
+| **内容生产** | nf-style-learner        | 风格学习           |
+| **质量保证** | nf-logic-inspector      | 逻辑审查           |
+| **质量保证** | nf-compliance-officer   | 合规审查           |
+| **质量保证** | nf-quality-assessor     | 质量评估           |
+| **专业优化** | nf-specialist-optimizer | 文风/对话/战斗优化 |
+| **发布运营** | nf-platform-adapter     | 平台适配           |
+| **知识管理** | nf-knowledge-curator    | 知识沉淀           |
+| **流程分析** | nf-process-analyst      | 流程分析           |
 
 ---
 
