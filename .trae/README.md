@@ -1070,10 +1070,10 @@ ch-XXX-draft-vN.md  # N 为版本号，如 ch-001-draft-v1.md
 **Step 2: 项目立项**
 
 ```bash
-/nf init --name 逆天剑尊 --genre 玄幻 --target 1000000
+/nf init --name 逆天剑尊 --genre 玄幻 --volumes 3 --chapters 30 --target 1000000
 ```
 
-创建项目目录结构。
+创建项目目录结构（指定篇幅参数）。
 
 **Step 3: 生成大纲**
 

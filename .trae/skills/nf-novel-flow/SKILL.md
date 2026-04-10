@@ -388,14 +388,16 @@ ready → published: publish命令
 **用途**：创建新小说项目，初始化目录结构
 
 ```
-/nf init --name <名称> --genre <题材> [--target <字数>]
+/nf init --name <名称> --genre <题材> [--target <字数>] [--volumes <卷数>] [--chapters <章节数>]
 ```
 
-| 参数   | 类型   | 默认值 | 说明             |
-| ------ | ------ | ------ | ---------------- |
-| name   | string | -      | 小说名称（必填） |
-| genre  | string | -      | 题材类型（必填） |
-| target | number | 100000 | 目标字数         |
+| 参数     | 类型   | 默认值 | 说明             |
+| -------- | ------ | ------ | ---------------- |
+| name     | string | -      | 小说名称（必填） |
+| genre    | string | -      | 题材类型（必填） |
+| target   | number | 100000 | 目标字数         |
+| volumes  | number | 3      | 分卷数量         |
+| chapters | number | 30     | 每卷章节数       |
 
 **自动创建目录结构**：
 
