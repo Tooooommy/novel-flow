@@ -4,46 +4,7 @@
 
 ---
 
-## 1. 元数据
-
-```yaml
-metadata:
-  skill_id: "skill-[模块]-[序号]" # 格式: skill-{domain}-{number}
-  name: "技能名称"
-  name_en: "Skill English Name"
-  version: "v1.0"
-  maintainer: "NovelFlow Team"
-  created_date: "2026-01-01"
-  last_updated: "2026-04-10"
-
-  # 依赖关系
-  dependencies:
-    skills: [] # 依赖的技能列表
-    agents: [] # 依赖的智能体
-
-  # 分类标签
-  tags:
-    - "创作"
-    - "优化"
-```
-
-### 技能 ID 规范
-
-| 模块前缀             | 说明       | 示例                     |
-| -------------------- | ---------- | ------------------------ |
-| `skill-main`         | 主控技能   | `skill-main-001`         |
-| `skill-creative`     | 创意研发部 | `skill-creative-001`     |
-| `skill-architecture` | 架构设计部 | `skill-architecture-001` |
-| `skill-content`      | 内容生产部 | `skill-content-001`      |
-| `skill-quality`      | 质量保证部 | `skill-quality-001`      |
-| `skill-publishing`   | 发布运营部 | `skill-publishing-001`   |
-| `skill-retro`        | 复盘改进部 | `skill-retro-001`        |
-| `skill-process`      | 流程协调部 | `skill-process-001`      |
-| `skill-system`       | 系统工具   | `skill-system-001`       |
-
----
-
-## 2. 基本信息
+## 1. 基本信息
 
 ### 描述
 
@@ -120,7 +81,7 @@ metadata:
 
 ---
 
-## 4. 输入输出规范
+## 3. 输入输出规范
 
 ### 输入规范
 
@@ -284,7 +245,7 @@ metadata:
 
 ---
 
-## 10. 更新日志
+## 9. 更新日志
 
 ```markdown
 ## 更新日志

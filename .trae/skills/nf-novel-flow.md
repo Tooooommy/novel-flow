@@ -1,17 +1,5 @@
 # Skill: nf-novel-flow
 
-## 元数据
-
-- **技能ID**: skill-main-001
-- **版本**: v1.0
-- **维护者**: NovelFlow Team
-- **创建日期**: 2026-01-01
-- **最后更新**: 2026-04-10
-- **依赖技能**: 所有其他技能
-- **依赖智能体**: nf-process-coordinator
-
----
-
 ## 描述
 
 Novelflow 小说创作流程主控技能，整合所有部门和智能体，提供一站式小说创作流程管理。支持**串行创作**和**并行分卷创作**两种模式。遵循"Think→Plan→Build→Review→Test→Ship→Reflect"的迭代开发模式。

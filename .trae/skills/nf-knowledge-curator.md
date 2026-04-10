@@ -1,17 +1,5 @@
 # Skill: nf-knowledge-curator
 
-## 元数据
-
-- **技能ID**: skill-retro-002
-- **版本**: v1.0
-- **维护者**: NovelFlow Team
-- **创建日期**: 2026-01-01
-- **最后更新**: 2026-04-10
-- **依赖技能**: 无
-- **依赖智能体**: nf-retrospection-improvement-dept
-
----
-
 ## 描述
 
 知识库管理员技能，负责管理小说创作过程中的知识沉淀、经验总结和最佳实践。
