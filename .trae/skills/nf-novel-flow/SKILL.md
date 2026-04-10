@@ -20,83 +20,37 @@ description: |
 
 ## 系统架构
 
-```mermaid
-flowchart TD
-    User([用户])
-
-    subgraph nf-novel-flow[主控技能]
-        direction LR
-        NF[nf-novel-flow]
-    end
-
-    User --> NF
-
-    NF --> IE[nf-idea-explorer<br/>创意探索]
-    NF --> SA[nf-story-architect<br/>世界观/人物/大纲]
-    NF --> CG[nf-content-generator<br/>正文生成]
-    NF --> SL[nf-style-learner<br/>风格学习]
-    NF --> LI[nf-logic-inspector<br/>逻辑审查]
-    NF --> CO[nf-compliance-officer<br/>合规审查]
-    NF --> QA[nf-quality-assessor<br/>质量评估]
-    NF --> SO[nf-specialist-optimizer<br/>专业优化]
-    NF --> PA[nf-platform-adapter<br/>平台适配]
-    NF --> KC[nf-knowledge-curator<br/>知识沉淀]
-    NF --> PA2[nf-process-analyst<br/>流程分析]
-
-    IE --> |创意研发| SA
-    SA --> |架构设计| CG
-    CG --> |内容生产| LI
-    CG --> CO
-    CG --> QA
-    QA --> SO
-    SO --> PA
-    PA --> KC
-    KC --> PA2
 ```
-
-| 层级         | 技能                    | 功能               |
-| ------------ | ----------------------- | ------------------ |
-| **创意研发** | nf-idea-explorer        | 创意探索           |
-| **架构设计** | nf-story-architect      | 世界观/人物/大纲   |
-| **内容生产** | nf-content-generator    | 正文生成           |
-| **内容生产** | nf-style-learner        | 风格学习           |
-| **质量保证** | nf-logic-inspector      | 逻辑审查           |
-| **质量保证** | nf-compliance-officer   | 合规审查           |
-| **质量保证** | nf-quality-assessor     | 质量评估           |
-| **专业优化** | nf-specialist-optimizer | 文风/对话/战斗优化 |
-| **发布运营** | nf-platform-adapter     | 平台适配           |
-| **知识管理** | nf-knowledge-curator    | 知识沉淀           |
-| **流程分析** | nf-process-analyst      | 流程分析           |
-
----
-
-## 技能调用关系
-
-### 阶段调用链
-
-```
-立项阶段:
-  idea → IE → 市场分析 → 创意生成
-       → VM → 分卷规划
-       → SL → 风格选择
-
-架构阶段:
-  outline → SA → 世界观 → 人物 → 主线
-          → VM → 卷大纲
-          → KC → 知识查询
-
-创作阶段:
-  write → CG → 正文生成
-        → LI → 逻辑审查
-        → CO → 合规检查
-        → QA → 质量评估
-        → SO → 专业优化
-        → VM → 卷衔接
-
-发布阶段:
-  publish → PA → 平台适配
-          → KC → 知识沉淀
-          → PA-ana → 流程复盘
+用户
+  │
+  └──→ nf-novel-flow（主控技能）
+            │
+            ├──→ 创意研发层
+            │       nf-idea-explorer（创意探索）
+            │
+            ├──→ 架构设计层
+            │       nf-story-architect（世界观/人物/大纲）
+            │
+            ├──→ 内容生产层
+            │       nf-content-generator（正文生成）
+            │       nf-style-learner（风格学习）
+            │
+            ├──→ 质量保证层
+            │       nf-logic-inspector（逻辑审查）
+            │       nf-compliance-officer（合规审查）
+            │       nf-quality-assessor（质量评估）
+            │
+            ├──→ 专业优化层
+            │       nf-specialist-optimizer（文风/对话/战斗优化）
+            │
+            ├──→ 发布运营层
+            │       nf-platform-adapter（平台适配）
+            │
+            ├──→ 知识管理层
+            │       nf-knowledge-curator（知识沉淀）
+            │
+            └──→ 流程分析层
+                    nf-process-analyst（流程分析）
 ```
 
 ---
@@ -152,11 +106,11 @@ flowchart TD
 
 | 检查阶段 | 门禁条件    | 不通过处理 | 超时处理      |
 | -------- | ----------- | ---------- | ------------- |
-| 立项     | 创意评分≥60 | 重新生成   | 自动通过      |
+| 立项     | 创意评分≥80 | 重新生成   | 自动通过      |
 | 大纲     | 结构完整    | 补充大纲   | 暂停等待      |
 | 人物     | 人物立体    | 完善设定   | 自动确认      |
-| 章节     | 质量评分≥70 | 优化重审   | 自动通过(>70) |
-| 优化     | 达标分数≥80 | 再次优化   | 保留原版      |
+| 章节     | 质量评分≥80 | 优化重审   | 自动通过(>80) |
+| 优化     | 达标分数≥85 | 再次优化   | 保留原版      |
 | 发布     | 合规检查    | 修改内容   | 暂停发布      |
 
 ---
@@ -166,51 +120,6 @@ flowchart TD
 ```mermaid
 flowchart LR
     A[idea] --> B[init] --> C[outline] --> D[volume] --> E[write] --> F[review] --> G[optimize] --> H[publish]
-```
-
----
-
-## 状态管理标准
-
-**项目状态机**:
-
-```mermaid
-stateDiagram-v2
-    [*] --> NONE
-    NONE --> INITIAL : init
-    INITIAL --> PLANNED : outline
-    PLANNED --> WRITING : write
-    WRITING --> WRITTEN : write
-    WRITTEN --> OPTIMIZED : optimize
-    OPTIMIZED --> READY : 全部章节完成
-    READY --> PUBLISHED : publish
-```
-
-**章节状态标准**:
-
-| 状态       | 说明       | 可执行操作       |
-| ---------- | ---------- | ---------------- |
-| pending    | 待创作     | write            |
-| writing    | 创作中     | -                |
-| reviewing  | 审查中     | -                |
-| passed     | 审查通过   | optimize         |
-| optimizing | 优化中     | -                |
-| completed  | 完成       | publish          |
-| rejected   | 审查不通过 | rewrite/optimize |
-
-**状态转换规则**:
-
-```
-pending → writing: write命令触发
-writing → reviewing: 章节生成完成
-reviewing → passed: 质量评分≥70
-reviewing → rejected: 质量评分<70
-rejected → writing: rewrite命令
-rejected → optimizing: optimize命令
-passed → optimizing: optimize命令
-optimizing → completed: 优化完成
-completed → ready: 所有章节完成
-ready → published: publish命令
 ```
 
 ---

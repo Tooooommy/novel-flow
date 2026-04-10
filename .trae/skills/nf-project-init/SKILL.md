@@ -19,16 +19,24 @@ description: |
 
 ### 项目立项
 
+> 根据选定的创意题材(包含书名、题材), 初始化项目目录结构
+
 ```
-/nf-project-init --name <名称> --genre <题材> --target <字数> [--chapter-size <每章字数>]
+/nf-project-init --target <字数> [--chapter-size <每章字数>]
 ```
 
 | 参数         | 类型   | 必填 | 默认值 | 说明     |
 | ------------ | ------ | ---- | ------ | -------- |
-| name         | string | 是   | -      | 小说名称 |
-| genre        | string | 是   | -      | 题材类型 |
 | target       | number | 是   | -      | 目标字数 |
 | chapter-size | number | 否   | 3500   | 每章字数 |
+
+**执行流程**：
+
+1. 获取用户选定的创意题材(包含书名、题材)
+2. 计算项目参数, 包括总章节数、卷数、每卷章节数
+3. 创建目录结构`novels/{name}/*`
+4. 生成项目文件`novels/{name}/novel.yaml`
+5. 输出完成信息
 
 ---
 
@@ -63,9 +71,9 @@ novels/{name}/
 │   ├── characters.md    # 人物
 │   ├── plot.md          # 主线
 │   ├── timeline.md      # 时间线
-│   └── volume-*.md      # 分卷大纲
+│   └── v-{卷号}-{卷名}.md      # 分卷大纲
 ├── content/        # 正文目录
-│   └── volume-1/ch-001.md
+│   └── v-{卷号}-{卷名}/ch-{章节号}-{章节名}.md
 └── research/      # 研究目录
 ```
 
@@ -81,7 +89,7 @@ chapter_size: { 每章字数 }
 total_chapters: { 总章节数 }
 volumes: { 卷数 }
 chapters_per_volume: { 每卷章节数 }
-status: planning
+status: { 项目状态/planning/writing/publishing }
 created: { 创建日期 }
 concept: |
   {核心概念一句话描述}
@@ -109,38 +117,6 @@ target_platforms: # 目标发布平台
 | 历史   | 穿越、架空、军事     | 25-45男    |
 | 科幻   | 星际、进化、末日     | 20-35男    |
 | 游戏   | 虚拟现实、电竞、副本 | 18-30男    |
-
----
-
-## 执行流程
-
-```
-1. 验证参数
-     │
-     ├──→ name为空 → 提示用户输入
-     ├──→ genre无效 → 使用默认题材（玄幻）
-     └──→ target无效 → 提示输入有效字数
-
-2. 计算项目参数
-     │
-     ├──→ 计算总章节数
-     ├──→ 计算卷数
-     └──→ 计算每卷章节数
-
-3. 创建目录结构
-     │
-     ├──→ 创建 novels/{name}/
-     ├──→ 创建 outline/ 子目录
-     ├──→ 创建 content/ 子目录
-     └──→ 创建 research/ 子目录
-
-4. 生成项目文件
-     │
-     ├──→ 生成 novel.yaml
-     └──→ 生成 README.md
-
-5. 输出完成信息
-```
 
 ---
 
