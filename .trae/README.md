@@ -874,4 +874,168 @@ graph TD
 复盘改进部: 项目总结，知识入库
 ```
 
+## 八、并行分卷创作模式 ⭐NEW
+
+### 适用场景
+
+- 多卷长篇小说（100万字以上）
+- 分卷相对独立的作品
+- 需要快速完成的作品
+
+### 效率对比
+
+| 模式          | 100万字小说 | 300万字小说 | 效率提升 |
+| ------------- | ----------- | ----------- | -------- |
+| 串行模式      | 约 5-7 天   | 约 15-21 天 | -        |
+| 并行模式(3卷) | 约 2-3 天   | 约 6-9 天   | **60%**  |
+
+### 并行流程图
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                   并行分卷创作流程                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Phase 1: 整体规划 (串行)                                       │
+│  ┌──────────┐    ┌──────────┐                                  │
+│  │  Think   │───▶│   Plan   │                                  │
+│  │  创意研发 │    │  整体架构 │                                  │
+│  └──────────┘    └────┬─────┘                                  │
+│                       │                                         │
+│                       ▼                                         │
+│              ┌──────────────┐                                   │
+│              │ Split Outline│                                   │
+│              │ 拆分为分卷大纲│                                   │
+│              └──────┬───────┘                                   │
+│                     │                                           │
+│  Phase 2: 并行创作 (并行)                                       │
+│                     ▼                                           │
+│         ┌─────────┬─────────┬─────────┐                        │
+│         ▼         ▼         ▼         ▼                        │
+│      ┌────┐   ┌────┐   ┌────┐   ┌────┐                        │
+│      │卷1 │   │卷2 │   │卷3 │   │卷4 │   ← 并行执行            │
+│      │创作│   │创作│   │创作│   │创作│                        │
+│      └──┬─┘   └──┬─┘   └──┬─┘   └──┬─┘                        │
+│         │        │        │        │                           │
+│         ▼        ▼        ▼        ▼                           │
+│      ┌────┐   ┌────┐   ┌────┐   ┌────┐                        │
+│      │审查│   │审查│   │审查│   │审查│   ← 并行审查            │
+│      └──┬─┘   └──┬─┘   └──┬─┘   └──┬─┘                        │
+│         │        │        │        │                           │
+│  Phase 3: 合并整合 (串行)                                       │
+│         └────────┴────────┴────────┘                           │
+│                     │                                           │
+│                     ▼                                           │
+│              ┌──────────────┐                                   │
+│              │Merge Volumes │                                   │
+│              │ 合并为全书   │                                   │
+│              └──────────────┘                                   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 分卷策略
+
+| 策略      | 说明         | 适用场景       |
+| --------- | ------------ | -------------- |
+| equal     | 等字数拆分   | 篇幅固定的作品 |
+| plot      | 剧情节点拆分 | 情节驱动的作品 |
+| character | 人物成长拆分 | 成长型作品     |
+
+### 执行命令
+
+```bash
+# 1. 拆分大纲为3卷
+/nf-novel-flow split --outline main.md --volumes 3 --strategy plot
+
+# 2. 并行创作3卷
+/nf-novel-flow parallel-build --volumes 1,2,3 --max-workers 3
+
+# 3. 合并为完整小说
+/nf-novel-flow merge --volumes vol1.md,vol2.md,vol3.md --output novel.md
+
+# 4. 一键执行完整并行流程
+/nf-novel-flow parallel-run --name "小说名" --volumes 3 --strategy plot
+```
+
+## 九、文件输出规范 ⭐NEW
+
+### 项目目录结构
+
+所有流程产生的文件都保存在 `novels/` 目录下，每个小说一个独立项目：
+
+```
+novels/
+└── <novel-name>/              # 小说项目目录
+    │
+    ├── novel.yaml              # 📋 小说元数据配置
+    │
+    ├── outline/                # 📝 大纲文档 (Plan 阶段输出)
+    │   ├── overview.md        # 总览
+    │   ├── world.md           # 世界观设定
+    │   ├── plot.md            # 主线剧情
+    │   ├── characters.md      # 人物关系图
+    │   ├── timeline.md        # 时间线
+    │   └── volume-1-outline.md
+    │   └── volume-2-outline.md
+    │   └── volume-3-outline.md
+    │
+    ├── content/                # 📖 正文内容 (Build 阶段输出)
+    │   ├── volume-1/
+    │   │   ├── ch-001.md     # 第1章
+    │   │   ├── ch-002.md
+    │   │   └── ...
+    │   ├── volume-2/
+    │   └── volume-3/
+    │
+    ├── drafts/                 # 📄 草稿
+    │   └── ...
+    │
+    ├── research/               # 🔍 研究资料 (Think 阶段输出)
+    │   ├── market-analysis.md
+    │   ├── idea-brainstorm.md
+    │   └── innovation-eval.md
+    │
+    ├── reviews/                # ✅ 审查报告 (Review 阶段输出)
+    │   ├── logic-check.md
+    │   ├── compliance.md
+    │   └── quality-report.md
+    │
+    └── output/                # 📦 发布输出 (Ship 阶段输出)
+        ├── full-novel.md      # 合并后完整版
+        ├── qidian/
+        └── tomato/
+```
+
+### 命令与文件对应
+
+| 命令     | 主要输出目录                             | 说明           |
+| -------- | ---------------------------------------- | -------------- |
+| `init`   | `novels/<name>/novel.yaml`               | 创建项目元数据 |
+| `think`  | `novels/<name>/research/`                | 创意研发文档   |
+| `plan`   | `novels/<name>/outline/`                 | 大纲文档       |
+| `split`  | `novels/<name>/outline/volume-*.md`      | 分卷大纲       |
+| `build`  | `novels/<name>/content/volume-X/ch-*.md` | 正文章节       |
+| `merge`  | `novels/<name>/output/full-novel.md`     | 合并后全文     |
+| `review` | `novels/<name>/reviews/`                 | 审查报告       |
+| `ship`   | `novels/<name>/output/<platform>/`       | 平台适配版本   |
+
+### 文件命名规范
+
+```bash
+# 章节文件
+ch-XXX.md           # XXX 为三位章节号，如 ch-001.md
+
+# 分卷大纲
+volume-X-outline.md # X 为卷号，如 volume-1-outline.md
+
+# 草稿版本
+ch-XXX-draft-vN.md  # N 为版本号，如 ch-001-draft-v1.md
+
+# 审查报告
+<type>-<date>.md    # 如 logic-check-20240115.md
+```
+
+---
+
 这个优化后的方案完全遵循"Think→Plan→Build→Review→Test→Ship→Reflect"的迭代流程，每个阶段都有专门的智能体和技能支撑，形成一个完整的、可自我改进的小说创作AI系统。

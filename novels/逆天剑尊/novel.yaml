@@ -1,0 +1,36 @@
+# 小说项目元数据
+# 由 nf-novel-flow init 命令生成
+
+metadata:
+  name: "逆天剑尊"
+  genre: "玄幻"
+  created_at: "2026-04-09"
+  updated_at: "2026-04-09"
+
+  # 篇幅规划
+  planning:
+    total_word_count: 900000
+    volumes: 3
+    chapters_per_volume: 100
+    words_per_chapter: 3000
+
+  # 平台信息
+  platform:
+    primary: "起点中文网"
+    secondary: ["番茄小说", "飞卢小说"]
+
+  # 状态
+  status:
+    phase: "init"
+    progress: 0
+    current_volume: null
+    current_chapter: null
+
+# 智能体追踪
+agents:
+  process_coordinator: null
+  creative_rd: null
+  architecture_design: null
+  content_production: null
+  quality_assurance: null
+  publishing_ops: null
