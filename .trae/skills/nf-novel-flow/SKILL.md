@@ -516,27 +516,78 @@ target_platforms: # 目标发布平台
   - 铺垫型: 25% (世界观/情感)
   - 高潮型: 15% (大场面战斗/重大转折)
 
-**生成文件**：
+**生成文件结构**：
 
 ```
-outline/
-├── overview.md        # 小说总览
-├── world.md          # 世界设定
-├── characters.md     # 人物档案
-├── plot.md           # 主线剧情
-├── timeline.md        # 时间线
-├── volume-1/
-│   └── outline.md    # 卷1大纲
-├── volume-2/
-│   └── outline.md    # 卷2大纲
-└── volume-N/
-    └── outline.md    # 卷N大纲
+{project}/
+├── outline/
+│   └── outline.md          # 小说总大纲
+├── content/
+│   ├── volume-1-{volume-name}/
+│   │   └── outline.md      # 卷1大纲
+│   ├── volume-2-{volume-name}/
+│   │   └── outline.md      # 卷2大纲
+│   └── volume-N-{volume-name}/
+│       └── outline.md      # 卷N大纲
+└── novel.yaml              # 项目元数据
 ```
 
-**分卷大纲模板**（每卷独立文件）：
+**总大纲模板**（`outline/outline.md`）：
 
 ```markdown
-# 第X卷: 《卷标题》
+# {小说名称}
+
+## 基本信息
+
+- 类型: {genre}
+- 目标字数: {target} 字
+- 总卷数: {volumes} 卷
+- 总章节数: {total_chapters} 章
+- 状态: {status}
+
+## 故事概念
+
+{concept}
+
+## 主线剧情
+
+{主线剧情概述}
+
+## 世界观设定
+
+{世界观核心要素}
+
+## 主要人物
+
+{人物档案摘要}
+
+## 分卷概览
+
+| 卷  | 标题      | 章节范围                                         | 核心剧情   |
+| --- | --------- | ------------------------------------------------ | ---------- |
+| 1   | {卷1标题} | 1-{chapters_per_volume}                          | {核心剧情} |
+| 2   | {卷2标题} | {chapters_per_volume+1}-{chapters_per_volume\*2} | {核心剧情} |
+| N   | {卷N标题} | ...                                              | {核心剧情} |
+
+## 时间线
+
+{关键时间节点}
+
+## 伏笔埋设与回收
+
+{伏笔记录}
+```
+
+**分卷大纲模板**（`content/volume-N-{volume-name}/outline.md`）：
+
+```markdown
+# 第N卷: 《{卷标题}》
+
+## 卷信息
+
+- 章节范围: {start_chapter}-{end_chapter}
+- 章节数量: {chapters_in_volume}
+- 主题: {卷主题}
 
 ## 卷简介
 
@@ -548,8 +599,7 @@ outline/
 
 ## 主要人物
 
-- 主角: 本卷主要行动
-- 女主1: 本卷情感发展
+- 主角: 本卷主要行动 -女主1: 本卷情感发展
 - 反派: 本卷威胁来源
 
 ## 场景设置
@@ -557,13 +607,19 @@ outline/
 - 场景1: 地点和特点
 - 场景2: 地点和特点
 
-## 章节目录
+## 章节大纲
 
 ### 第一阶段: 铺垫期 (第X-X章)
 
+{章节1-10的详细大纲}
+
 ### 第二阶段: 发展期 (第X-X章)
 
+{章节11-30的详细大纲}
+
 ### 第三阶段: 高潮期 (第X-X章)
+
+{章节31-{chapters_per_volume}的详细大纲}
 
 ## 章节详情
 
