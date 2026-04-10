@@ -22,14 +22,14 @@ description: |
 ### full - 生成完整大纲
 
 ```
-/nf-story-architect full [--genre <题材>] [--chapters <数量>] [--volumes <卷数>]
+/nf-story-architect full [--metadata <元数据文件>]
 ```
 
-| 参数     | 类型   | 必填 | 默认值   | 说明       |
-| -------- | ------ | ---- | -------- | ---------- |
-| genre    | string | 否   | 当前项目 | 题材类型   |
-| chapters | number | 否   | 30       | 每卷章节数 |
-| volumes  | number | 否   | 3        | 分卷数量   |
+| 参数     | 类型   | 必填 | 默认值     | 说明           |
+| -------- | ------ | ---- | ---------- | -------------- |
+| metadata | string | 是   | novel.yaml | 项目元数据文件 |
+
+自动读取 `novel.yaml` 项目元数据文件，包含小说的题材、字数、分卷数量、每卷章节数等信息。
 
 **执行流程**:
 
@@ -37,6 +37,7 @@ description: |
 2. 调用characters命令设计主要人物设定等
 3. 调用structure命令规划主线、副本、章节规划等
 4. 调用outline命令生成完整主线大纲
+5. 调用volume命令生成分卷大纲
 
 **执行方案**:
 
@@ -56,6 +57,14 @@ description: |
 ```
 /nf-story-architect world [--genre <题材>] [--scale <规模>]
 ```
+
+| 参数  | 类型   | 必填 | 默认值 | 说明     |
+| ----- | ------ | ---- | ------ | -------- |
+| genre | string | 否   | -      | 小说题材 |
+| scale | string | 否   | -      | 世界规模 |
+
+genre 小说题材，如 "修仙流"、"武侠流" 等。
+scale 世界规模，如 "中"、"大" 等。
 
 **执行方案**:
 
