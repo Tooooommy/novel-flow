@@ -138,9 +138,8 @@ flowchart LR
 /nf write [--volume <卷号>] [--chapter <章节号>] [--style <风格>]
 ```
 
-1. 调用子技能 [style](../style/SKILL.md) 获取当前风格指导
-2. 调用子技能 [nf-content-generator](../nf-content-generator/SKILL.md) 命令生成章节正文
-3. 输出生成的章节正文
+1. 调用子技能 [nf-content-generator](../nf-content-generator/SKILL.md) 生成章节正文
+2. 输出生成的章节正文
 
 ---
 
