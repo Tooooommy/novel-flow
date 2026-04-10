@@ -1053,8 +1053,9 @@ ch-XXX-draft-vN.md  # N 为版本号，如 ch-001-draft-v1.md
 |------|------|--------|------|
 | `--name` | 是 | - | 小说名称 |
 | `--genre` | 是 | - | 题材类型 |
-| `--volumes` | 否 | 3 | 分卷数量 |
-| `--chapters` | 否 | 30 | 每卷章节数 |
+| `--target` | 否 | 100000 | 目标字数（自动计算分卷） |
+| `--volumes` | 否 | auto | 分卷数量（根据target自动计算） |
+| `--chapters` | 否 | auto | 每卷章节数（根据target自动计算） |
 | `--platform` | 否 | - | 发布平台 |
 
 #### 2. 分步创作（推荐进阶用户）
@@ -1070,18 +1071,18 @@ ch-XXX-draft-vN.md  # N 为版本号，如 ch-001-draft-v1.md
 **Step 2: 项目立项**
 
 ```bash
-/nf init --name 逆天剑尊 --genre 玄幻 --volumes 3 --chapters 30 --target 1000000
+/nf init --name 逆天剑尊 --genre 玄幻 --target 1000000
 ```
 
-创建项目目录结构（指定篇幅参数）。
+创建项目目录结构（自动计算分卷：100万字 → 3卷×33章）。
 
 **Step 3: 生成大纲**
 
 ```bash
-/nf outline --volumes 3 --chapters 30
+/nf outline
 ```
 
-生成完整大纲体系。
+生成完整大纲体系（基于立项时自动计算的分卷结构）。
 
 **Step 4: 创作正文**
 
