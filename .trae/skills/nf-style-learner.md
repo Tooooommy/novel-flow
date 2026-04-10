@@ -1,24 +1,18 @@
-# Skill: nf-style-learner
-
-## 描述
-
-风格学习技能，为 `/nf write` 命令提供文风应用能力。支持内置作家风格和用户自定义风格。
-
-## 调用方式
-
-由主控技能 `/nf write` 调用，无需直接使用。
-
+---
+name: nf-style-learner
+description: |
+  风格学习技能。为 `/nf write` 命令提供能力。
+  当用户要学习文风、模仿作家风格、设置默认文风时使用。
+  内置6位知名网文作家风格。
 ---
 
-## full
+# 风格学习技能
 
-**获取文风设置**
+## 使用场景
 
-```
-/nf-style-learner full --author <作家名>
-```
-
-**执行：** analyze → rules → apply
+- 用户要模仿某作家风格
+- 用户要学习自定义文风
+- 用户要设置默认写作风格
 
 ---
 
@@ -35,27 +29,37 @@
 
 ---
 
-## 内部子命令
+## 命令
 
-### list
+### full - 获取文风
 
-**列出可用风格**
+```
+/nf-style-learner full [--author <作家名>]
+```
+
+| 参数   | 类型   | 必填 | 默认值 | 说明     |
+| ------ | ------ | ---- | ------ | -------- |
+| author | string | 否   | -      | 作家名称 |
+
+**执行**: analyze → rules → apply
+
+---
+
+## 内部命令
+
+### list - 列出风格
 
 ```
 /nf-style-learner list
 ```
 
-### author
-
-**获取作家详情**
+### author - 作家详情
 
 ```
 /nf-style-learner author --name <作家名>
 ```
 
-### learn
-
-**学习自定义风格**
+### learn - 学习风格
 
 ```
 /nf-style-learner learn --samples <样本文本>

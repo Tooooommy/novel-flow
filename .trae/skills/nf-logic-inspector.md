@@ -1,24 +1,30 @@
-# Skill: nf-logic-inspector
+---
+name: nf-logic-inspector
+description: |
+  逻辑审查技能。为 `/nf review` 命令提供能力。
+  当用户要审查章节逻辑、检查时间线、检查伏笔呼应、验证设定一致性时使用。
+---
 
-## 描述
+# 逻辑审查技能
 
-逻辑审查官技能，为 `/nf review` 命令提供逻辑审查能力。检查情节合理性、设定连贯性、伏笔呼应。
+## 使用场景
 
-## 调用方式
-
-由主控技能 `/nf review` 调用，无需直接使用。
+- 用户要审查章节逻辑
+- 用户要检查时间线
+- 用户要验证伏笔呼应
+- 用户要检查设定一致性
 
 ---
 
-## full
+## 命令
 
-**逻辑审查**
+### full - 逻辑审查
 
 ```
-/nf-logic-inspector full --chapter <章节号>
+/nf-logic-inspector full [--chapter <章节号>]
 ```
 
-**执行：** consistency → timeline → plot-holes
+**执行**: consistency → timeline → plotholes
 
 **审查内容**:
 
@@ -32,39 +38,31 @@
 
 ```json
 {
-  "issues": [
-    {"type": "LOGIC", "chapter": 5, "description": "..."}
-  ],
-  "passed": true/false
+  "issues": [],
+  "passed": true
 }
 ```
 
 ---
 
-## 内部子命令
+## 内部命令
 
-### consistency
-
-**检查连贯性**
+### consistency - 连贯性
 
 ```
-/nf-logic-inspector consistency --text <文本>
+/nf-logic-inspector consistency [--chapter <章节号>]
 ```
 
-### timeline
-
-**检查时间线**
+### timeline - 时间线
 
 ```
-/nf-logic-inspector timeline --events <事件列表>
+/nf-logic-inspector timeline [--chapter <章节号>]
 ```
 
-### plotholes
-
-**检查伏笔**
+### plotholes - 伏笔
 
 ```
-/nf-logic-inspector plotholes --chapter <章节号>
+/nf-logic-inspector plotholes [--chapter <章节号>]
 ```
 
 ---

@@ -1,79 +1,82 @@
-# Skill: nf-story-architect
+---
+name: nf-story-architect
+description: |
+  故事架构技能。为 `/nf outline` 命令提供能力。
+  当用户要生成小说大纲、设计世界观、创建人物设定、规划分卷结构时使用。
+  整合世界观构建、人物设计、篇幅规划功能。
+---
 
-## 描述
+# 故事架构技能
 
-故事架构师技能，为 `/nf outline` 命令提供大纲设计能力。整合世界观、人物、篇幅、大纲生成。
+## 使用场景
 
-## 调用方式
-
-由主控技能 `/nf outline` 调用，无需直接使用。
+- 用户要生成小说大纲
+- 用户要设计世界观设定
+- 用户要创建人物设定
+- 用户要生成分卷大纲
 
 ---
 
-## full
+## 命令
 
-**生成完整大纲** - 含总分卷结构
+### full - 生成完整大纲
 
 ```
-/nf-story-architect full --genre <题材> --chapters <数量> --volumes <卷数>
+/nf-story-architect full [--genre <题材>] [--chapters <数量>] [--volumes <卷数>]
 ```
 
-**执行：** world → characters → structure → outline → volumes
+| 参数     | 类型   | 必填 | 默认值   | 说明       |
+| -------- | ------ | ---- | -------- | ---------- |
+| genre    | string | 否   | 当前项目 | 题材类型   |
+| chapters | number | 否   | 30       | 每卷章节数 |
+| volumes  | number | 否   | 3        | 分卷数量   |
 
-**输出结构**:
+**执行**: world → characters → structure → outline → volumes
+
+**输出**:
 
 ```
 novels/{project}/
-├── outline.md          # 总大纲
-├── characters.md       # 人物设定
-├── world.md           # 世界观设定
-├── volume-1.md        # 第一卷大纲
-├── volume-2.md        # 第二卷大纲
-└── volume-3.md        # 第三卷大纲
+├── outline.md      # 总大纲
+├── characters.md   # 人物设定
+├── world.md       # 世界观设定
+├── volume-1.md    # 第一卷大纲
+├── volume-2.md    # 第二卷大纲
+└── volume-3.md    # 第三卷大纲
 ```
 
 ---
 
-## 内部子命令
+## 内部命令
 
-### world
-
-**构建世界观**
+### world - 构建世界观
 
 ```
-/nf-story-architect world --genre <题材> --scale <规模>
+/nf-story-architect world [--genre <题材>] [--scale <规模>]
 ```
 
-### characters
-
-**设计人物**
+### characters - 设计人物
 
 ```
-/nf-story-architect characters --count <数量> --type <类型>
+/nf-story-architect characters [--count <数量>]
 ```
 
-### structure
-
-**篇章结构**
+### structure - 篇章结构
 
 ```
-/nf-story-architect structure --volumes <卷数> --chapters <总章节>
+/nf-story-architect structure [--volumes <卷数>] [--chapters <总章节>]
 ```
 
-### outline
-
-**生成大纲**
+### outline - 生成大纲
 
 ```
-/nf-story-architect outline --framework <框架> --theme <主题>
+/nf-story-architect outline [--framework <框架>] [--theme <主题>]
 ```
 
-### volumes
-
-**生成分卷**
+### volumes - 生成分卷
 
 ```
-/nf-story-architect volumes --count <卷数> --outline <总纲>
+/nf-story-architect volumes [--count <卷数>]
 ```
 
 ---

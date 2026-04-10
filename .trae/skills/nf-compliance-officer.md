@@ -1,24 +1,34 @@
-# Skill: nf-compliance-officer
+---
+name: nf-compliance-officer
+description: |
+  合规审查技能。为 `/nf review` 命令提供能力。
+  当用户要检查敏感内容、过滤违规词汇、检查平台规范时使用。
+---
 
-## 描述
+# 合规审查技能
 
-安全合规官技能，为 `/nf review` 命令提供合规检查能力。检测敏感内容、违规词汇、平台规范。
+## 使用场景
 
-## 调用方式
-
-由主控技能 `/nf review` 调用，无需直接使用。
+- 用户要检查敏感内容
+- 用户要过滤违规词汇
+- 用户要检查平台规范
 
 ---
 
-## full
+## 命令
 
-**合规审查**
+### full - 合规审查
 
 ```
-/nf-compliance-officer full --chapter <章节号> --level <standard|strict>
+/nf-compliance-officer full [--chapter <章节号>] [--level <standard|strict>]
 ```
 
-**执行：** sensitive → vocabulary → platform
+| 参数    | 类型   | 必填 | 默认值   | 说明     |
+| ------- | ------ | ---- | -------- | -------- |
+| chapter | number | 否   | 当前     | 章节号   |
+| level   | string | 否   | standard | 审查级别 |
+
+**执行**: sensitive → vocabulary → platform
 
 **审查内容**:
 
@@ -30,31 +40,31 @@
 
 ```json
 {
-  "issues": [
-    {"type": "SENSITIVE", "chapter": 11, "description": "敏感词..."}
-  ],
-  "passed": true/false
+  "issues": [],
+  "passed": true
 }
 ```
 
 ---
 
-## 内部子命令
+## 内部命令
 
-### sensitive
-
-**敏感内容检测**
+### sensitive - 敏感内容
 
 ```
-/nf-compliance-officer sensitive --text <文本>
+/nf-compliance-officer sensitive [--text <文本>]
 ```
 
-### vocabulary
-
-**违规词汇检测**
+### vocabulary - 词汇
 
 ```
-/nf-compliance-officer vocabulary --text <文本>
+/nf-compliance-officer vocabulary [--text <文本>]
+```
+
+### platform - 平台规范
+
+```
+/nf-compliance-officer platform [--platform <平台>]
 ```
 
 ---
