@@ -874,7 +874,7 @@ graph TD
 复盘改进部: 项目总结，知识入库
 ```
 
-## 八、并行分卷创作模式 ⭐NEW
+## 八、并行分卷创作模式
 
 ### 适用场景
 
@@ -958,7 +958,7 @@ graph TD
 /nf-novel-flow parallel-run --name "小说名" --volumes 3 --strategy plot
 ```
 
-## 九、文件输出规范 ⭐NEW
+## 九、文件输出规范
 
 ### 项目目录结构
 

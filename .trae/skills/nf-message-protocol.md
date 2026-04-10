@@ -1,44 +1,57 @@
 # Skill: nf-message-protocol
 
 ## 描述
+
 消息传递协议技能，定义 NovelFlow 系统中各智能体之间的通信标准和消息格式。
 
 ## 调用方式
+
 ```
 /nf-message-protocol <command> [options]
 ```
 
 ## 命令
 
-### full ⭐NEW
+### full
+
 **一键完整消息处理**
+
 ```
 /nf-message-protocol full --type <message-type> --sender <agent> --receiver <agent>
 ```
+
 **执行：** create → validate → log
 
 ---
 
 ### create
+
 创建新消息
+
 ```
 /nf-message-protocol create --type <message-type> --sender <agent> --receiver <agent>
 ```
 
 ### validate
+
 验证消息格式
+
 ```
 /nf-message-protocol validate --message <message-data>
 ```
 
 ### log
+
 记录消息日志
+
 ```
 /nf-message-protocol log --message <message-id>
 ```
 
 ### query
+
 查询消息历史
+
 ```
 /nf-message-protocol query --filter <filters>
 ```
@@ -51,33 +64,33 @@
 message:
   # 元数据
   metadata:
-    id: "MSG-{timestamp}-{uuid}"      # 消息唯一标识
-    timestamp: "2024-01-15T10:30:00Z"  # ISO 8601 格式
-    version: "1.0"                     # 协议版本
-  
+    id: "MSG-{timestamp}-{uuid}" # 消息唯一标识
+    timestamp: "2024-01-15T10:30:00Z" # ISO 8601 格式
+    version: "1.0" # 协议版本
+
   # 路由信息
   routing:
-    sender: "agent-id"                 # 发送方智能体ID
-    receiver: "agent-id"               # 接收方智能体ID
-    cc: ["agent-id"]                   # 抄送列表
-    priority: high/medium/low          # 优先级
-  
+    sender: "agent-id" # 发送方智能体ID
+    receiver: "agent-id" # 接收方智能体ID
+    cc: ["agent-id"] # 抄送列表
+    priority: high/medium/low # 优先级
+
   # 消息类型
   type: task/notification/query/response/event
-  
+
   # 消息内容
   payload:
-    action: "specific-action"          # 具体操作
-    parameters: {}                     # 参数
-    context: {}                        # 上下文信息
-    attachments: []                    # 附件列表
-  
+    action: "specific-action" # 具体操作
+    parameters: {} # 参数
+    context: {} # 上下文信息
+    attachments: [] # 附件列表
+
   # 控制信息
   control:
-    require_ack: true/false            # 是否需要确认
-    timeout: 300                       # 超时时间（秒）
-    retry_count: 3                     # 重试次数
-    expires_at: "timestamp"            # 过期时间
+    require_ack: true/false # 是否需要确认
+    timeout: 300 # 超时时间（秒）
+    retry_count: 3 # 重试次数
+    expires_at: "timestamp" # 过期时间
 ```
 
 ### 消息类型详解
@@ -125,7 +138,7 @@ type: response
 payload:
   status: success/failure/partial
   result: {}
-  error: {}           # 失败时包含
+  error: {} # 失败时包含
   execution_time: 120 # 执行时间（秒）
 ```
 
@@ -166,7 +179,7 @@ payload:
     message: "详细错误信息"
     details: {}
     suggestion: "修复建议"
-  stack_trace: "..."  # 开发环境包含
+  stack_trace: "..." # 开发环境包含
 ```
 
 ## 确认机制
@@ -219,7 +232,7 @@ dead_letter_queue:
     - max_retries_exceeded
     - message_expired
     - validation_failed
-  retention_period: 604800  # 7天
+  retention_period: 604800 # 7天
 ```
 
 ## 消息追踪
@@ -247,7 +260,7 @@ trace:
 security:
   signature: "..."
   algorithm: "HMAC-SHA256"
-  timestamp_tolerance: 300  # 5分钟时间窗口
+  timestamp_tolerance: 300 # 5分钟时间窗口
 ```
 
 ### 敏感信息处理
@@ -255,7 +268,7 @@ security:
 ```yaml
 sensitive_data:
   encryption: "AES-256"
-  key_rotation: 86400  # 24小时轮换
+  key_rotation: 86400 # 24小时轮换
   fields: ["user_data", "financial_info"]
 ```
 
@@ -315,7 +328,9 @@ message:
 ```
 
 ## 输出格式
+
 消息协议文档包含：
+
 - 消息格式规范
 - 类型定义
 - 错误代码表

@@ -12,7 +12,7 @@
 
 ## 命令
 
-### full ⭐NEW
+### full
 
 **一键全量优化（推荐）**
 
@@ -20,13 +20,7 @@
 /nf-specialist-optimizer full --text <text-content>
 ```
 
-**执行流程：**
-
-```
-humanize (去AI) → tighten (精简) → enhance (增强) → dialogue (对话优化) → polish (润色)
-```
-
-**输出：** 完整优化报告 + AI味道残留率
+**执行：** humanize → tighten → enhance → dialogue → polish
 
 ---
 

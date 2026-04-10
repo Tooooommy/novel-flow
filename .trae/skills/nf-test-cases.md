@@ -1,44 +1,57 @@
 # Skill: nf-test-cases
 
 ## 描述
+
 评测用例管理技能，为 NovelFlow 各技能模块提供测试用例设计、执行和报告功能。
 
 ## 调用方式
+
 ```
 /nf-test-cases <command> [options]
 ```
 
 ## 命令
 
-### full ⭐NEW
+### full
+
 **一键完整测试执行**
+
 ```
 /nf-test-cases full --module <module-name>
 ```
+
 **执行：** create → run → batch
 
 ---
 
 ### create
+
 创建测试用例
+
 ```
 /nf-test-cases create --module <module-name> --type <test-type>
 ```
 
 ### run
+
 执行测试用例
+
 ```
 /nf-test-cases run --case-id <case-id> [--input <test-input>]
 ```
 
 ### batch
+
 批量执行测试
+
 ```
 /nf-test-cases batch --module <module> [--coverage <percentage>]
 ```
 
 ### report
+
 生成测试报告
+
 ```
 /nf-test-cases report --run-id <run-id> [--format <format>]
 ```
@@ -57,29 +70,29 @@ test_case:
     updated_at: "2024-01-15"
     version: "1.0"
     author: "创建者"
-  
+
   target:
     module: "模块名称"
     skill: "技能名称"
     function: "具体功能"
-  
+
   type: unit/integration/e2e/regression
   priority: critical/high/medium/low
-  
+
   input:
     data: {}
     context: {}
     parameters: {}
-  
+
   expected:
     output: {}
     metrics: {}
     constraints: []
-  
+
   validation:
     assertions: []
     checks: []
-  
+
   cleanup:
     required: true/false
     actions: []
@@ -95,7 +108,7 @@ test_case:
 metadata:
   id: "TEST-IDEA-001"
   name: "玄幻题材创意生成测试"
-  
+
 target:
   module: "creative_rd"
   skill: "nf-idea-explorer"
@@ -453,6 +466,7 @@ expected:
 # 测试执行报告
 
 ## 执行概况
+
 - 执行时间: 2024-01-15 10:00:00
 - 测试套件: NovelFlow v1.0
 - 总用例数: 50
@@ -464,25 +478,29 @@ expected:
 ## 详细结果
 
 ### 创意研发模块 (TEST-IDEA)
-| 用例ID | 名称 | 状态 | 耗时 | 备注 |
-|--------|------|------|------|------|
-| TEST-IDEA-001 | 玄幻题材创意生成 | ✅ 通过 | 2.3s | - |
-| TEST-IDEA-002 | 创意新颖度评估 | ✅ 通过 | 1.8s | - |
+
+| 用例ID        | 名称             | 状态    | 耗时 | 备注 |
+| ------------- | ---------------- | ------- | ---- | ---- |
+| TEST-IDEA-001 | 玄幻题材创意生成 | ✅ 通过 | 2.3s | -    |
+| TEST-IDEA-002 | 创意新颖度评估   | ✅ 通过 | 1.8s | -    |
 
 ### 架构设计模块 (TEST-ARCH)
-| 用例ID | 名称 | 状态 | 耗时 | 备注 |
-|--------|------|------|------|------|
-| TEST-ARCH-001 | 篇幅规划 | ✅ 通过 | 0.5s | - |
+
+| 用例ID        | 名称         | 状态    | 耗时 | 备注         |
+| ------------- | ------------ | ------- | ---- | ------------ |
+| TEST-ARCH-001 | 篇幅规划     | ✅ 通过 | 0.5s | -            |
 | TEST-ARCH-002 | 世界观一致性 | ❌ 失败 | 1.2s | 检测到不一致 |
 
 ## 失败分析
 
 ### TEST-ARCH-002
+
 - **问题**: 世界观规则检测未通过
 - **原因**: 魔法系统设定与剧情冲突
 - **建议**: 调整剧情或修改设定
 
 ## 覆盖率统计
+
 - 代码覆盖率: 87%
 - 功能覆盖率: 95%
 - 场景覆盖率: 82%
@@ -498,23 +516,25 @@ pipeline:
     - name: "unit_tests"
       modules: ["idea", "market", "arch"]
       parallel: true
-      
+
     - name: "integration_tests"
       modules: ["content", "qa"]
       depends_on: ["unit_tests"]
-      
+
     - name: "e2e_tests"
       scenario: "full_workflow"
       depends_on: ["integration_tests"]
-      
+
   triggers:
     - push
     - pull_request
-    - scheduled: "0 2 * * *"  # 每天凌晨2点
+    - scheduled: "0 2 * * *" # 每天凌晨2点
 ```
 
 ## 输出格式
+
 测试报告包含：
+
 - 执行概况
 - 详细结果
 - 失败分析

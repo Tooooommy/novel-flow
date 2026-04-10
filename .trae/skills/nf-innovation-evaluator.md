@@ -1,55 +1,71 @@
 # Skill: nf-innovation-evaluator
 
 ## 描述
+
 创新评估师技能，负责评估创意的新颖性、可行性和市场潜力，筛选最优创意方向。
 
 ## 调用方式
+
 ```
 /nf-innovation-evaluator <command> [options]
 ```
 
 ## 命令
 
-### full ⭐NEW
+### full
+
 **一键完整创意评估**
+
 ```
 /nf-innovation-evaluator full --idea <idea-description>
 ```
+
 **执行：** score → risk → compare
 
 ---
 
 ### score
+
 对创意进行多维度评分
+
 ```
 /nf-innovation-evaluator score --idea <idea-description> [--criteria <criteria-list>]
 ```
 
 ### compare
+
 对比多个创意方案
+
 ```
 /nf-innovation-evaluator compare --ideas <idea1;idea2;idea3...>
 ```
 
 ### risk
+
 评估创意风险
+
 ```
 /nf-innovation-evaluator risk --idea <idea-description> [--market <market-context>]
 ```
 
 ### feasibility
+
 可行性分析
+
 ```
 /nf-innovation-evaluator feasibility --idea <idea-description> [--resources <resource-constraints>]
 ```
 
 ### recommend
+
 推荐最佳创意
+
 ```
 /nf-innovation-evaluator recommend --ideas <idea-list> [--goal <goal-description>]
 ```
 
 ## 评估维度
+
 - 新颖性 (Novelty): 1-10分
 - 可行性 (Feasibility): 1-10分
 - 市场潜力 (Market Potential): 1-10分
@@ -58,7 +74,9 @@
 - 延展性 (Scalability): 1-10分
 
 ## 输出格式
+
 评估报告包含：
+
 - 综合评分雷达图（文本形式）
 - 各维度详细分析
 - SWOT分析

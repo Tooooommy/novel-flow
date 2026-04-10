@@ -1,44 +1,57 @@
 # Skill: nf-best-practices
 
 ## 描述
+
 最佳实践库技能，收录 NovelFlow 系统中的成功经验、高效方法和优质模板。
 
 ## 调用方式
+
 ```
 /nf-best-practices <command> [options]
 ```
 
 ## 命令
 
-### full ⭐NEW
+### full
+
 **一键完整最佳实践应用**
+
 ```
 /nf-best-practices full --category <category>
 ```
+
 **执行：** list → get → apply
 
 ---
 
 ### list
+
 列出最佳实践
+
 ```
 /nf-best-practices list [--category <category>] [--phase <phase>]
 ```
 
 ### get
+
 获取具体实践
+
 ```
 /nf-best-practices get <practice-id>
 ```
 
 ### apply
+
 应用最佳实践
+
 ```
 /nf-best-practices apply <practice-id> --context <context>
 ```
 
 ### contribute
+
 贡献新实践
+
 ```
 /nf-best-practices contribute --template <template>
 ```
@@ -46,6 +59,7 @@
 ## 技能设计原则
 
 ### 1. 单一职责原则
+
 ```yaml
 principle: "每个技能只做一件事"
 explanation: "一个技能应该只有一个引起它变化的原因"
@@ -59,6 +73,7 @@ examples:
 ```
 
 ### 2. 明确接口原则
+
 ```yaml
 principle: "输入输出清晰定义"
 explanation: "技能的接口应该明确、稳定、文档化"
@@ -73,6 +88,7 @@ requirements:
 ```
 
 ### 3. 可测试性原则
+
 ```yaml
 principle: "每个技能都有评测用例"
 explanation: "技能应该设计为可测试的，便于验证正确性"
@@ -87,6 +103,7 @@ practices:
 ```
 
 ### 4. 可复用性原则
+
 ```yaml
 principle: "设计时考虑复用场景"
 explanation: "技能应该能够在不同场景下复用"
@@ -101,6 +118,7 @@ strategies:
 ```
 
 ### 5. 可扩展性原则
+
 ```yaml
 principle: "支持功能扩展"
 explanation: "技能应该容易扩展新功能"
@@ -117,6 +135,7 @@ approaches:
 ## 智能体协作原则
 
 ### 1. 松耦合原则
+
 ```yaml
 principle: "智能体间依赖最小化"
 explanation: "智能体之间应该通过消息通信，而非直接调用"
@@ -131,6 +150,7 @@ practices:
 ```
 
 ### 2. 高内聚原则
+
 ```yaml
 principle: "相关功能集中管理"
 explanation: "一个智能体应该负责一组紧密相关的功能"
@@ -144,6 +164,7 @@ examples:
 ```
 
 ### 3. 容错设计原则
+
 ```yaml
 principle: "错误不影响整体流程"
 explanation: "单个智能体的失败不应该导致整个系统崩溃"
@@ -158,6 +179,7 @@ strategies:
 ```
 
 ### 4. 状态可追溯原则
+
 ```yaml
 principle: "所有操作有记录"
 explanation: "系统应该记录所有重要操作和状态变更"
@@ -172,6 +194,7 @@ practices:
 ```
 
 ### 5. 性能可监控原则
+
 ```yaml
 principle: "关键指标可测量"
 explanation: "系统应该暴露关键性能指标"
@@ -189,6 +212,7 @@ metrics:
 ## 项目管理原则
 
 ### 1. 迭代开发原则
+
 ```yaml
 principle: "小步快跑，持续交付"
 explanation: "将大任务分解为小迭代，快速交付价值"
@@ -203,6 +227,7 @@ practices:
 ```
 
 ### 2. 数据驱动原则
+
 ```yaml
 principle: "决策基于数据分析"
 explanation: "用数据支撑决策，而非主观判断"
@@ -218,6 +243,7 @@ metrics:
 ```
 
 ### 3. 用户中心原则
+
 ```yaml
 principle: "始终考虑最终读者"
 explanation: "所有决策都应该以读者体验为出发点"
@@ -232,6 +258,7 @@ practices:
 ```
 
 ### 4. 质量优先原则
+
 ```yaml
 principle: "不牺牲质量换速度"
 explanation: "质量是底线，不能因为赶进度而降低标准"
@@ -246,6 +273,7 @@ gates:
 ```
 
 ### 5. 持续改进原则
+
 ```yaml
 principle: "每个项目都是学习机会"
 explanation: "从每个项目中总结经验，持续优化流程"
@@ -262,13 +290,14 @@ practices:
 ## 创作最佳实践
 
 ### 创意阶段
+
 ```yaml
 brainstorming:
   - "先发散后收敛"
   - "鼓励疯狂想法"
   - "结合市场数据"
   - "评估可行性"
-  
+
 market_analysis:
   - "关注趋势而非热点"
   - "分析竞品差异化"
@@ -277,19 +306,20 @@ market_analysis:
 ```
 
 ### 规划阶段
+
 ```yaml
 world_building:
   - "规则要自洽"
   - "细节要丰富"
   - "留有余地"
   - "文档化"
-  
+
 plot_design:
   - "三幕式结构"
   - "每章有钩子"
   - "节奏张弛有度"
   - "铺垫与呼应"
-  
+
 character_design:
   - "欲望驱动"
   - "有成长弧线"
@@ -298,19 +328,20 @@ character_design:
 ```
 
 ### 创作阶段
+
 ```yaml
 chapter_writing:
   - "开头抓人"
   - "中间推进"
   - "结尾留钩"
   - "每章有爽点"
-  
+
 dialogue:
   - "符合人物"
   - "推动情节"
   - "有潜台词"
   - "避免说教"
-  
+
 description:
   - "多感官"
   - "服务情节"
@@ -319,13 +350,14 @@ description:
 ```
 
 ### 优化阶段
+
 ```yaml
 self_review:
   - "隔日再改"
   - "朗读检查"
   - "关注节奏"
   - "删减冗余"
-  
+
 peer_review:
   - "多角度反馈"
   - "关注盲点"
@@ -336,19 +368,20 @@ peer_review:
 ## 知识库模板
 
 ### 成功经验条目
+
 ```yaml
 knowledge_entry:
   id: "EXP-{category}-{number}"
   type: "success_experience"
   title: "经验标题"
-  
+
   metadata:
     category: "创意/架构/创作/优化/发布"
     phase: "所属阶段"
     created_at: "创建时间"
     verified: true/false
     verification_count: 0
-    
+
   content:
     context: "适用场景"
     problem: "解决的问题"
@@ -358,51 +391,54 @@ knowledge_entry:
       - "步骤2"
     tips:
       - "注意事项"
-    
+
   evidence:
     projects: ["项目ID"]
     metrics:
       improvement: "提升数据"
-    
+
   related:
     tags: ["标签"]
     related_entries: ["相关条目ID"]
 ```
 
 ### 问题解决方案条目
+
 ```yaml
 knowledge_entry:
   id: "SOL-{category}-{number}"
   type: "problem_solution"
   title: "问题标题"
-  
+
   metadata:
     category: "问题类别"
     severity: "严重/中等/轻微"
     frequency: "常见/偶发"
-    
+
   content:
     problem:
       description: "问题描述"
       symptoms: ["症状1", "症状2"]
       causes: ["原因1", "原因2"]
-    
+
     solution:
       immediate: "应急方案"
       long_term: "根本解决"
       prevention: "预防措施"
-    
+
     steps:
       - "解决步骤1"
       - "解决步骤2"
-  
+
   related:
     similar_problems: ["相关问题"]
     prerequisites: ["前置知识"]
 ```
 
 ## 输出格式
+
 最佳实践文档包含：
+
 - 设计原则
 - 协作原则
 - 管理原则
