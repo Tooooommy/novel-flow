@@ -20,10 +20,10 @@ description: |
 
 ## 命令
 
-### full - 全量优化
+### 生成优化章节正文
 
 ```
-/nf-specialist-optimizer full [--chapter <章节号>] [--volume <卷号>]
+/nf-specialist-optimizer [--chapter <章节号>] [--volume <卷号>]
 ```
 
 | 参数    | 类型   | 必填 | 默认值 | 说明   |
@@ -42,13 +42,9 @@ description: |
 
 ---
 
-## 内部命令
+## 流程
 
 ### style - 文风优化
-
-```
-/nf-specialist-optimizer style [--chapter <章节号>]
-```
 
 **执行流程**:
 
@@ -112,10 +108,6 @@ description: |
 
 ### plot - 情节优化
 
-```
-/nf-specialist-optimizer plot [--chapter <章节号>]
-```
-
 **执行流程**:
 
 ```
@@ -155,10 +147,6 @@ description: |
 ---
 
 ### dialogue - 对话优化
-
-```
-/nf-specialist-optimizer dialogue [--chapter <章节号>]
-```
 
 **执行流程**:
 
@@ -299,10 +287,6 @@ description: |
 ---
 
 ### battle - 战斗优化
-
-```
-/nf-specialist-optimizer battle [--chapter <章节号>]
-```
 
 **执行流程**:
 
@@ -514,10 +498,6 @@ description: |
 ---
 
 ### connection - 卷间衔接
-
-```
-/nf-specialist-optimizer connection [--volume <卷号>]
-```
 
 **执行流程**:
 

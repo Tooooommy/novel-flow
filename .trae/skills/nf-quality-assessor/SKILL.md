@@ -19,10 +19,10 @@ description: |
 
 ## 命令
 
-### full - 质量评估
+### 生成质量评估报告
 
 ```
-/nf-quality-assessor full [--chapter <章节号>] [--volume <卷号>]
+/nf-quality-assessor [--chapter <章节号>] [--volume <卷号>]
 ```
 
 **执行流程**:
@@ -63,7 +63,7 @@ description: |
 
 ---
 
-## 评估维度详解
+## 流程
 
 ### readability - 可读性评估
 
@@ -236,113 +236,6 @@ description: |
 | 精品审核 | S级(95)  | 所有维度≥90       |
 
 ---
-
-## 内部命令
-
-### readability - 可读性
-
-```
-/nf-quality-assessor readability [--text <文本>]
-```
-
-**返回字段**:
-
-```json
-{
-  "score": 85,
-  "level": "良好",
-  "details": {
-    "fluency": 90,
-    "sentence_variety": 80,
-    "word_precision": 85,
-    "reading_experience": 85
-  },
-  "issues": ["第3段长句较多，建议拆分"],
-  "suggestions": ["将'因为...所以...'句式改为短句"]
-}
-```
-
-### emotion - 情感
-
-```
-/nf-quality-assessor emotion [--text <文本>]
-```
-
-**返回字段**:
-
-```json
-{
-  "score": 78,
-  "level": "良好",
-  "details": {
-    "authenticity": 80,
-    "impact": 75,
-    "layers": 78,
-    "transitions": 80
-  },
-  "emotion_points": [
-    {
-      "position": "第2段",
-      "type": "愤怒",
-      "performance": "身体反应展现",
-      "score": 85
-    }
-  ],
-  "issues": ["第5段情感转变较突兀"],
-  "suggestions": ["建议增加情感过渡"]
-}
-```
-
-### pacing - 节奏
-
-```
-/nf-quality-assessor pacing [--text <文本>]
-```
-
-**返回字段**:
-
-```json
-{
-  "score": 82,
-  "level": "良好",
-  "tension_curve": [
-    { "position": "10%", "level": 2.0 },
-    { "position": "30%", "level": 3.0 },
-    { "position": "50%", "level": 3.5 },
-    { "position": "70%", "level": 4.5 },
-    { "position": "90%", "level": 2.5 }
-  ],
-  "climax_points": [{ "position": "70%", "type": "逆转爽点", "intensity": 5 }],
-  "issues": ["章初引入稍慢"],
-  "suggestions": ["建议减少第1段的背景描写"]
-}
-```
-
-### character - 人物
-
-```
-/nf-quality-assessor character [--text <文本>]
-```
-
-**返回字段**:
-
-```json
-{
-  "score": 80,
-  "level": "良好",
-  "characters": [
-    {
-      "name": "主角",
-      "consistency": 85,
-      "dialogue_naturalness": 80,
-      "action_reasonableness": 82,
-      "recognition": 78
-    }
-  ],
-  "issues": ["主角在第4段的反应与性格设定略有偏差"],
-  "suggestions": ["建议让主角反应更符合'外冷内热'的性格"]
-}
-```
 
 ---
 
