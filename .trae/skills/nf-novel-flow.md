@@ -2,63 +2,58 @@
 name: nf-novel-flow
 description: |
   NovelFlow小说创作AI工厂主控技能。
-  核心协调者：Author（作家）、Editor（编辑）
-  底层工具：Skills（专业技能）
+  触发场景：创作小说、大纲、章节、审查优化、进度探测、一键自动化。
+  核心流程：立项 → 创作 → 发布
 ---
 
 # NovelFlow 小说创作主控技能
 
 ## 核心哲学
 
-**三角色协作**：Author（创作）←→ Editor（审查）←→ Skills（工具）
+**三阶段流程**：立项(种子) → 创作(生成) → 发布(收获)
 
-- Author 负责创意生成、大纲构建、正文创作
-- Editor 负责逻辑审查、合规检查、质量评估、优化建议
-- Skills 提供底层专业能力
-- 命令设计遵循「渐进式披露」原则
+- 命令设计遵循「渐进式披露」原则：简单命令隐藏复杂参数
+- 增量优先：自动检测已有内容，跳过完成部分
+- 并行优先：多卷同时创作，节省时间
 
 ---
 
 ## 系统架构
 
 ```
-                    ┌─────────────┐
-                    │  用户       │
-                    └──────┬──────┘
-                           │
-            ┌───────────────┼───────────────┐
-            │               │               │
-    ┌───────▼──────┐  ┌────▼────┐  ┌──────▼──────┐
-    │  Author      │  │ nf-     │  │  Editor     │
-    │  (创作协调)   │  │ novel-  │  │  (审查协调)  │
-    │              │  │ flow    │  │              │
-    └───────┬──────┘  │ (全局)  │  └──────┬──────┘
-            │         └────┬────┘         │
-            │              │              │
-    ┌───────▼──────────────▼──────────────▼──────┐
-    │              Skills (专业工具)              │
-    │  ┌─────────┐ ┌──────────┐ ┌─────────────┐ │
-    │  │idea/    │ │content/  │ │review/      │ │
-    │  │outline  │ │style     │ │optimize     │ │
-    │  └─────────┘ └──────────┘ └─────────────┘ │
-    └───────────────────────────────────────────┘
+用户
+  │
+  └──→ nf-novel-flow（主控技能）
+            │
+            ├──→ 创意/大纲 Skills
+            │       nf-idea-explorer, nf-story-architect, nf-volume-manager
+            │
+            ├──→ 内容创作 Skills
+            │       nf-content-generator, nf-style-learner
+            │
+            ├──→ 审查优化 Skills
+            │       nf-logic-inspector, nf-compliance-officer, nf-quality-assessor
+            │       nf-specialist-optimizer
+            │
+            └──→ 发布 Skills
+                    nf-platform-adapter
 ```
 
 ---
 
 ## 命令地图
 
-| 阶段 | 命令     | 协调者 | 说明               |
-| ---- | -------- | ------ | ------------------ |
-| 立项 | idea     | Author | 创意探索           |
-| 立项 | init     | Author | 项目初始化         |
-| 创作 | outline  | Author | 生成大纲           |
-| 创作 | write    | Author | 创作正文           |
-| 创作 | review   | Editor | 内容审查           |
-| 创作 | optimize | Editor | 优化内容           |
-| 发布 | publish  | Editor | 发布平台           |
-| 全局 | detect   | -      | 进度探测（主控）   |
-| 全局 | auto     | -      | 一键自动化（主控） |
+| 阶段 | 命令     | 说明       | 典型用法                            |
+| ---- | -------- | ---------- | ----------------------------------- |
+| 立项 | idea     | 创意探索   | `idea --genre 玄幻`                 |
+| 立项 | init     | 项目初始化 | `init --name xxx --genre 玄幻`      |
+| 创作 | outline  | 生成大纲   | `outline --volumes 3 --chapters 30` |
+| 创作 | write    | 创作正文   | `write --mode parallel`             |
+| 创作 | review   | 内容审查   | `review --chapter 5`                |
+| 创作 | optimize | 优化内容   | `optimize --type style`             |
+| 发布 | publish  | 发布平台   | `publish --platform qidian`         |
+| 全局 | detect   | 进度探测   | `detect`                            |
+| 全局 | auto     | 一键自动化 | `auto --name xxx --genre 玄幻`      |
 
 ---
 
@@ -124,20 +119,6 @@ novels/{name}/
 └── research/      # 研究目录
 ```
 
-**元数据字段**：
-
-```yaml
-metadata:
-  name: "{name}"
-  genre: "{genre}"
-  created_at: "{date}"
-  status:
-    phase: "init"
-    progress: 0
-    current_volume: null
-    current_chapter: null
-```
-
 ---
 
 ## 创作阶段
@@ -159,23 +140,15 @@ metadata:
 
 ```
 outline/
-├── overview.md        # 小说总览（类型、基调、卖点）
-├── world.md          # 世界设定（地理、势力、规则）
-├── characters.md     # 人物档案（主角、配角、反派）
-├── plot.md           # 主线剧情（起承转合）
-├── timeline.md        # 时间线（重要事件节点）
-├── volume-1-outline.md  # 第一卷大纲
-├── volume-2-outline.md  # 第二卷大纲
-└── volume-3-outline.md  # 第三卷大纲
+├── overview.md        # 小说总览
+├── world.md          # 世界设定
+├── characters.md     # 人物档案
+├── plot.md           # 主线剧情
+├── timeline.md        # 时间线
+├── volume-1-outline.md  # 分卷大纲
+├── volume-2-outline.md
+└── volume-3-outline.md
 ```
-
-**分卷结构**：
-
-| 卷号 | 名称 | 章节数 | 主要内容               |
-| ---- | ---- | ------ | ---------------------- |
-| V1   | 觉醒 | 30     | 主角发现天赋、开始修炼 |
-| V2   | 崛起 | 30     | 实力增长、挑战强敌     |
-| V3   | 称霸 | 30     | 最终胜利、登顶巅峰     |
 
 ---
 
@@ -331,14 +304,6 @@ style → plot → dialogue → battle → connection
 | 17K小说网  | 17k         | 玄幻修仙   |
 | 晋江文学城 | jinjiang    | 女频主战场 |
 
-**平台格式差异**：
-
-| 平台     | 每章字数  | 敏感词 | 特殊要求 |
-| -------- | --------- | ------ | -------- |
-| qidian   | 2000-3000 | 严格   | 需分卷   |
-| zongheng | 2500+     | 中等   | 可直发   |
-| jinjiang | 3000+     | 严格   | 感情线   |
-
 ---
 
 ## 全局命令
@@ -373,8 +338,6 @@ style → plot → dialogue → battle → connection
   "missing": ["v1/ch-016", "v1/ch-017", ..., "v2/ch-001", ...]
 }
 ```
-
-**使用建议**：运行 `auto` 前先 `detect` 了解进度
 
 ---
 
@@ -419,17 +382,6 @@ style → plot → dialogue → battle → connection
 [6/6] publish     → 平台发布（可选）
 ```
 
-**状态输出示例**：
-
-```
-[1/6] 初始化项目: 逆天剑尊
-[2/6] 生成大纲: 3卷 × 30章 = 90章
-[3/6] 创作中: [V1: 15/30] [V2: 12/30] [V3: 10/30]
-[4/6] 衔接优化: V1→V2, V2→V3
-[5/6] 全量优化: style → plot → dialogue → battle
-[6/6] 发布: qidian
-```
-
 **执行模式**：
 
 | 模式        | 说明                         |
@@ -452,19 +404,6 @@ style → plot → dialogue → battle → connection
 | NF-006 | 创作中断   | 保存断点，支持续传 |
 | NF-007 | 探测失败   | 检查项目路径       |
 | NF-008 | 审查不通过 | 自动调用优化       |
-
----
-
-## 状态机
-
-项目状态转换：
-
-```
-init → outline → writing → reviewing → optimizing → publishing → completed
- │        │         │          │           │            │
- └────────┴─────────┴──────────┴───────────┴────────────┘
-              （可返回修改）
-```
 
 ---
 
