@@ -2,141 +2,76 @@
 
 ## 描述
 
-逻辑审查官技能，负责检查小说内容的逻辑一致性、情节合理性和设定连贯性。
+逻辑审查官技能，为 `/nf review` 命令提供逻辑审查能力。检查情节合理性、设定连贯性、伏笔呼应。
 
 ## 调用方式
 
-```
-/nf-logic-inspector <command> [options]
-```
-
-## 命令
-
-### full
-
-**一键全量逻辑审查**
-
-```
-/nf-logic-inspector full --text <text-content>
-```
-
-**执行：** check → timeline → consistency
+由主控技能 `/nf review` 调用，无需直接使用。
 
 ---
 
-### check
+## full
 
-全面逻辑检查
+**逻辑审查**
 
 ```
-/nf-logic-inspector check --text <text-content> [--scope <chapter|act|full>]
+/nf-logic-inspector full --chapter <章节号>
 ```
 
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| text | string | 是 | - | 待检查文本 |
-| scope | string | 否 | chapter | 检查范围 |
+**执行：** consistency → timeline → plot-holes
+
+**审查内容**:
+
+- 情节逻辑矛盾
+- 人物行为合理
+- 时间线连贯
+- 设定一致
+- 伏笔呼应
+
+**输出**:
+
+```json
+{
+  "issues": [
+    {"type": "LOGIC", "chapter": 5, "description": "..."}
+  ],
+  "passed": true/false
+}
+```
 
 ---
 
-### timeline
-
-时间线检查
-
-```
-/nf-logic-inspector timeline --events <event-list> [--format <linear|parallel>]
-```
-
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| events | string | 是 | - | 事件列表 |
-| format | string | 否 | linear | 时间线格式 |
-
----
+## 内部子命令
 
 ### consistency
 
-设定一致性检查
+**检查连贯性**
 
 ```
-/nf-logic-inspector consistency --text <text> --world-rules <rules>
+/nf-logic-inspector consistency --text <文本>
 ```
 
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| text | string | 是 | - | 待检查文本 |
-| world-rules | string | 是 | - | 世界规则 |
+### timeline
+
+**检查时间线**
+
+```
+/nf-logic-inspector timeline --events <事件列表>
+```
+
+### plotholes
+
+**检查伏笔**
+
+```
+/nf-logic-inspector plotholes --chapter <章节号>
+```
 
 ---
 
-### character
+## 错误处理
 
-角色行为一致性
-
-```
-/nf-logic-inspector character --actions <action-list> --profile <character-profile>
-```
-
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| actions | string | 是 | - | 行为列表 |
-| profile | string | 是 | - | 角色档案 |
-
----
-
-### plot
-
-情节逻辑检查
-
-```
-/nf-logic-inspector plot --plot-points <plot-list> [--check <causality|motivation>]
-```
-
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| plot-points | string | 是 | - | 情节点列表 |
-| check | string | 否 | - | 检查类型 |
-
----
-
-### causality
-
-因果关系检查
-
-```
-/nf-logic-inspector causality --events <event-chain>
-```
-
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| events | string | 是 | - | 事件链 |
-
-## 检查维度
-
-- 时间逻辑：时间顺序、时间跨度
-- 空间逻辑：地理位置、移动合理性
-- 设定逻辑：世界观规则一致性
-- 角色逻辑：行为与性格一致性
-- 情节逻辑：因果关系、动机合理性
-- 对话逻辑：信息一致性
-
-## 问题等级
-
-- 严重 (Critical)：影响故事理解的逻辑错误
-- 重要 (Major)：影响阅读体验的 inconsistency
-- 轻微 (Minor)：可忽略的小问题
-
-## 输出格式
-
-审查报告包含：
-
-- 问题清单（按等级分类）
-- 问题位置定位
-- 修改建议
-- 逻辑关系图谱
+| 错误码 | 说明       | 处理方式   |
+| ------ | ---------- | ---------- |
+| LI-001 | 章节不存在 | 返回空结果 |
+| LI-002 | 文本为空   | 跳过审查   |

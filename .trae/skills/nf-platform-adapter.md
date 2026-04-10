@@ -2,132 +2,77 @@
 
 ## 描述
 
-平台适配师技能，负责将小说内容适配到不同发布平台的格式和规范要求。
+平台适配师技能，为 `/nf publish` 命令提供平台适配能力。转换格式、检查规范、生成封面文案和发布策略。
 
 ## 调用方式
 
-```
-/nf-platform-adapter <command> [options]
-```
-
-## 命令
-
-### full
-
-**一键全量平台适配**
-
-```
-/nf-platform-adapter full --novel <novel-info> --target <platform>
-```
-
-**执行：** format → optimize → metadata
+由主控技能 `/nf publish` 调用，无需直接使用。
 
 ---
+
+## full
+
+**平台适配**
+
+```
+/nf-platform-adapter full --platform <平台> --content <内容>
+```
+
+**执行：** format → sensitive → metadata → strategy
+
+---
+
+## 内部子命令
 
 ### format
 
-格式转换
+**格式转换**
 
 ```
-/nf-platform-adapter format --text <text> --target <platform>
+/nf-platform-adapter format --text <文本> --platform <平台>
 ```
 
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| text | string | 是 | - | 待转换文本 |
-| target | string | 是 | - | 目标平台 |
+### sensitive
 
----
-
-### optimize
-
-平台优化
+**敏感词处理**
 
 ```
-/nf-platform-adapter optimize --content <content> --platform <platform> [--goal <engagement|retention|conversion>]
+/nf-platform-adapter sensitive --text <文本>
 ```
-
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| content | string | 是 | - | 待优化内容 |
-| platform | string | 是 | - | 目标平台 |
-| goal | string | 否 | - | 优化目标 |
-
----
 
 ### metadata
 
-生成平台元数据
+**生成元数据**
 
 ```
-/nf-platform-adapter metadata --novel <novel-info> --platform <platform>
+/nf-platform-adapter metadata --novel <小说信息> --platform <平台>
 ```
 
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| novel | string | 是 | - | 小说信息 |
-| platform | string | 是 | - | 目标平台 |
+### strategy
+
+**发布策略**
+
+```
+/nf-platform-adapter strategy --platform <平台> --update-cycle <更新周期>
+```
 
 ---
-
-### preview
-
-生成平台预览
-
-```
-/nf-platform-adapter preview --chapter <chapter> --platform <platform>
-```
-
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| chapter | string | 是 | - | 章节内容 |
-| platform | string | 是 | - | 目标平台 |
-
----
-
-### batch
-
-批量适配
-
-```
-/nf-platform-adapter batch --chapters <chapter-list> --platform <platform>
-```
-
-**参数说明**:
-| 参数 | 类型 | 必填 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| chapters | string | 是 | - | 章节列表 |
-| platform | string | 是 | - | 目标平台 |
 
 ## 支持平台
 
-- 起点中文网
-- 晋江文学城
-- 豆瓣阅读
-- 知乎盐选
-- 微信公众号
-- 番茄小说
-- 七猫小说
-- Kindle/ePub
+| 平台        | 特点       | 更新周期建议 |
+| ----------- | ---------- | ------------ |
+| qidian      | 起点中文网 | 3000字/天    |
+| qidian-free | 起点免费版 | 5000字/天    |
+| zongheng    | 纵横中文网 | 3000字/天    |
+| 17k         | 17K小说网  | 3000字/天    |
+| jinjiang    | 晋江文学城 | 2000字/天    |
 
-## 适配维度
+---
 
-- 章节长度优化
-- 标题格式调整
-- 简介/文案优化
-- 标签/分类选择
-- 封面尺寸要求
-- 更新频率建议
+## 错误处理
 
-## 输出格式
-
-适配报告包含：
-
-- 平台规范摘要
-- 适配后内容
-- 元数据配置
-- 发布建议
+| 错误码 | 说明       | 处理方式     |
+| ------ | ---------- | ------------ |
+| PA-001 | 平台不支持 | 使用通用格式 |
+| PA-002 | 内容为空   | 返回空结果   |
