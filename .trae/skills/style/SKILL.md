@@ -1,18 +1,18 @@
 ---
-name: nf-style-learner
+name: style
 description: |
-  风格学习技能。为 `/nf write` 命令提供能力。
-  当用户要学习文风、模仿作家风格、设置默认文风时使用。
+  创作风格技能。为 `/nf write` 命令提供能力。
+  用户在创作时选定风格，系统自动应用该风格的写作特征。
   内置6位知名网文作家风格，支持自定义风格学习。
 ---
 
-# 风格学习技能
+# 创作风格技能
 
 ## 使用场景
 
-- 用户要模仿某作家风格
+- 用户在创作时选定风格
+- 用户需要内置作家的写作风格指导
 - 用户要学习自定义文风
-- 用户要设置默认写作风格
 
 ---
 
@@ -423,7 +423,7 @@ description: |
 ### full - 获取文风
 
 ```
-/nf-style-learner full [--author <作家名>]
+/style full [--author <作家名>]
 ```
 
 | 参数   | 类型   | 必填 | 默认值 | 说明     |
@@ -451,7 +451,7 @@ analyze → rules → apply
 ### list - 列出风格
 
 ```
-/nf-style-learner list
+/style list
 ```
 
 **输出格式**:
@@ -469,7 +469,7 @@ analyze → rules → apply
 ### author - 作家详情
 
 ```
-/nf-style-learner author --name <作家名>
+/style author --name <作家名>
 ```
 
 **输出**: 选定作家的完整风格分析，包括特征详解、写作技巧、风格样本
@@ -477,7 +477,7 @@ analyze → rules → apply
 ### learn - 学习自定义风格
 
 ```
-/nf-style-learner learn --samples <样本文本> [--style-name <风格名>]
+/style learn --samples <样本文本> [--style-name <风格名>]
 ```
 
 | 参数       | 类型   | 必填 | 默认值 | 说明     |
@@ -534,7 +534,7 @@ analyze → rules → apply
 ### compare - 风格对比
 
 ```
-/nf-style-learner compare --author1 <作家1> --author2 <作家2>
+/style compare --author1 <作家1> --author2 <作家2>
 ```
 
 **对比维度**:
