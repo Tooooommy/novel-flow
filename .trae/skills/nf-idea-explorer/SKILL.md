@@ -211,32 +211,20 @@ flowchart TD
 
 **主角设定标准模板**:
 
-```json
-{
-  "protagonist_design": {
-    "identity_template": {
-      "surface_identity": "表面身份(让读者产生反差感)",
-      "hidden_identity": "隐藏身份(核心悬念)",
-      "identity_conflict": "身份矛盾点"
-    },
-    "situation_templates": {
-      "starting_point": "起始处境(限制条件)",
-      "development_space": "成长空间(升级路径)",
-      "final_state": "终极目标"
-    },
-    "talent_templates": {
-      "apparent_talent": "表面天赋(高/中/低)",
-      "real_talent": "真实天赋(隐藏的绝世天赋)",
-      "talent_type": ["修炼天赋", "战斗天赋", "特殊天赋"]
-    },
-    "personality_templates": {
-      "core_personality": "核心性格",
-      "behavior_pattern": "行为模式",
-      "speech_style": "说话风格"
-    }
-  }
-}
-```
+| 维度     | 字段              | 说明                       |
+| -------- | ----------------- | -------------------------- |
+| 身份模板 | surface_identity  | 表面身份(让读者产生反差感) |
+| 身份模板 | hidden_identity   | 隐藏身份(核心悬念)         |
+| 身份模板 | identity_conflict | 身份矛盾点                 |
+| 处境模板 | starting_point    | 起始处境(限制条件)         |
+| 处境模板 | development_space | 成长空间(升级路径)         |
+| 处境模板 | final_state       | 终极目标                   |
+| 天赋模板 | apparent_talent   | 表面天赋(高/中/低)         |
+| 天赋模板 | real_talent       | 真实天赋(隐藏的绝世天赋)   |
+| 天赋模板 | talent_type       | 修炼天赋/战斗天赋/特殊天赋 |
+| 个性模板 | core_personality  | 核心性格                   |
+| 个性模板 | behavior_pattern  | 行为模式                   |
+| 个性模板 | speech_style      | 说话风格                   |
 
 **输出格式**:
 
