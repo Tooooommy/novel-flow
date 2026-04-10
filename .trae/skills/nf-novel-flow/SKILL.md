@@ -82,7 +82,7 @@ description: |
 
 ```mermaid
 flowchart LR
-    A[idea] --> B[init] --> C[outline] --> D[write] --> E[review] --> F[optimize] --> G[publish]
+    A[idea] --> B[init] --> C[architect] --> D[write] --> E[review] --> F[optimize] --> G[publish]
 ```
 
 ---
@@ -135,11 +135,12 @@ flowchart LR
 **用途**：按大纲生成章节正文，内置审查循环
 
 ```
-/nf write [--volume <卷号>] [--chapter <章节号>]
+/nf write [--volume <卷号>] [--chapter <章节号>] [--style <风格>]
 ```
 
-1. 调用子技能 [nf-content-generator](../nf-content-generator/SKILL.md) 命令生成章节正文
-2. 输出生成的章节正文
+1. 调用子技能 [nf-style-learner](../nf-style-learner/SKILL.md) 获取当前风格指导
+2. 调用子技能 [nf-content-generator](../nf-content-generator/SKILL.md) 命令生成章节正文
+3. 输出生成的章节正文
 
 ---
 
@@ -188,6 +189,25 @@ flowchart LR
 ---
 
 ## 全局命令
+
+### analyze - 流程分析
+
+**用途**：分析当前项目创作效率，识别瓶颈（调用 `nf-process-analyst`）
+
+```
+/nf analyze [--mode <模式>]
+```
+
+| 参数 | 类型   | 默认值 | 说明     |
+| ---- | ------ | ------ | -------- |
+| mode | string | full   | 分析模式 |
+
+1. 调用子技能 [nf-process-analyst](../nf-process-analyst/SKILL.md) 进行流程效率分析
+2. 输出分析报告，包含瓶颈识别和改进建议
+
+**执行流程**：`analyze` → `nf-process-analyst` → 效率分析 → 瓶颈识别 → 改进建议
+
+---
 
 ### detect - 进度探测
 

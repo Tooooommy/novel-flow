@@ -20,13 +20,11 @@ description: |
 
 ## 命令
 
-### optimize - 生成优化章节正文
+### 生成优化章节正文
 
 ```
 /nf-specialist-optimizer [--chapter <章节号>] [--volume <卷号>]
 ```
-
-**别名**: `/nf optimize`
 
 | 参数    | 类型   | 必填 | 默认值 | 说明   |
 | ------- | ------ | ---- | ------ | ------ |
