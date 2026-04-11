@@ -111,7 +111,7 @@ flowchart LR
 /nf init
 ```
 
-1调用子技能 [nf-project-init](../nf-project-init/SKILL.md) 命令初始化项目
+调用子技能 [nf-project-init](../nf-project-init/SKILL.md) 命令初始化项目
 
 ---
 
@@ -183,21 +183,6 @@ flowchart LR
 
 ## 全局命令
 
-### analyze - 流程分析
-
-**用途**：分析当前项目创作效率，识别瓶颈（调用 `nf-process-analyst`）
-
-```
-/nf analyze
-```
-
-1. 调用子技能 [nf-process-analyst](../nf-process-analyst/SKILL.md) 进行流程效率分析
-2. 输出分析报告，包含瓶颈识别和改进建议
-
-**执行流程**：`analyze` → `nf-process-analyst` → 效率分析 → 瓶颈识别 → 改进建议
-
----
-
 ### detect - 进度探测
 
 **用途**：探测项目当前状态，为 `auto` 命令提供增量数据
@@ -253,19 +238,8 @@ missing:
 **用途**：全自动完成整本小说（立项→大纲→正文→优化→发布）
 
 ```
-/nf auto --name <名称> --genre <题材> --target <字数> [--chapter-size <每章字数>] [--platform <平台>] [--mode <模式>]
+/nf auto
 ```
-
-| 参数         | 类型   | 默认值   | 说明               |
-| ------------ | ------ | -------- | ------------------ |
-| name         | string | -        | 小说名称（必填）   |
-| genre        | string | -        | 题材类型（必填）   |
-| target       | number | -        | 目标总字数（必填） |
-| chapter-size | number | 3500     | 每章字数           |
-| platform     | string | -        | 发布平台           |
-| mode         | string | parallel | 创作模式           |
-
-**自动计算**：根据 `target` 和 `chapter-size` 自动计算卷数和章节数
 
 **智能特性**：
 
@@ -278,26 +252,27 @@ missing:
 **完整流程**：
 
 ```
-[1/6] init        → 创建项目结构
-[2/6] architect     → 生成大纲体系
-[3/6] write        → 并行创作正文
+[1/7] init        → 创建项目结构
+[2/7] architect     → 生成大纲体系
+[3/7] write        → 并行创作正文
       ↓
       ├─ V1: Ch1 → Ch30
       ├─ V2: Ch1 → Ch30
       └─ V3: Ch1 → Ch30
       ↓
-[4/6] optimize    → 衔接优化
-[5/6] optimize    → 全量优化
-[6/6] publish     → 平台发布（可选）
+[4/7] review      → 内容审查
+[5/7] optimize    → 衔接优化
+[6/7] optimize    → 全量优化
+[7/7] publish     → 平台发布（可选）
 ```
 
 **执行模式**：
 
-| 模式        | 说明                         |
-| ----------- | ---------------------------- |
-| full        | 完全自动化（需所有必填参数） |
-| incremental | 增量模式（跳过已完成章节）   |
-| resume      | 断点续传（从中断处继续）     |
+| 模式        | 说明                       |
+| ----------- | -------------------------- |
+| full        | 完全自动化                 |
+| incremental | 增量模式（跳过已完成章节） |
+| resume      | 断点续传（从中断处继续）   |
 
 ---
 
