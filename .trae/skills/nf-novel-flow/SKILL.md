@@ -174,11 +174,10 @@ flowchart LR
 **用途**：适配目标平台格式并发布（调用 `nf-platform-adapter`）
 
 ```
-/nf publish --platform <平台> [--chapter <章节号>] [--volume <卷号>]
+/nf publish
 ```
 
-1. 调用子技能 [nf-platform-adapter](../nf-platform-adapter/SKILL.md) 命令适配目标平台格式并发布
-2. 输出发布结果
+调用子技能 [nf-platform-adapter](../nf-platform-adapter/SKILL.md) 命令生成发布计划
 
 ---
 
@@ -189,12 +188,8 @@ flowchart LR
 **用途**：分析当前项目创作效率，识别瓶颈（调用 `nf-process-analyst`）
 
 ```
-/nf analyze [--mode <模式>]
+/nf analyze
 ```
-
-| 参数 | 类型   | 默认值 | 说明     |
-| ---- | ------ | ------ | -------- |
-| mode | string | full   | 分析模式 |
 
 1. 调用子技能 [nf-process-analyst](../nf-process-analyst/SKILL.md) 进行流程效率分析
 2. 输出分析报告，包含瓶颈识别和改进建议
