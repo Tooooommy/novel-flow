@@ -276,44 +276,6 @@ missing:
 
 ---
 
-## 全局命令
-
-### learn - 知识学习
-
-**用途**：从项目中收集知识、经验、模板（调用 `nf-knowledge-curator`）
-
-```
-/nf learn [--collect] [--from <来源>] [--type <类型>]
-```
-
-| 参数    | 类型   | 默认值   | 说明     |
-| ------- | ------ | -------- | -------- |
-| collect | flag   | false    | 收集知识 |
-| from    | string | 当前项目 | 知识来源 |
-| type    | string | all      | 知识类型 |
-
-**执行流程**：`learn` → `nf-knowledge-curator` → 收集 → 组织 → 索引 → 可查询
-
----
-
-### query - 知识查询
-
-**用途**：查询已有知识库（调用 `nf-knowledge-curator`）
-
-```
-/nf query [--query <关键词>] [--type <类型>] [--limit <数量>]
-```
-
-| 参数  | 类型   | 默认值 | 说明       |
-| ----- | ------ | ------ | ---------- |
-| query | string | -      | 搜索关键词 |
-| type  | string | all    | 知识类型   |
-| limit | number | 5      | 返回数量   |
-
-**执行流程**：`query` → `nf-knowledge-curator` → 检索 → 返回结果
-
----
-
 ## 错误处理
 
 | 错误码 | 说明       | 处理方式             |
@@ -334,14 +296,14 @@ missing:
 **场景1：全新创作**
 
 ```bash
-/nf auto --name 逆天剑尊 --genre 玄幻 --chapters 30 --volumes 3
+/nf auto 我想写一个都市修仙的小说
 ```
 
 **场景2：继续创作**
 
 ```bash
 /nf detect                      # 查看进度
-/nf auto --name 逆天剑尊         # 增量模式自动继续
+/nf auto 逆天剑尊             # 增量模式自动继续
 ```
 
 **场景3：分步创作**
