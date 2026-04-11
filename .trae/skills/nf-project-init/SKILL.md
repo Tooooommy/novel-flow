@@ -46,10 +46,10 @@ novels/{name}/
 ├── novel.md        # 创意报告
 ├── progress.md     # 创作进度
 ├── outline/        # 大纲目录
-│   ├── overview.md     # 总览
+│   ├── outline.md     # 总览
 │   ├── world.md        # 世界观
 │   ├── characters.md    # 人物
-│   ├── plot.md          # 主线
+│   ├── structure.md          # 主线
 │   ├── timeline.md      # 时间线
 │   └── v-{卷号}-{卷名}.md      # 分卷大纲
 ├── content/        # 正文目录
