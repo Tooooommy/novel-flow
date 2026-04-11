@@ -42,7 +42,6 @@ description: |
 
 ```
 novels/{name}/
-├── novel.yaml      # 项目元数据
 ├── novel.md        # 创意报告
 ├── progress.md     # 创作进度
 ├── outline/        # 大纲目录
@@ -55,40 +54,6 @@ novels/{name}/
 ├── content/        # 正文目录
 │   └── v-{卷号}-{卷名}/ch-{章节号}-{章节名}.md
 └── research/      # 研究目录
-```
-
----
-
-**novel.yaml 模板**：
-
-内容包含：
-
-- name: 小说名称
-- genre: 题材类型
-- target: 目标字数, 默认200万
-- chapter_size: 每章字数, 默认3500字左右
-- status: 项目状态/planning/writing/publishing
-- created: 创建日期
-- concept: 核心概念一句话描述
-- gains: 金手指/金手指列表
-- target_platforms: 目标发布平台
-
-**示例**：
-
-```yaml
-name: 星际卖奶茶
-genre: 科幻
-target: 8000000
-chapter_size: 3500
-created: 2023-01-01
-status: planning
-concept: 一个关于星际卖奶茶的科幻小说
-gains:
-  - 金手指1
-  - 金手指2
-target_platforms:
-  - 平台1
-  - 平台2
 ```
 
 ---
@@ -247,7 +212,8 @@ PI-005: 检查磁盘空间和目录权限
 
 📁 目录结构已创建：
 novels/星际卖奶茶/
-├── novel.yaml
+├── novel.md
+├── progress.md
 ├── outline/
 ├── content/
 └── research/
