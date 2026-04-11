@@ -46,15 +46,14 @@ novels/{name}/
 ├── novel.md        # 创意报告
 ├── progress.md     # 创作进度
 ├── outline/        # 大纲目录
-│   ├── outline.md     # 总览
-│   ├── world.md        # 世界观
-│   ├── characters.md    # 人物
-│   ├── structure.md          # 主线
+│   ├── world.md        # 世界观设定
+│   ├── characters.md    # 人物设定
 │   ├── timeline.md      # 时间线
-│   └── v-{卷号}-{卷名}.md      # 分卷大纲
+│   └── v-{卷号}-{卷名}.md      # 分卷大纲(多卷)
 ├── chapters/        # 正文目录
-│   └── v-{卷号}-{卷名}/ch-{章节号}-{章节名}.md
-└── research/      # 研究目录
+│   └── v-{卷号}/{卷名}/ch-{章节号}-{章节名}.md
+└── publish/        # 发布目录(发布阶段生成)
+    └── {平台名}/
 ```
 
 ---
@@ -235,24 +234,39 @@ PI-005: 检查磁盘空间和目录权限
 
 ---
 
+## 输出文档路径
+
+| 文档       | 路径                          |
+| ---------- | ----------------------------- |
+| 项目元数据 | `novels/<项目名>/novel.yaml`  |
+| 创意报告   | `novels/<项目名>/novel.md`    |
+| 创作进度   | `novels/<项目名>/progress.md` |
+
+---
+
 ## 输出示例
 
 ```
-✓ 项目创建成功：星际卖奶茶
-  ├── 题材：科幻
-  ├── 目标字数：800万
-  ├── 卷数：23卷
-  ├── 每卷章节：99章
-  └── 总章节：2286章
+✓ 项目创建成功：我当房产中介那些年
+  ├── 题材：都市
+  ├── 目标字数：200万
+  ├── 卷数：7卷
+  ├── 每卷章节：95章
+  └── 总章节：667章
 
 📁 目录结构已创建：
-novels/星际卖奶茶/
+novels/我当房产中介那些年/
 ├── novel.yaml
 ├── novel.md
 ├── progress.md
 ├── outline/
-├── content/
-└── research/
+│   ├── world.md
+│   ├── characters.md
+│   ├── timeline.md
+│   └── v-01-入行.md
+├── chapters/
+│   └── v-01/入行/ch-001-失业青年.md
+└── publish/
 
 💡 下一步：使用 /nf architect 生成大纲
 ```

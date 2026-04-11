@@ -379,3 +379,17 @@ detect探测（扫描已有章节）
   ↓
 否 → 继续下一章
 ```
+
+---
+
+## 输出文档路径
+
+| 文档       | 路径                                                 |
+| ---------- | ---------------------------------------------------- |
+| 创意方案   | `novels/<项目名>/novel.md`                           |
+| 项目元数据 | `novels/<项目名>/novel.yaml`                         |
+| 创作进度   | `novels/<项目名>/progress.md`                        |
+| 大纲文件   | `novels/<项目名>/outline/*.md`                       |
+| 章节正文   | `novels/<项目名>/chapters/v-XX/ch-XXX-<章节名>.md`   |
+| 审查报告   | `novels/<项目名>/chapters/v-XX/ch-XXX-<章节名>-*.md` |
+| 发布文件   | `novels/<项目名>/publish/<平台名>/`                  |
