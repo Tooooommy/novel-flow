@@ -21,14 +21,11 @@ description: |
 
 ### 生成逻辑审查报告
 
-```
-/nf-logic-inspector [--chapter <章节号>] [--volume <卷号>]
-```
+> 检查章节逻辑，输出逻辑审查报告。
 
-| 参数    | 类型   | 必填 | 默认值 | 说明   |
-| ------- | ------ | ---- | ------ | ------ |
-| chapter | number | 否   | 当前   | 章节号 |
-| volume  | number | 否   | 当前   | 卷号   |
+```
+/nf-logic-inspector
+```
 
 **执行流程**:
 

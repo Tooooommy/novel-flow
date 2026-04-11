@@ -21,8 +21,10 @@ description: |
 
 ### 生成质量评估报告
 
+> 检查章节质量，输出质量评估报告。
+
 ```
-/nf-quality-assessor [--chapter <章节号>] [--volume <卷号>]
+/nf-quality-assessor
 ```
 
 **执行流程**:

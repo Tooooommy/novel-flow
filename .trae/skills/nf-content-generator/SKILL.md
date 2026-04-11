@@ -22,15 +22,11 @@ description: |
 
 ### 生成章节正文
 
-```
-/nf-content-generator [--volume <卷号>] [--chapter <章节号>] [--style <风格>]
-```
+> 依据小说大纲系统生成章节正文，考虑风格、节奏、场景、对话、描写、动作、情感等因素。
 
-| 参数    | 类型   | 必填 | 默认值     | 说明   |
-| ------- | ------ | ---- | ---------- | ------ |
-| volume  | number | 否   | 当前卷号   | 分卷号 |
-| chapter | number | 否   | 当前章节号 | 章节号 |
-| style   | string | 否   | -          | 风格名 |
+```
+/nf-content-generator
+```
 
 **执行流程**:
 

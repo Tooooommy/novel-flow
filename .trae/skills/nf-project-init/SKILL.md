@@ -19,18 +19,11 @@ description: |
 
 ### 项目立项
 
-> 根据选定的创意题材(包含书名、题材), 初始化项目目录结构
+> 根据选定的创意题材, 初始化项目目录结构
 
 ```
-/nf-project-init --name <书名> --genre <题材> --target <字数> [--chapter-size <每章字数>]
+/nf-project-init
 ```
-
-| 参数         | 类型   | 必填 | 默认值 | 说明     |
-| ------------ | ------ | ---- | ------ | -------- |
-| name         | string | 是   | -      | 小说名称 |
-| genre        | string | 是   | -      | 题材类型 |
-| target       | number | 是   | -      | 目标字数 |
-| chapter-size | number | 否   | 3500   | 每章字数 |
 
 **执行流程**：
 

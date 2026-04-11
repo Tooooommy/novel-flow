@@ -20,8 +20,10 @@ description: |
 
 ### 生成合规审查报告
 
+> 检查章节合规，输出合规审查报告。
+
 ```
-/nf-compliance-officer [--chapter <章节号>] [--volume <卷号>]
+/nf-compliance-officer
 ```
 
 | 参数    | 类型   | 必填 | 默认值 | 说明   |

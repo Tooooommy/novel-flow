@@ -94,11 +94,10 @@ flowchart LR
 **用途**：当你不知道写什么时，获取创意灵感
 
 ```
-/nf idea [--count <数量>] [--genre <题材>]
+/nf idea
 ```
 
-1. 调用子技能 [nf-idea-explorer](../nf-idea-explorer/SKILL.md) 命令生成创意
-2. 输出生成的创意列表
+调用子技能 [nf-idea-explorer](../nf-idea-explorer/SKILL.md) 命令生成创意
 
 **建议**：先用 `idea` 探索方向，再用 `init` 立项
 
@@ -109,11 +108,10 @@ flowchart LR
 **用途**：创建新小说项目，初始化目录结构
 
 ```
-/nf init --name <名称> --genre <题材> --target <字数> [--chapter-size <每章字数>]
+/nf init
 ```
 
-1. 调用子技能 [nf-project-init](../nf-project-init/SKILL.md) 命令初始化项目
-2. 输出初始化的项目目录结构
+1调用子技能 [nf-project-init](../nf-project-init/SKILL.md) 命令初始化项目
 
 ---
 
@@ -124,22 +122,20 @@ flowchart LR
 **用途**：根据 `novel.yaml` 项目元数据，生成完整大纲体系
 
 ```
-/nf architect [--metadata <元数据文件>]
+/nf architect
 ```
 
-1. 调用子技能 [nf-story-architect](../nf-story-architect/SKILL.md) 命令生成大纲体系
-2. 输出生成的大纲体系文档
+调用子技能 [nf-story-architect](../nf-story-architect/SKILL.md) 命令生成大纲体系
 
 ### write - 创作写作
 
 **用途**：按大纲生成章节正文，内置审查循环
 
 ```
-/nf write [--volume <卷号>] [--chapter <章节号>] [--style <风格>]
+/nf write
 ```
 
-1. 调用子技能 [nf-content-generator](../nf-content-generator/SKILL.md) 生成章节正文
-2. 输出生成的章节正文
+调用子技能 [nf-content-generator](../nf-content-generator/SKILL.md) 生成章节正文
 
 ---
 
@@ -148,14 +144,14 @@ flowchart LR
 **用途**：检查章节质量，输出审查报告（调用多技能(LI逻辑审查、CO合规审查、QA质量评估)协同工作）
 
 ```
-/nf review [--chapter <章节号>] [--volume <卷号>]
+/nf review
 ```
 
-1. 并行调用
-   - 子技能 [nf-logic-inspector](../nf-logic-inspector/SKILL.md) 命令进行逻辑审查
-   - 子技能 [nf-compliance-officer](../nf-compliance-officer/SKILL.md) 命令进行合规审查
-   - 子技能 [nf-quality-assessor](../nf-quality-assessor/SKILL.md) 命令进行质量评估
-2. 输出逻辑审查报告+质量评估报告+合规审查报告
+并行调用
+
+- 子技能 [nf-logic-inspector](../nf-logic-inspector/SKILL.md) 命令进行逻辑审查
+- 子技能 [nf-compliance-officer](../nf-compliance-officer/SKILL.md) 命令进行合规审查
+- 子技能 [nf-quality-assessor](../nf-quality-assessor/SKILL.md) 命令进行质量评估
 
 ---
 
@@ -164,11 +160,10 @@ flowchart LR
 **用途**：深度优化章节或全书质量（调用 `nf-specialist-optimizer`）
 
 ```
-/nf optimize [--volume <卷号>] [--chapter <章节号>] [--type <类型>]
+/nf optimize
 ```
 
-1. 调用子技能 [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) 命令进行全量优化
-2. 输出优化后的章节正文
+调用子技能 [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) 命令进行全量优化
 
 ---
 
