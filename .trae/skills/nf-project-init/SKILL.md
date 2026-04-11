@@ -52,7 +52,7 @@ novels/{name}/
 │   ├── structure.md          # 主线
 │   ├── timeline.md      # 时间线
 │   └── v-{卷号}-{卷名}.md      # 分卷大纲
-├── content/        # 正文目录
+├── chapters/        # 正文目录
 │   └── v-{卷号}-{卷名}/ch-{章节号}-{章节名}.md
 └── research/      # 研究目录
 ```
