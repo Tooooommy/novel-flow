@@ -147,7 +147,7 @@ flowchart LR
 /nf review
 ```
 
-并行调用
+同时并行调用
 
 - 子技能 [nf-logic-inspector](../nf-logic-inspector/SKILL.md) 命令进行逻辑审查
 - 子技能 [nf-compliance-officer](../nf-compliance-officer/SKILL.md) 命令进行合规审查
@@ -155,7 +155,7 @@ flowchart LR
 
 ---
 
-### optimize - 全量优化
+### optimize - 内容优化
 
 **用途**：深度优化章节或全书质量（调用 `nf-specialist-optimizer`）
 
@@ -163,7 +163,7 @@ flowchart LR
 /nf optimize
 ```
 
-调用子技能 [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) 命令进行全量优化
+调用子技能 [nf-specialist-optimizer](../nf-specialist-optimizer/SKILL.md) 命令进行内容优化
 
 ---
 
@@ -195,41 +195,23 @@ flowchart LR
 | ------- | ------ | ------ | -------- |
 | project | string | 当前   | 项目名称 |
 
-**输出示例**：
+**执行流程**:
 
-```yaml
-project: 逆天剑尊
-phase: writing
-progress:
-  outline:
-    complete: true
-    total: 6
-    done: 6
-  content:
-    total: 90
-    written: 15
-    progress: "16.7%"
-volumes:
-  - id: 1
-    name: 觉醒
-    chapters: 30
-    written: 15
-    status: in_progress
-  - id: 2
-    name: 崛起
-    chapters: 30
-    written: 0
-    status: pending
-  - id: 3
-    name: 称霸
-    chapters: 30
-    written: 0
-    status: pending
-missing:
-  - v1/ch-016
-  - v1/ch-017
-  - v2/ch-001
-```
+1. 扫描 `novels/<项目名>/chapters/` 目录获取实际章节文件
+2. 扫描 `novels/<项目名>/outline/` 目录获取大纲状态
+3. 统计各卷已完成章节数
+4. 读取 `progress.md` 获取历史记录
+5. 更新 `progress.md` 文件，记录最新统计数据
+
+**detect逻辑实现**:
+
+| 步骤 | 操作                       | 说明                      |
+| ---- | -------------------------- | ------------------------- |
+| 1    | `Glob chapters/**/ch-*.md` | 获取所有章节文件          |
+| 2    | 解析文件名提取卷号和章节号 | 格式: ch-{编号}-{标题}.md |
+| 3    | 统计各卷章节数             | 按卷号分组计数            |
+| 4    | 读取outline文件            | 检查大纲完整性            |
+| 5    | 更新progress.md            | 写入最新统计数据          |
 
 ---
 
@@ -241,53 +223,99 @@ missing:
 /nf auto
 ```
 
-**智能特性**：
-
-| 特性     | 说明               |
-| -------- | ------------------ |
-| 增量创作 | 自动跳过已有章节   |
-| 断点续传 | 中断后可继续       |
-| 智能衔接 | 换卷时自动优化衔接 |
-
-**完整流程**：
+**核心流程**：
 
 ```
-[1/7] init        → 创建项目结构
-[2/7] architect     → 生成大纲体系
-[3/7] write        → 并行创作正文
-      ↓
-      ├─ V1: Ch1 → Ch30
-      ├─ V2: Ch1 → Ch30
-      └─ V3: Ch1 → Ch30
-      ↓
-[4/7] review      → 内容审查
-[5/7] optimize    → 衔接优化
-[6/7] optimize    → 全量优化
-[7/7] publish     → 平台发布（可选）
+idea → init → architect → write → optimize → review → publish
+                              ↑
+                              └──── 章节循环（不通过则返回优化）
+```
+
+**说明**：
+
+- 立项：idea生成创意 → init初始化项目
+- 规划：architect生成大纲
+- 创作：write创作章节
+- 循环：optimize优化 → review审核 → 不通过返回optimize，通过则下一章
+- 发布：所有章节完成后publish发布
+
+| 循环节点        | 操作               | 结果                     |
+| --------------- | ------------------ | ------------------------ |
+| write→optimize  | 创作完成后自动优化 | 生成优化稿               |
+| optimize→review | 优化后自动审核     | 输出质量评分             |
+| review→通过     | 评分≥80            | 进入下一章               |
+| review→不通过   | 评分<80            | 返回optimize重新优化     |
+| optimize→max    | 优化3次仍不通过    | 保留当前版本，强制下一章 |
+
+**执行流程详细说明**：
+
+| 步骤 | 阶段      | 操作                                             | 输出                    |
+| ---- | --------- | ------------------------------------------------ | ----------------------- |
+| 1    | idea      | 调用nf-idea-explorer生成创意                     | 创意方案列表            |
+| 2    | init      | 调用nf-project-init初始化项目                    | 项目结构 + 相关项目报告 |
+| 3    | architect | 调用nf-story-architect生成大纲                   | outline/\*.md           |
+| 4    | write     | 读取下一章大纲，调用nf-content-generator创作     | ch-\*.md                |
+| 5    | optimize  | 调用nf-specialist-optimizer优化                  | 优化后ch-\*.md          |
+| 6    | review    | 调用nf-logic-inspector + nf-quality-assessor审核 | 审查报告                |
+| 7    | publish   | 调用nf-platform-adapter发布                      | 各平台格式文件          |
+
+**detect进度联动**：
+
+| 阶段     | detect操作                | auto响应        |
+| -------- | ------------------------- | --------------- |
+| 开始     | 扫描chapters/获取已有章节 | 跳过已完成章节  |
+| 每章完成 | 更新progress.md           | 记录章节号+字数 |
+| 全部完成 | 扫描检测到最终章节        | 触发publish     |
+| 中断恢复 | 读取progress.md断点       | 从最后章节继续  |
+
+**增量创作逻辑**：
+
+```
+detect扫描 chapters/v-XX/ch-XXX-{标题}.md
+     ↓
+解析文件名获取 {卷号, 章节号, 标题}
+     ↓
+对比 outline/v-XX.md 大纲
+     ↓
+识别缺失章节列表
+     ↓
+按顺序创作缺失章节
 ```
 
 **执行模式**：
 
-| 模式        | 说明                       |
-| ----------- | -------------------------- |
-| full        | 完全自动化                 |
-| incremental | 增量模式（跳过已完成章节） |
-| resume      | 断点续传（从中断处继续）   |
+| 模式        | 说明     | 行为                      |
+| ----------- | -------- | ------------------------- |
+| full        | 从头创作 | 忽略已有内容，重新开始    |
+| incremental | 增量模式 | 跳过已完成章节            |
+| resume      | 断点续传 | 从progress.md记录位置继续 |
+
+**质量门禁标准**：
+
+| 检查点        | 达标分数  | 不通过处理 | 超时处理      |
+| ------------- | --------- | ---------- | ------------- |
+| 创意idea      | 评分≥80   | 重新生成   | 自动通过推荐  |
+| 大纲architect | 结构完整  | 补充大纲   | 暂停等待      |
+| 章节write     | 字数≥3000 | 补充内容   | 继续下一阶段  |
+| 优化optimize  | 评分≥85   | 再次优化   | 最多3次       |
+| 审核review    | 评分≥80   | 返回优化   | 自动通过(>80) |
+| 发布publish   | 合规检查  | 修改内容   | 暂停发布      |
 
 ---
 
 ## 错误处理
 
-| 错误码 | 说明       | 处理方式             |
-| ------ | ---------- | -------------------- |
-| NF-001 | 项目不存在 | 提示运行 `init`      |
-| NF-002 | 大纲不存在 | 提示运行 `architect` |
-| NF-003 | 章节不存在 | 自动创建空文件       |
-| NF-004 | 平台不支持 | 使用通用格式         |
-| NF-005 | 自动化失败 | 回滚到手动流程       |
-| NF-006 | 创作中断   | 保存断点，支持续传   |
-| NF-007 | 探测失败   | 检查项目路径         |
-| NF-008 | 审查不通过 | 自动调用优化         |
+| 错误码 | 说明           | 处理方式                    |
+| ------ | -------------- | --------------------------- |
+| NF-001 | 项目不存在     | 提示运行 `init`             |
+| NF-002 | 大纲不存在     | 提示运行 `architect`        |
+| NF-003 | 章节不存在     | 自动创建空文件              |
+| NF-004 | 平台不支持     | 使用通用格式                |
+| NF-005 | 自动化失败     | 回滚到手动流程              |
+| NF-006 | 创作中断       | 保存断点，支持续传          |
+| NF-007 | 探测失败       | 检查项目路径                |
+| NF-008 | 审查不通过     | 自动调用优化                |
+| NF-009 | 章节循环不通过 | 优化3次仍不通过，强制下一章 |
 
 ---
 
@@ -299,14 +327,26 @@ missing:
 /nf auto 我想写一个都市修仙的小说
 ```
 
-**场景2：继续创作**
+**场景2：继续创作（推荐）**
 
 ```bash
-/nf detect                      # 查看进度
-/nf auto 逆天剑尊             # 增量模式自动继续
+/nf detect                      # 1.先探测当前进度
+/nf auto                        # 2.增量模式自动继续
 ```
 
-**场景3：分步创作**
+**场景3：断点续传**
+
+```bash
+/nf auto --mode resume          # 从progress.md断点继续
+```
+
+**场景4：强制全量重写**
+
+```bash
+/nf auto --mode full            # 忽略已有内容，从头开始
+```
+
+**场景5：分步创作**
 
 ```bash
 /nf init --name 我的小说 --genre 都市
@@ -314,4 +354,28 @@ missing:
 /nf write --mode parallel
 /nf optimize --type full
 /nf publish --platform qidian
+```
+
+---
+
+## auto命令完整流程图
+
+```
+开始
+  ↓
+detect探测（扫描已有章节）
+  ↓
+判断：无项目？→ 有项目？
+  ├─ 无 → idea → init → architect
+  └─ 有 → 直接进入write循环
+  ↓
+章节循环：write → optimize → review
+              ↑           │
+              └── 不通过 ←┘（优化3次仍不通过则强制下一章）
+              ↓
+            通过 → detect更新进度 → 下一章
+  ↓
+全部完成？→ 是 → publish
+  ↓
+否 → 继续下一章
 ```

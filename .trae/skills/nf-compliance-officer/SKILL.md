@@ -26,11 +26,6 @@ description: |
 /nf-compliance-officer
 ```
 
-| 参数    | 类型   | 必填 | 默认值 | 说明   |
-| ------- | ------ | ---- | ------ | ------ |
-| chapter | number | 否   | 当前   | 章节号 |
-| volume  | number | 否   | 当前   | 卷号   |
-
 **执行流程**:
 
 1. 调用sensitive技能检查敏感内容:
@@ -44,7 +39,7 @@ description: |
    - 敏感词、违禁词、限制词
 3. 调用platform技能检查平台规范:
    - 各平台特殊要求
-4. 输出合规审查报告
+4. 输出合规审查报告 `ch-{章节编号}-{章节名}-compliance-review.md`
 
 **输出**:
 
