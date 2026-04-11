@@ -27,31 +27,13 @@ description: |
 
 **执行流程**：
 
-1. 获取用户选定的创意题材(包含书名、题材)
-2. 计算项目参数, 包括总章节数、卷数、每卷章节数
-3. 创建目录结构`novels/{name}/*`
-4. 生成项目文件`novels/{name}/novel.yaml`
-5. 输出完成信息
+**默认篇幅为3500字/章**
+**默认目标字数为200万**
 
----
-
-## 自动计算规则
-
-| 步骤 | 计算逻辑                                 |
-| ---- | ---------------------------------------- |
-| 1    | 总章节数 = target ÷ chapter-size         |
-| 2    | 卷数 = ceil(总章节数 ÷ 100)，每卷约100章 |
-| 3    | 每卷章节数 = ceil(总章节数 ÷ 卷数)       |
-
-**计算示例**：
-
-| 目标字数 | 每章字数 | 总章节数 | 卷数 | 每卷章数 |
-| -------- | -------- | -------- | ---- | -------- |
-| 100万    | 3500     | 286      | 3    | 96       |
-| 300万    | 3500     | 858      | 9    | 95       |
-| 500万    | 3500     | 1429     | 15   | 95       |
-| 800万    | 3500     | 2286     | 23   | 99       |
-| 1000万   | 3500     | 2857     | 29   | 99       |
+1. 获取用户选定的创意题材(包含书名、题材、篇幅、摘要等)
+2. 创建目录结构`novels/{name}/*`,
+3. 生成项目文件`novels/{name}/novel.yaml`
+4. 输出完成信息
 
 ---
 
@@ -76,18 +58,35 @@ novels/{name}/
 
 **novel.yaml 模板**：
 
+内容包含：
+
 - name: 小说名称
 - genre: 题材类型
-- target: 目标字数
-- chapter_size: 每章字数
-- total_chapters: 总章节数
-- volumes: 卷数
-- chapters_per_volume: 每卷章节数
+- target: 目标字数, 默认200万
+- chapter_size: 每章字数, 默认3500字左右
 - status: 项目状态/planning/writing/publishing
 - created: 创建日期
 - concept: 核心概念一句话描述
 - gains: 金手指/金手指列表
 - target_platforms: 目标发布平台
+
+**示例**：
+
+```yaml
+name: 星际卖奶茶
+genre: 科幻
+target: 8000000
+chapter_size: 3500
+created: 2023-01-01
+status: planning
+concept: 一个关于星际卖奶茶的科幻小说
+gains:
+  - 金手指1
+  - 金手指2
+target_platforms:
+  - 平台1
+  - 平台2
+```
 
 ---
 
@@ -147,5 +146,5 @@ novels/星际卖奶茶/
 ├── content/
 └── research/
 
-💡 下一步：使用 /nf outline 生成大纲
+💡 下一步：使用 /nf architect 生成大纲
 ```
